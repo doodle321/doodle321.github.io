@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Ammar Portfolio</title>
-<meta name="description" content="Muhammad Ammar — graphic design and digital marketing strategy portfolio.">
+<title>Muhammad Ammar — Web Dev, Graphic Design & Digital Marketing</title>
+<meta name="description" content="Muhammad Ammar — Web development, vector graphic design, and full-funnel digital marketing portfolio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@ section{position:relative;}
 .scroll-cue .dash::after{content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--brass-soft); animation:bounceLine 2.1s ease-in-out infinite;}
 @keyframes bounceLine{0%{top:-100%;} 50%{top:0;} 100%{top:100%;}}
 
-/* reveal-on-scroll (single orchestrated pattern, reused sparingly) */
+/* reveal-on-scroll */
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
 .reveal.in{opacity:1; transform:translateY(0);}
 
@@ -368,31 +368,32 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
   <div class="hero-mesh" id="heroMesh"></div>
   <div class="hero-grain"></div>
   <div class="hero-content">
-    <span class="hero-kicker">Graphic design &amp; digital marketing strategy — Hyderabad, Sindh, remote-friendly</span>
+    <span class="hero-kicker">Web Development, Graphic Design &amp; Paid Social Ads</span>
     <h1>
-      <span class="line"><span>Creative strategy</span></span>
-      <span class="line"><span>meets visual impact.</span></span>
+      <span class="line"><span>Engineering websites,</span></span>
+      <span class="line"><span>designing growth.</span></span>
     </h1>
-    <p class="hero-sub">I design the campaign and the artwork that carries it — identity systems, social suites and landing pages built on research, not guesswork.</p>
+    <p class="hero-sub">I build high-performance websites, craft visual brand identities in Illustrator, and optimize full-funnel digital ad campaigns that convert clicks into customers.</p>
     <div class="hero-cta">
-      <a href="#work" class="btn btn-solid">See the work</a>
-      <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-on-ink);">Start a project</a>
+      <a href="#work" class="btn btn-solid">Explore Portfolio</a>
+      <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-on-ink);">Work With Me</a>
     </div>
   </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="dash"></span></div>
 </header>
 
 <!-- ABOUT -->
 <section class="on-paper pad" id="about">
   <div class="container about-grid">
     <div class="about-copy reveal">
-      <span class="eyebrow">About</span>
-      <h2>Design that's accountable to a number, not just a mood board.</h2>
-      <p>I'm Rhea — for eight years I've sat at the point where a brand's visual language has to actually perform: in a feed, an inbox, a landing page. Most of my work starts with the same question a media planner would ask before a designer does — who is this for, and what do we need them to do next.</p>
-      <p>That habit shapes everything downstream: the palette, the copy length, the channel mix. Clients come for the craft and stay because the campaigns keep their promises.</p>
+      <span class="eyebrow">About Me</span>
+      <h2>Merging clean code, vector precision, and ad strategy.</h2>
+      <p>Hi, I'm Muhammad Ammar. Most clients have to hire three separate freelancers—a developer to build their site, a designer to create their brand assets, and a marketer to run their ads. I bring all three disciplines together under one unified strategy.</p>
+      <p>Whether you need a responsive web application built from scratch, custom vector graphic suites, or targeted Facebook &amp; Instagram campaign funnels, I handle the technical setup, visual aesthetics, and performance math end-to-end.</p>
       <div class="about-stats">
-        <div><strong>46</strong><span>campaigns shipped</span></div>
-        <div><strong>3.8x</strong><span>average ROAS lift</span></div>
-        <div><strong>8 yrs</strong><span>in practice</span></div>
+        <div><strong>3-in-1</strong><span>Full-Stack Services</span></div>
+        <div><strong>2026</strong><span>Portfolio Launch</span></div>
+        <div><strong>Open</strong><span>For Freelance Projects</span></div>
       </div>
     </div>
     <div class="about-graphic reveal" id="aboutGraphic">
@@ -411,16 +412,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="work">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Graphics work</span>
-      <h2>Selected identity &amp; artwork</h2>
-      <p>Branding systems, social assets and print pieces from the last few cycles. Filter by discipline or open a piece for the full breakdown.</p>
+      <span class="eyebrow">Selected Work</span>
+      <h2>Web Development &amp; Vector Design</h2>
+      <p>A collection of web applications, custom Illustrator vector branding systems, and conversion-focused visual ad assets. Click any card for a full breakdown.</p>
     </div>
     <div class="filter-row" role="tablist" aria-label="Filter work by category">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
       <button class="filter-btn" data-filter="branding">Branding</button>
-      <button class="filter-btn" data-filter="social">Social</button>
-      <button class="filter-btn" data-filter="print">Print</button>
-      <button class="filter-btn" data-filter="illustration">Illustration</button>
+      <button class="filter-btn" data-filter="ads">Ad Creatives</button>
+      <button class="filter-btn" data-filter="vector">Vector Design</button>
     </div>
     <div class="bento" id="bentoGrid"></div>
   </div>
@@ -434,9 +435,9 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="marketing" style="background:var(--ink-2);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Digital marketing</span>
-      <h2>Campaigns in the wild</h2>
-      <p>High-fidelity mockups from recent campaigns — social suites, email systems and landing pages, shown as they shipped.</p>
+      <span class="eyebrow">Digital Marketing</span>
+      <h2>Ad Campaigns &amp; Conversion Concepts</h2>
+      <p>High-converting paid social ad suites, campaign architecture, and landing page designs crafted to maximize ROI and lower customer acquisition costs.</p>
     </div>
   </div>
   <div class="container carousel-wrap">
@@ -452,12 +453,12 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad flow-section" id="process">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Process</span>
-      <h2>How a campaign gets built</h2>
-      <p>Eight stages, one continuous loop. Select a stage for what actually happens there.</p>
+      <span class="eyebrow">Execution Methodology</span>
+      <h2>How I Build &amp; Scale Projects</h2>
+      <p>An eight-step full-funnel approach combining technical development, vector graphic design, and data-driven digital ad optimization. Click any phase for details.</p>
       <div class="flow-legend">
         <span><i style="background:#6fa8ff"></i>Creative</span>
-        <span><i style="background:var(--sage)"></i>Data</span>
+        <span><i style="background:var(--sage)"></i>Data &amp; Code</span>
         <span><i style="background:var(--coral)"></i>Distribution</span>
       </div>
     </div>
@@ -470,15 +471,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-paper pad" id="metrics">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Results</span>
-      <h2>Campaign performance</h2>
-      <p>A working sample of tracked metrics across recent launches. Sort any column, or search by name and platform.</p>
+      <span class="eyebrow">Analytics &amp; Performance</span>
+      <h2>Campaign Benchmarks &amp; Tracking</h2>
+      <p>A sample performance dashboard demonstrating how I structure, track, and optimize digital marketing metrics (CTR, Conversion Rates, and ROAS) across ad channels.</p>
     </div>
+    <p style="font-size:0.82rem; color:var(--text-on-paper-dim); margin-bottom:1.2rem;">Sample campaign data for demonstration and strategy benchmarking.</p>
     <div class="table-toolbar">
       <div class="search-field">
         <input type="text" id="tableSearch" placeholder="Search campaign or platform…" aria-label="Search campaigns">
       </div>
-      <button class="export-btn" id="exportBtn"><span>Export</span> ⭳</button>
+      <button class="export-btn" id="exportBtn"><span>Export Data</span> ⭳</button>
     </div>
     <div style="overflow-x:auto;">
       <table id="metricsTable">
@@ -487,7 +489,7 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
             <th data-key="name">Campaign<span class="arrow">↓</span></th>
             <th data-key="platform">Platform<span class="arrow">↓</span></th>
             <th data-key="ctr">CTR<span class="arrow">↓</span></th>
-            <th data-key="conv">Conv. rate<span class="arrow">↓</span></th>
+            <th data-key="conv">Conv. Rate<span class="arrow">↓</span></th>
             <th data-key="roas">ROAS<span class="arrow">↓</span></th>
             <th data-key="eng">Engagement<span class="arrow">↓</span></th>
             <th data-key="status">Status<span class="arrow">↓</span></th>
@@ -510,13 +512,14 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="contact">
   <div class="container contact-grid">
     <div class="reveal">
-      <span class="eyebrow">Get in touch</span>
+      <span class="eyebrow">Start a Project</span>
       <div class="magnetic-wrap" id="magWrap">
-        <a href="mailto:hello@rheasolano.studio" class="cta-huge" id="magBtn">Let's work<br>together</a>
+        <a href="mailto:muhammadammar.5@proton.me?subject=Freelance%20Project%20Inquiry" target="_blank" rel="noopener" class="cta-huge" id="magBtn">Let's build<br>together</a>
       </div>
       <div class="socials">
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://behance.net" target="_blank" rel="noopener">Behance</a>
         <a href="mailto:muhammadammar.5@proton.me" target="_blank" rel="noopener">muhammadammar.5@proton.me</a>
       </div>
     </div>
@@ -534,13 +537,13 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
       <div class="field" id="projectField">
         <select id="cf-project" required>
           <option value="" disabled selected hidden></option>
-          <option>Brand identity</option>
-          <option>Social campaign</option>
-          <option>Full-funnel marketing</option>
-          <option>Print / packaging</option>
-          <option>Something else</option>
+          <option>Full Website Build</option>
+          <option>Vector Graphic &amp; Brand Design</option>
+          <option>Social Media Ad Campaign</option>
+          <option>All-in-One Package (Site + Graphics + Ads)</option>
+          <option>Other / Consultation</option>
         </select>
-        <label for="cf-project">Project type</label>
+        <label for="cf-project">Project Type</label>
         <span class="field-line"></span>
       </div>
       <div class="field">
@@ -548,11 +551,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
         <label for="cf-message">Message</label>
         <span class="field-line"></span>
       </div>
-      <button type="submit" class="btn btn-solid">Send message</button>
+      <button type="submit" class="btn btn-solid">Send Message</button>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
   </div>
 </section>
+
+<footer class="legal on-ink">
+  <span>© 2026 Muhammad Ammar. All rights reserved.</span>
+  <span>Web Development · Graphic Design · Digital Marketing</span>
+</footer>
 
 <script>
 (function(){
@@ -635,22 +643,18 @@ if(!reduceMotion){
 
 /* ================= GALLERY DATA ================= */
 const works = [
-  {title:'Marrow — brand identity', cat:'branding', tag:'Branding', size:'wide', color:'#3a2f1e',
-   desc:'A full identity system for a specialty butcher brand: wordmark, packaging grid and a restrained two-colour palette built to survive a chalkboard, a delivery van and a jar label alike.', tools:['Illustrator','Photoshop','Figma']},
-  {title:'Solstice fest — poster set', cat:'print', tag:'Print', size:'tall', color:'#5c2a1f',
-   desc:'A five-poster series for a summer music festival, using a shared type grid so each poster reads as part of the same family while headlining a different act.', tools:['Illustrator','InDesign']},
-  {title:'Northbound — social system', cat:'social', tag:'Social', size:'', color:'#233b2d',
-   desc:'A modular Instagram template system that lets an in-house team assemble new carousels in under ten minutes without breaking the grid.', tools:['Figma','Photoshop']},
-  {title:'Paper Moth — editorial illustration', cat:'illustration', tag:'Illustration', size:'', color:'#3d2f4a',
-   desc:'A set of spot illustrations for a quarterly print magazine feature on nocturnal insects, built entirely in vector for clean scaling across print sizes.', tools:['Illustrator','Procreate']},
-  {title:'Alkaline — packaging refresh', cat:'branding', tag:'Branding', size:'', color:'#1f3a4a',
-   desc:'Packaging refresh for a mineral-water line: a shift from decorative label art to a typographic system that reads clearly on a crowded shelf.', tools:['Illustrator','Photoshop']},
-  {title:'Loom Studio — launch campaign key art', cat:'social', tag:'Social', size:'wide', color:'#4a2f1f',
-   desc:'Key art and a matching asset kit for a design studio\'s launch campaign, adapted across nine placements from story to billboard.', tools:['Photoshop','Figma']},
-  {title:'Civic Reads — print program', cat:'print', tag:'Print', size:'', color:'#2b2b3d',
-   desc:'Event program and signage for a city literary festival, designed for cheap risograph printing without losing legibility.', tools:['InDesign','Illustrator']},
-  {title:'Undertow — character sheet', cat:'illustration', tag:'Illustration', size:'tall', color:'#1e2f3a',
-   desc:'Character concept sheet produced for an independent game studio\'s Kickstarter pitch deck.', tools:['Procreate','Illustrator']}
+  {title:'SaaS Product Landing Page & Web App', cat:'web', tag:'Web Dev · Live Demo', size:'wide', color:'#1f3a4a',
+   desc:'A responsive, high-converting landing page built with modern HTML5/CSS3 and JavaScript. Features interactive ROI calculators and lightning-fast loading speeds.', tools:['HTML5','CSS3','JavaScript','Vercel']},
+  {title:'Apex Athletic — Vector Identity', cat:'branding', tag:'Branding · Vector Design', size:'tall', color:'#3a2f1e',
+   desc:'Full brand identity system constructed in Adobe Illustrator: custom vector wordmark, geometric icon marks, color palette, and scalable vector guidelines.', tools:['Adobe Illustrator','Figma']},
+  {title:'E-Commerce Meta Ad Creative Suite', cat:'ads', tag:'Ad Creatives · Social Ads', size:'', color:'#5c2a1f',
+   desc:'High-converting 1080x1080 Feed and 1080x1920 Story ad assets designed in Illustrator to maximize Click-Through Rates (CTR) for an online store.', tools:['Adobe Illustrator','Photoshop']},
+  {title:'Custom Vector Illustration Set', cat:'vector', tag:'Vector Design · Graphic Art', size:'', color:'#233b2d',
+   desc:'A set of scalable vector icons, spot illustrations, and UI graphics engineered in Adobe Illustrator for web integration.', tools:['Adobe Illustrator']},
+  {title:'Corporate Web Overhaul', cat:'web', tag:'Web Dev · UI/UX', size:'', color:'#2b2b3d',
+   desc:'Complete website redesign focusing on mobile responsiveness, semantic HTML code structure, and conversion rate optimization.', tools:['HTML5','Tailwind CSS','JavaScript']},
+  {title:'Loom Launch — Multi-Format Ad Kit', cat:'ads', tag:'Ad Creatives · Growth', size:'wide', color:'#4a2f1f',
+   desc:'A full digital ad creative suite spanning Google Display and Meta Ads, tailored across 5 standard display aspect ratios.', tools:['Adobe Illustrator','Meta Ads Manager']}
 ];
 const bento = document.getElementById('bentoGrid');
 works.forEach((w,i)=>{
@@ -663,7 +667,7 @@ works.forEach((w,i)=>{
     <div class="card-overlay">
       <span class="card-tag">${w.tag}</span>
       <span class="card-title">${w.title}</span>
-      <span class="card-link">View case study</span>
+      <span class="card-link">View project case study</span>
     </div>`;
   card.addEventListener('click', ()=>openModal(w));
   bento.appendChild(card);
@@ -711,11 +715,10 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape' && scrim.classList
 
 /* ================= MARKETING CAROUSEL ================= */
 const mockups = [
-  {title:'Northbound — Instagram suite', brief:'Carousel + story templates for a nine-city tour announcement.', color:'#233b2d'},
-  {title:'Alkaline — email system', brief:'A five-part welcome sequence redesign; open rate up 21%.', color:'#1f3a4a'},
-  {title:'Marrow — landing page', brief:'Product launch page built around a single scroll-triggered hero.', color:'#3a2f1e'},
-  {title:'Loom Studio — ad creative set', brief:'Meta + Google ad formats for a studio launch, five aspect ratios.', color:'#4a2f1f'},
-  {title:'Civic Reads — event microsite', brief:'A lightweight microsite for festival ticketing and schedule.', color:'#2b2b3d'}
+  {title:'E-Commerce Product Launch Suite', brief:'Full Meta ad creative suite + high-converting custom web landing page concept.', color:'#233b2d'},
+  {title:'SaaS Retargeting Campaign', brief:'Interactive email onboarding workflow and vector display ad banners.', color:'#1f3a4a'},
+  {title:'Brand Identity & Web Overhaul', brief:'Complete vector rebrand built in Illustrator and translated into a responsive site.', color:'#3a2f1e'},
+  {title:'Google Search & Display Funnel', brief:'Search ad copywriting, vector display banners, and landing page conversion setup.', color:'#4a2f1f'}
 ];
 const carousel = document.getElementById('carousel');
 mockups.forEach(m=>{
@@ -729,7 +732,7 @@ mockups.forEach(m=>{
     <div class="mock-meta">
       <h4>${m.title}</h4>
       <p>${m.brief}</p>
-      <button type="button">View campaign details</button>
+      <button type="button">View campaign breakdown</button>
     </div>`;
   carousel.appendChild(card);
 });
@@ -738,14 +741,14 @@ document.getElementById('carNext').addEventListener('click', ()=> carousel.scrol
 
 /* ================= FLOWCHART ================= */
 const stages = [
-  {name:'Research', track:'data', desc:'Category audit, competitor teardown and a review of past campaign data to find the real opportunity before any concepting starts.'},
-  {name:'Audience segmentation', track:'data', desc:'Splitting the target market into groups by behaviour and intent, so creative and media can speak to each differently.'},
-  {name:'Creative concept', track:'creative', desc:'The central idea the whole campaign hangs on — tested against the brief in one line before a single asset is made.'},
-  {name:'Asset production', track:'creative', desc:'Building the full kit: key art, copy variants, motion and platform-specific sizes.'},
-  {name:'Channel distribution', track:'distribution', desc:'Mapping assets to the right channels and formats, from paid social to email to out-of-home.'},
-  {name:'A/B testing', track:'data', desc:'Running controlled variants on headline, creative or audience to see what actually moves the metric that matters.'},
-  {name:'Analytics', track:'data', desc:'Reading performance against the original objective, not just engagement — CTR, conversion and ROAS together.'},
-  {name:'Optimization', track:'distribution', desc:'Reallocating budget and refreshing creative toward what the data showed, feeding straight back into research.'}
+  {name:'Audience Research', track:'data', desc:'Competitor audits and targeting parameters to find high-intent customer segments before designing or coding.'},
+  {name:'Funnel Architecture', track:'data', desc:'Mapping out the complete journey: Cold Social Ad → Landing Page → Retargeting → Conversion.'},
+  {name:'Vector Branding & Assets', track:'creative', desc:'Designing custom vector logos, icons, and graphic layouts in Adobe Illustrator for consistent branding.'},
+  {name:'Web Development', track:'creative', desc:'Coding high-speed, mobile-responsive landing pages and web apps built for seamless user experience.'},
+  {name:'Ad Creative Production', track:'creative', desc:'Designing multi-format ad graphics (Feed, Stories, Reels) designed for maximum thumb-stopping power.'},
+  {name:'Campaign Deployment', track:'distribution', desc:'Setting up pixel tracking, custom audiences, and budget allocation on Meta Ads & Google Ads Manager.'},
+  {name:'A/B Variant Testing', track:'data', desc:'Testing headline copy, vector imagery, and button CTAs to identify winning conversion combinations.'},
+  {name:'Scaling & ROAS Growth', track:'distribution', desc:'Reallocating ad spend to top-performing creatives and optimizing landing page code for top ROI.'}
 ];
 const flowRow = document.getElementById('flowRow');
 stages.forEach((s,i)=>{
@@ -790,13 +793,10 @@ document.addEventListener('click', e=>{
 
 /* ================= METRICS TABLE ================= */
 const rows = [
-  {name:'Northbound tour', platform:'Instagram', ctr:2.8, conv:4.1, roas:3.6, eng:6.2, status:'Active', trend:[3,4,3,5,6,5,7]},
-  {name:'Alkaline relaunch', platform:'Email', ctr:5.4, conv:8.9, roas:4.2, eng:9.1, status:'Completed', trend:[5,5,6,7,6,8,8]},
-  {name:'Marrow product drop', platform:'Google Ads', ctr:1.9, conv:3.2, roas:2.8, eng:3.4, status:'Completed', trend:[2,3,2,4,3,4,5]},
-  {name:'Loom Studio launch', platform:'Meta Ads', ctr:3.3, conv:5.0, roas:3.1, eng:5.8, status:'Active', trend:[3,3,4,4,5,5,6]},
-  {name:'Civic Reads festival', platform:'Email', ctr:4.1, conv:6.7, roas:3.9, eng:7.0, status:'Active', trend:[4,4,5,6,6,7,7]},
-  {name:'Solstice fest awareness', platform:'TikTok', ctr:6.2, conv:2.4, roas:2.1, eng:11.4, status:'Completed', trend:[6,7,7,8,9,8,9]},
-  {name:'Paper Moth feature', platform:'Instagram', ctr:2.1, conv:2.9, roas:2.4, eng:4.6, status:'Active', trend:[2,3,3,3,4,4,4]}
+  {name:'SaaS Product Launch', platform:'Meta Ads', ctr:3.4, conv:4.8, roas:3.8, eng:6.8, status:'Active', trend:[3,4,4,5,6,6,7]},
+  {name:'E-Commerce Retargeting', platform:'Instagram', ctr:5.2, conv:8.1, roas:4.5, eng:9.4, status:'Active', trend:[5,6,6,7,8,8,9]},
+  {name:'Vector Brand Campaign', platform:'Google Ads', ctr:2.4, conv:3.6, roas:2.9, eng:4.1, status:'Completed', trend:[2,3,3,4,4,5,5]},
+  {name:'Web App Lead Gen', platform:'Meta Ads', ctr:3.9, conv:5.4, roas:3.3, eng:6.2, status:'Active', trend:[3,4,4,5,5,6,6]}
 ];
 const tbody = document.getElementById('metricsBody');
 function sparkline(trend){
@@ -810,7 +810,7 @@ function renderRows(data){
       <td data-label="Campaign">${r.name}</td>
       <td data-label="Platform">${r.platform}</td>
       <td data-label="CTR">${r.ctr.toFixed(1)}%</td>
-      <td data-label="Conv. rate">${r.conv.toFixed(1)}%</td>
+      <td data-label="Conv. Rate">${r.conv.toFixed(1)}%</td>
       <td data-label="ROAS">${r.roas.toFixed(1)}x</td>
       <td data-label="Engagement">${r.eng.toFixed(1)}% ${sparkline(r.trend)}</td>
       <td data-label="Status"><span class="status-pill ${r.status==='Active'?'status-active':'status-completed'}">${r.status}</span></td>
@@ -856,7 +856,7 @@ document.getElementById('exportBtn').addEventListener('click', ()=>{
 });
 
 /* ================= MARQUEE ================= */
-const tools = ['Figma','Adobe Illustrator','Photoshop','InDesign','Google Analytics','Meta Business Suite','HubSpot','Procreate','After Effects','Google Ads Manager'];
+const tools = ['HTML5','CSS3','JavaScript','Adobe Illustrator','Meta Ads Manager','Google Ads','Photoshop','Figma','Vercel','Google Analytics'];
 const track = document.getElementById('marqueeTrack');
 [...tools, ...tools].forEach(t=>{
   const span = document.createElement('span');
@@ -879,10 +879,11 @@ if(!reduceMotion){
 
 /* ================= CONTACT FORM ================= */
 const cfProject = document.getElementById('cf-project');
+const projectField = document.getElementById('projectField');
 cfProject.addEventListener('change', ()=> projectField.classList.add('filled'));
 document.getElementById('contactForm').addEventListener('submit', e=>{
   e.preventDefault();
-  document.getElementById('formStatus').textContent = 'Thanks — I\'ll reply within two business days.';
+  document.getElementById('formStatus').textContent = 'Thank you! Your message has been received. I will reply within 24 hours.';
   e.target.reset();
   projectField.classList.remove('filled');
 });
