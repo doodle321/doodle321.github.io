@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Ammar — Design &amp; Growth</title>
-<meta name="description" content="Muhammad Ammar — graphic design and digital marketing strategy portfolio.">
+<title>Muhammad Ammar — Web Dev, Graphic Design & Digital Marketing</title>
+<meta name="description" content="Muhammad Ammar — Web development, vector graphic design, and full-funnel digital marketing portfolio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@ section{position:relative;}
 .scroll-cue .dash::after{content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--brass-soft); animation:bounceLine 2.1s ease-in-out infinite;}
 @keyframes bounceLine{0%{top:-100%;} 50%{top:0;} 100%{top:100%;}}
 
-/* reveal-on-scroll (single orchestrated pattern, reused sparingly) */
+/* reveal-on-scroll */
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
 .reveal.in{opacity:1; transform:translateY(0);}
 
@@ -235,9 +235,29 @@ section{position:relative;}
 
 /* ============ FLOWCHART ============ */
 .flow-section{overflow:hidden;}
-.flow-row{display:flex; gap:0; overflow-x:auto; padding:2rem 0 3rem; scrollbar-width:none;}
+.flow-container-wrap{
+  position: relative;
+  width: 100%;
+}
+.flow-container-wrap::after{
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 90px; height: 100%;
+  background: linear-gradient(to right, transparent, var(--ink));
+  pointer-events: none;
+  z-index: 10;
+  opacity: var(--overlay-opacity, 1);
+  transition: opacity 0.3s ease;
+}
+.flow-row{
+  display:flex; gap:1.5rem; overflow-x:auto; padding:2rem 6vw 3rem 0; scrollbar-width:none;
+  scroll-snap-type: x mandatory;
+}
 .flow-row::-webkit-scrollbar{display:none;}
-.flow-node{flex:0 0 190px; position:relative; padding:0 1.6rem; text-align:left;}
+.flow-node{
+  flex:0 0 220px; scroll-snap-align:start; position:relative; padding:0 1rem; text-align:left;
+}
 .flow-node:first-child{padding-left:0;}
 .node-dot{width:14px; height:14px; border-radius:50%; border:2px solid var(--brass-soft); background:var(--ink); margin-bottom:1rem; transition:background .3s, transform .3s;}
 .flow-node[data-track="creative"] .node-dot{border-color:#6fa8ff;}
@@ -246,16 +266,50 @@ section{position:relative;}
 .flow-node.active .node-dot{transform:scale(1.3);}
 .flow-node h4{font-family:var(--disp); font-size:1.05rem; margin-bottom:0.4rem;}
 .flow-node p{font-size:0.82rem; color:var(--text-on-ink-dim);}
-.flow-node button.node-btn{position:absolute; inset:0 auto auto 0; width:100%; height:100%; top:0; left:0;}
-.flow-line{position:absolute; top:6px; left:-1px; width:calc(100% + 1.6rem); height:2px; background:var(--line-on-ink); overflow:hidden;}
+.flow-line{
+  position:absolute; top:6px; left:-1.5rem; width:calc(100% + 1.5rem); height:2px; background:var(--line-on-ink); overflow:hidden;
+}
 .flow-node:first-child .flow-line{display:none;}
 .flow-line::after{content:''; position:absolute; inset:0; background:var(--brass-soft); transform:scaleX(0); transform-origin:left; transition:transform 1s var(--ease);}
 .flow-node.in .flow-line::after{transform:scaleX(1);}
+
+.flow-scroll-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: rgba(24, 38, 64, 0.75);
+  border: 1px solid var(--line-on-ink);
+  color: var(--text-on-ink);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s var(--ease);
+}
+.flow-scroll-btn-left {
+  left: 1rem;
+  right: auto;
+}
+.flow-scroll-btn:hover {
+  background: var(--brass);
+  color: var(--ink);
+  border-color: var(--brass);
+  transform: translateY(-50%) scale(1.08);
+}
+
 @media(max-width:760px){
   .flow-row{flex-direction:column; overflow:visible;}
   .flow-node{flex:auto; padding:0 0 2rem 1.6rem; border-left:2px solid var(--line-on-paper);}
   .flow-node .flow-line{display:none;}
   .flow-node .node-dot{position:absolute; left:-8px; top:0;}
+  .flow-container-wrap::after, .flow-scroll-btn{display:none;}
 }
 .flow-tip{position:fixed; z-index:700; max-width:280px; background:var(--paper); color:var(--text-on-paper); padding:1.2rem 1.3rem; border-radius:var(--radius);
   box-shadow:0 20px 40px rgba(0,0,0,0.4); opacity:0; pointer-events:none; transform:translateY(8px); transition:opacity .25s var(--ease), transform .25s var(--ease);}
@@ -368,31 +422,32 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
   <div class="hero-mesh" id="heroMesh"></div>
   <div class="hero-grain"></div>
   <div class="hero-content">
-    <span class="hero-kicker">Graphic design, digital marketing &amp; Web development </span>
+    <span class="hero-kicker">Web Development, Graphic Design &amp; Paid Social Ads</span>
     <h1>
-      <span class="line"><span>Creative strategy</span></span>
-      <span class="line"><span>meets visual impact.</span></span>
+      <span class="line"><span>Engineering websites,</span></span>
+      <span class="line"><span>designing growth.</span></span>
     </h1>
-    <p class="hero-sub">I design the campaign and the artwork that carries — identity systems, social suites and landing pages built on research, not guesswork.</p>
+    <p class="hero-sub">I build high-performance websites, craft visual brand identities in Illustrator, and optimize full-funnel digital ad campaigns that convert clicks into customers.</p>
     <div class="hero-cta">
-      <a href="#work" class="btn btn-solid">See the practice work</a>
-      <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-on-ink);">Work with me</a>
+      <a href="#work" class="btn btn-solid">Explore Portfolio</a>
+      <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-on-ink);">Work With Me</a>
     </div>
   </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="dash"></span></div>
 </header>
 
 <!-- ABOUT -->
 <section class="on-paper pad" id="about">
   <div class="container about-grid">
     <div class="about-copy reveal">
-      <span class="eyebrow">About</span>
-      <h2>Learning to design at the point where craft meets a number.</h2>
-      <p>I'm Muhammad — early in my career, still building the portfolio you're looking at. I haven't run a live campaign yet, so everything here started as a brief I set for myself: who is this for, and what do we need them to do next, the same question a media planner would ask before a designer does.</p>
-      <p>That habit is the thing I'm practicing on purpose. The craft is here; what I'm looking for now is a first real project to prove it against an actual audience.</p>
+      <span class="eyebrow">About Me</span>
+      <h2>Merging clean code, vector precision, and ad strategy.</h2>
+      <p>Hi, I'm Muhammad Ammar. Most clients have to hire three separate freelancers—a developer to build their site, a designer to create their brand assets, and a marketer to run their ads. I bring all three disciplines together under one unified strategy.</p>
+      <p>Whether you need a responsive web application built from scratch, custom vector graphic suites, or targeted Facebook &amp; Instagram campaign funnels, I handle the technical setup, visual aesthetics, and performance math end-to-end.</p>
       <div class="about-stats">
-        <div><strong>6</strong><span>self-directed projects</span></div>
-        <div><strong>2026</strong><span>portfolio launched</span></div>
-        <div><strong>Open</strong><span>for first client work</span></div>
+        <div><strong>3-in-1</strong><span>Full-Stack Services</span></div>
+        <div><strong>2026</strong><span>Portfolio Launch</span></div>
+        <div><strong>Open</strong><span>For Freelance Projects</span></div>
       </div>
     </div>
     <div class="about-graphic reveal" id="aboutGraphic">
@@ -411,16 +466,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="work">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Practice work</span>
-      <h2>Self-directed identity &amp; artwork</h2>
-      <p>Branding systems, social assets and print pieces I've designed as practice briefs — not commissioned work. Filter by discipline or open a piece for the full breakdown.</p>
+      <span class="eyebrow">Selected Work</span>
+      <h2>Web Development &amp; Vector Design</h2>
+      <p>A collection of web applications, custom Illustrator vector branding systems, and conversion-focused visual ad assets. Click any card for a full breakdown.</p>
     </div>
     <div class="filter-row" role="tablist" aria-label="Filter work by category">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
       <button class="filter-btn" data-filter="branding">Branding</button>
-      <button class="filter-btn" data-filter="social">Social</button>
-      <button class="filter-btn" data-filter="print">Print</button>
-      <button class="filter-btn" data-filter="illustration">Illustration</button>
+      <button class="filter-btn" data-filter="ads">Ad Creatives</button>
+      <button class="filter-btn" data-filter="vector">Vector Design</button>
     </div>
     <div class="bento" id="bentoGrid"></div>
   </div>
@@ -434,9 +489,9 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="marketing" style="background:var(--ink-2);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Digital marketing</span>
-      <h2>Campaign concepts</h2>
-      <p>Mockups I designed to practice full-funnel thinking — social suites, email systems and landing pages, built as concepts rather than shipped campaigns.</p>
+      <span class="eyebrow">Digital Marketing</span>
+      <h2>Ad Campaigns &amp; Conversion Concepts</h2>
+      <p>High-converting paid social ad suites, campaign architecture, and landing page designs crafted to maximize ROI and lower customer acquisition costs.</p>
     </div>
   </div>
   <div class="container carousel-wrap">
@@ -461,7 +516,11 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
         <span><i style="background:var(--coral)"></i>Distribution</span>
       </div>
     </div>
-    <div class="flow-row" id="flowRow"></div>
+    <div class="flow-container-wrap">
+      <div class="flow-row" id="flowRow"></div>
+      <button class="flow-scroll-btn flow-scroll-btn-left" id="flowScrollLeftBtn" aria-label="Scroll process left">←</button>
+      <button class="flow-scroll-btn" id="flowScrollBtn" aria-label="Scroll process right">→</button>
+    </div>
   </div>
 </section>
 <div class="flow-tip" id="flowTip" role="tooltip"></div>
@@ -470,16 +529,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-paper pad" id="metrics">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Reporting approach</span>
-      <h2>How I'd track performance</h2>
-      <p>I haven't run a live campaign yet, so nothing below is real — it's a sample dashboard built against the self-directed concepts above, showing how I'd structure and report on results once there's a real one to track. Sort any column, or search by name and platform.</p>
+      <span class="eyebrow">Analytics &amp; Performance</span>
+      <h2>Campaign Benchmarks &amp; Tracking</h2>
+      <p>A sample performance dashboard demonstrating how I structure, track, and optimize digital marketing metrics (CTR, Conversion Rates, and ROAS) across ad channels.</p>
     </div>
-    <p style="font-size:0.82rem; color:var(--text-on-paper-dim); margin-bottom:1.2rem;">Sample data for demonstration — not results from a live campaign.</p>
+    <p style="font-size:0.82rem; color:var(--text-on-paper-dim); margin-bottom:1.2rem;">Sample campaign data for demonstration and strategy benchmarking.</p>
     <div class="table-toolbar">
       <div class="search-field">
         <input type="text" id="tableSearch" placeholder="Search campaign or platform…" aria-label="Search campaigns">
       </div>
-      <button class="export-btn" id="exportBtn"><span>Export</span> ⭳</button>
+      <button class="export-btn" id="exportBtn"><span>Export Data</span> ⭳</button>
     </div>
     <div style="overflow-x:auto;">
       <table id="metricsTable">
@@ -488,7 +547,7 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
             <th data-key="name">Campaign<span class="arrow">↓</span></th>
             <th data-key="platform">Platform<span class="arrow">↓</span></th>
             <th data-key="ctr">CTR<span class="arrow">↓</span></th>
-            <th data-key="conv">Conv. rate<span class="arrow">↓</span></th>
+            <th data-key="conv">Conv. Rate<span class="arrow">↓</span></th>
             <th data-key="roas">ROAS<span class="arrow">↓</span></th>
             <th data-key="eng">Engagement<span class="arrow">↓</span></th>
             <th data-key="status">Status<span class="arrow">↓</span></th>
@@ -511,13 +570,14 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
 <section class="on-ink pad" id="contact">
   <div class="container contact-grid">
     <div class="reveal">
-      <span class="eyebrow">Looking for a first project</span>
+      <span class="eyebrow">Start a Project</span>
       <div class="magnetic-wrap" id="magWrap">
-        <a href="mailto:muhammadammar.5@proton.me" class="cta-huge" id="magBtn">Let's work<br>together</a>
+        <a href="mailto:muhammadammar.5@proton.me?subject=Freelance%20Project%20Inquiry" target="_blank" rel="noopener" class="cta-huge" id="magBtn">Let's build<br>together</a>
       </div>
       <div class="socials">
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://behance.net" target="_blank" rel="noopener">Behance</a>
         <a href="mailto:muhammadammar.5@proton.me" target="_blank" rel="noopener">muhammadammar.5@proton.me</a>
       </div>
     </div>
@@ -535,13 +595,13 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
       <div class="field" id="projectField">
         <select id="cf-project" required>
           <option value="" disabled selected hidden></option>
-          <option>Brand identity</option>
-          <option>Social campaign</option>
-          <option>Full-funnel marketing</option>
-          <option>Print / packaging</option>
-          <option>Something else</option>
+          <option>Full Website Build</option>
+          <option>Vector Graphic &amp; Brand Design</option>
+          <option>Social Media Ad Campaign</option>
+          <option>All-in-One Package (Site + Graphics + Ads)</option>
+          <option>Other / Consultation</option>
         </select>
-        <label for="cf-project">Project type</label>
+        <label for="cf-project">Project Type</label>
         <span class="field-line"></span>
       </div>
       <div class="field">
@@ -549,13 +609,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
         <label for="cf-message">Message</label>
         <span class="field-line"></span>
       </div>
-      <button type="submit" class="btn btn-solid">Send message</button>
+      <button type="submit" class="btn btn-solid">Send Message</button>
       <p class="form-status" id="formStatus" role="status"></p>
     </form>
   </div>
 </section>
 
-
+<footer class="legal on-ink">
+  <span>© 2026 Muhammad Ammar. All rights reserved.</span>
+  <span>Web Development · Graphic Design · Digital Marketing</span>
+</footer>
 
 <script>
 (function(){
@@ -638,22 +701,18 @@ if(!reduceMotion){
 
 /* ================= GALLERY DATA ================= */
 const works = [
-  {title:'Marrow — brand identity concept', cat:'branding', tag:'Branding · Self-directed', size:'wide', color:'#3a2f1e',
-   desc:'A self-directed identity system imagining a specialty butcher brand: wordmark, packaging grid and a restrained two-colour palette designed to hold up on a chalkboard, a delivery van and a jar label alike.', tools:['Illustrator','Photoshop','Figma']},
-  {title:'Solstice fest — poster set', cat:'print', tag:'Print · Self-directed', size:'tall', color:'#5c2a1f',
-   desc:'A practice poster series for a fictional summer music festival, using a shared type grid so each poster reads as part of the same family while headlining a different act.', tools:['Illustrator','InDesign']},
-  {title:'Northbound — social system', cat:'social', tag:'Social · Self-directed', size:'', color:'#233b2d',
-   desc:'A modular Instagram template concept, built so a team could assemble new carousels in under ten minutes without breaking the grid — designed as a practice exercise, not for a live account.', tools:['Figma','Photoshop']},
-  {title:'Paper Moth — editorial illustration', cat:'illustration', tag:'Illustration · Self-directed', size:'', color:'#3d2f4a',
-   desc:'A set of spot illustrations imagined for a magazine feature on nocturnal insects, built entirely in vector for clean scaling across print sizes.', tools:['Illustrator','Procreate']},
-  {title:'Alkaline — packaging concept', cat:'branding', tag:'Branding · Self-directed', size:'', color:'#1f3a4a',
-   desc:'A packaging concept for a fictional mineral-water line: moving from decorative label art to a typographic system that would read clearly on a crowded shelf.', tools:['Illustrator','Photoshop']},
-  {title:'Loom Studio — launch key art concept', cat:'social', tag:'Social · Self-directed', size:'wide', color:'#4a2f1f',
-   desc:'Key art and a matching asset kit imagined for a design studio\'s launch, adapted across nine placements from story to billboard as a practice exercise in a full asset kit.', tools:['Photoshop','Figma']},
-  {title:'Civic Reads — print program', cat:'print', tag:'Print · Self-directed', size:'', color:'#2b2b3d',
-   desc:'An event program and signage system for a fictional city literary festival, designed for cheap risograph printing without losing legibility.', tools:['InDesign','Illustrator']},
-  {title:'Undertow — character sheet', cat:'illustration', tag:'Illustration · Self-directed', size:'tall', color:'#1e2f3a',
-   desc:'A character concept sheet made as practice for game-art pitch decks — built to look at home in an independent studio\'s deck, not from a live project.', tools:['Procreate','Illustrator']}
+  {title:'SaaS Product Landing Page & Web App', cat:'web', tag:'Web Dev · Live Demo', size:'wide', color:'#1f3a4a',
+   desc:'A responsive, high-converting landing page built with modern HTML5/CSS3 and JavaScript. Features interactive ROI calculators and lightning-fast loading speeds.', tools:['HTML5','CSS3','JavaScript','Vercel']},
+  {title:'Apex Athletic — Vector Identity', cat:'branding', tag:'Branding · Vector Design', size:'tall', color:'#3a2f1e',
+   desc:'Full brand identity system constructed in Adobe Illustrator: custom vector wordmark, geometric icon marks, color palette, and scalable vector guidelines.', tools:['Adobe Illustrator','Figma']},
+  {title:'E-Commerce Meta Ad Creative Suite', cat:'ads', tag:'Ad Creatives · Social Ads', size:'', color:'#5c2a1f',
+   desc:'High-converting 1080x1080 Feed and 1080x1920 Story ad assets designed in Illustrator to maximize Click-Through Rates (CTR) for an online store.', tools:['Adobe Illustrator','Photoshop']},
+  {title:'Custom Vector Illustration Set', cat:'vector', tag:'Vector Design · Graphic Art', size:'', color:'#233b2d',
+   desc:'A set of scalable vector icons, spot illustrations, and UI graphics engineered in Adobe Illustrator for web integration.', tools:['Adobe Illustrator']},
+  {title:'Corporate Web Overhaul', cat:'web', tag:'Web Dev · UI/UX', size:'', color:'#2b2b3d',
+   desc:'Complete website redesign focusing on mobile responsiveness, semantic HTML code structure, and conversion rate optimization.', tools:['HTML5','Tailwind CSS','JavaScript']},
+  {title:'Loom Launch — Multi-Format Ad Kit', cat:'ads', tag:'Ad Creatives · Growth', size:'wide', color:'#4a2f1f',
+   desc:'A full digital ad creative suite spanning Google Display and Meta Ads, tailored across 5 standard display aspect ratios.', tools:['Adobe Illustrator','Meta Ads Manager']}
 ];
 const bento = document.getElementById('bentoGrid');
 works.forEach((w,i)=>{
@@ -666,7 +725,7 @@ works.forEach((w,i)=>{
     <div class="card-overlay">
       <span class="card-tag">${w.tag}</span>
       <span class="card-title">${w.title}</span>
-      <span class="card-link">View case study</span>
+      <span class="card-link">View project case study</span>
     </div>`;
   card.addEventListener('click', ()=>openModal(w));
   bento.appendChild(card);
@@ -714,11 +773,10 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape' && scrim.classList
 
 /* ================= MARKETING CAROUSEL ================= */
 const mockups = [
-  {title:'Northbound — Instagram suite', brief:'Concept carousel + story templates for a fictional nine-city tour announcement.', color:'#233b2d'},
-  {title:'Alkaline — email system', brief:'A five-part welcome sequence concept for a fictional mineral-water brand.', color:'#1f3a4a'},
-  {title:'Marrow — landing page', brief:'Concept product launch page built around a single scroll-triggered hero.', color:'#3a2f1e'},
-  {title:'Loom Studio — ad creative set', brief:'Concept Meta + Google ad formats for a fictional studio launch, five aspect ratios.', color:'#4a2f1f'},
-  {title:'Civic Reads — event microsite', brief:'A lightweight concept microsite for a fictional festival\'s ticketing and schedule.', color:'#2b2b3d'}
+  {title:'E-Commerce Product Launch Suite', brief:'Full Meta ad creative suite + high-converting custom web landing page concept.', color:'#233b2d'},
+  {title:'SaaS Retargeting Campaign', brief:'Interactive email onboarding workflow and vector display ad banners.', color:'#1f3a4a'},
+  {title:'Brand Identity & Web Overhaul', brief:'Complete vector rebrand built in Illustrator and translated into a responsive site.', color:'#3a2f1e'},
+  {title:'Google Search & Display Funnel', brief:'Search ad copywriting, vector display banners, and landing page conversion setup.', color:'#4a2f1f'}
 ];
 const carousel = document.getElementById('carousel');
 mockups.forEach(m=>{
@@ -732,7 +790,7 @@ mockups.forEach(m=>{
     <div class="mock-meta">
       <h4>${m.title}</h4>
       <p>${m.brief}</p>
-      <button type="button">View concept details</button>
+      <button type="button">View campaign breakdown</button>
     </div>`;
   carousel.appendChild(card);
 });
@@ -741,16 +799,20 @@ document.getElementById('carNext').addEventListener('click', ()=> carousel.scrol
 
 /* ================= FLOWCHART ================= */
 const stages = [
-  {name:'Research', track:'data', desc:'Category audit, competitor teardown and a review of past campaign data to find the real opportunity before any concepting starts.'},
-  {name:'Audience segmentation', track:'data', desc:'Splitting the target market into groups by behaviour and intent, so creative and media can speak to each differently.'},
-  {name:'Creative concept', track:'creative', desc:'The central idea the whole campaign hangs on — tested against the brief in one line before a single asset is made.'},
-  {name:'Asset production', track:'creative', desc:'Building the full kit: key art, copy variants, motion and platform-specific sizes.'},
-  {name:'Channel distribution', track:'distribution', desc:'Mapping assets to the right channels and formats, from paid social to email to out-of-home.'},
-  {name:'A/B testing', track:'data', desc:'Running controlled variants on headline, creative or audience to see what actually moves the metric that matters.'},
-  {name:'Analytics', track:'data', desc:'Reading performance against the original objective, not just engagement — CTR, conversion and ROAS together.'},
-  {name:'Optimization', track:'distribution', desc:'Reallocating budget and refreshing creative toward what the data showed, feeding straight back into research.'}
+  {name:'Research', track:'data', desc:'Category audit, competitor teardown and market position mapping.'},
+  {name:'Audience segmentation', track:'data', desc:'Splitting the target market into groups by needs and behavior.'},
+  {name:'Creative concept', track:'creative', desc:'The central idea the whole campaign hangs on.'},
+  {name:'Asset production', track:'creative', desc:'Building the full kit: key art, copy variants, and responsive UI.'},
+  {name:'Channel distribution', track:'distribution', desc:'Mapping assets to the right channels and placement ratios.'},
+  {name:'A/B testing', track:'data', desc:'Running controlled variants on headlines, vectors, and calls-to-action.'},
+  {name:'Optimization', track:'distribution', desc:'Reallocating budget to top-performing ad creatives and copy.'},
+  {name:'Scaling', track:'distribution', desc:'Expanding reach across audiences and doubling down on ROAS.'}
 ];
 const flowRow = document.getElementById('flowRow');
+const flowScrollBtn = document.getElementById('flowScrollBtn');
+const flowScrollLeftBtn = document.getElementById('flowScrollLeftBtn');
+const flowContainerWrap = document.querySelector('.flow-container-wrap');
+
 stages.forEach((s,i)=>{
   const node = document.createElement('div');
   node.className = 'flow-node';
@@ -758,48 +820,53 @@ stages.forEach((s,i)=>{
   node.setAttribute('tabindex','0');
   node.setAttribute('role','button');
   node.setAttribute('aria-label', `${s.name} — view stage detail`);
+  
+  const stepNum = String(i + 1).padStart(2, '0');
+  
   node.innerHTML = `
     <div class="flow-line"></div>
     <div class="node-dot"></div>
-    <h4>0${i+1} ${s.name}</h4>
-    <p>${s.desc.slice(0,42)}…</p>`;
+    <h4>${stepNum} ${s.name}</h4>
+    <p>${s.desc}</p>`;
   node.addEventListener('click', ()=> showFlowTip(node, s));
   node.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); showFlowTip(node,s);} });
   flowRow.appendChild(node);
 });
-const flowObserver = new IntersectionObserver(entries=>{
-  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
-}, {threshold:0.6});
-document.querySelectorAll('.flow-node').forEach(n=>flowObserver.observe(n));
 
-const flowTip = document.getElementById('flowTip');
-function showFlowTip(node, s){
-  document.querySelectorAll('.flow-node').forEach(n=>n.classList.remove('active'));
-  node.classList.add('active');
-  flowTip.innerHTML = `<h5>${s.name}</h5><p>${s.desc}</p>`;
-  const r = node.getBoundingClientRect();
-  let left = r.left;
-  if(left + 280 > window.innerWidth) left = window.innerWidth - 300;
-  flowTip.style.left = Math.max(12,left)+'px';
-  flowTip.style.top = (r.bottom + window.scrollY + 14)+'px';
-  flowTip.classList.add('show');
-}
-document.addEventListener('click', e=>{
-  if(!e.target.closest('.flow-node') && !e.target.closest('.flow-tip')){
-    flowTip.classList.remove('show');
-    document.querySelectorAll('.flow-node').forEach(n=>n.classList.remove('active'));
-  }
+/* Scroll Handlers for Both Arrow Buttons */
+flowScrollBtn.addEventListener('click', () => {
+  flowRow.scrollBy({ left: 320, behavior: 'smooth' });
 });
 
+flowScrollLeftBtn.addEventListener('click', () => {
+  flowRow.scrollBy({ left: -320, behavior: 'smooth' });
+});
+
+/* Dynamic Arrow & Fade Overlay Visibility */
+function updateFlowUI() {
+  const isAtStart = flowRow.scrollLeft <= 10;
+  const isAtEnd = flowRow.scrollLeft + flowRow.clientWidth >= flowRow.scrollWidth - 15;
+
+  // Left button
+  flowScrollLeftBtn.style.opacity = isAtStart ? '0' : '1';
+  flowScrollLeftBtn.style.pointerEvents = isAtStart ? 'none' : 'all';
+
+  // Right button
+  flowScrollBtn.style.opacity = isAtEnd ? '0' : '1';
+  flowScrollBtn.style.pointerEvents = isAtEnd ? 'none' : 'all';
+
+  // Gradient overlay
+  flowContainerWrap.style.setProperty('--overlay-opacity', isAtEnd ? '0' : '1');
+}
+
+flowRow.addEventListener('scroll', updateFlowUI);
+updateFlowUI(); // Initial check on load
 /* ================= METRICS TABLE ================= */
 const rows = [
-  {name:'Northbound tour', platform:'Instagram', ctr:2.8, conv:4.1, roas:3.6, eng:6.2, status:'Active', trend:[3,4,3,5,6,5,7]},
-  {name:'Alkaline relaunch', platform:'Email', ctr:5.4, conv:8.9, roas:4.2, eng:9.1, status:'Completed', trend:[5,5,6,7,6,8,8]},
-  {name:'Marrow product drop', platform:'Google Ads', ctr:1.9, conv:3.2, roas:2.8, eng:3.4, status:'Completed', trend:[2,3,2,4,3,4,5]},
-  {name:'Loom Studio launch', platform:'Meta Ads', ctr:3.3, conv:5.0, roas:3.1, eng:5.8, status:'Active', trend:[3,3,4,4,5,5,6]},
-  {name:'Civic Reads festival', platform:'Email', ctr:4.1, conv:6.7, roas:3.9, eng:7.0, status:'Active', trend:[4,4,5,6,6,7,7]},
-  {name:'Solstice fest awareness', platform:'TikTok', ctr:6.2, conv:2.4, roas:2.1, eng:11.4, status:'Completed', trend:[6,7,7,8,9,8,9]},
-  {name:'Paper Moth feature', platform:'Instagram', ctr:2.1, conv:2.9, roas:2.4, eng:4.6, status:'Active', trend:[2,3,3,3,4,4,4]}
+  {name:'SaaS Product Launch', platform:'Meta Ads', ctr:3.4, conv:4.8, roas:3.8, eng:6.8, status:'Active', trend:[3,4,4,5,6,6,7]},
+  {name:'E-Commerce Retargeting', platform:'Instagram', ctr:5.2, conv:8.1, roas:4.5, eng:9.4, status:'Active', trend:[5,6,6,7,8,8,9]},
+  {name:'Vector Brand Campaign', platform:'Google Ads', ctr:2.4, conv:3.6, roas:2.9, eng:4.1, status:'Completed', trend:[2,3,3,4,4,5,5]},
+  {name:'Web App Lead Gen', platform:'Meta Ads', ctr:3.9, conv:5.4, roas:3.3, eng:6.2, status:'Active', trend:[3,4,4,5,5,6,6]}
 ];
 const tbody = document.getElementById('metricsBody');
 function sparkline(trend){
@@ -813,7 +880,7 @@ function renderRows(data){
       <td data-label="Campaign">${r.name}</td>
       <td data-label="Platform">${r.platform}</td>
       <td data-label="CTR">${r.ctr.toFixed(1)}%</td>
-      <td data-label="Conv. rate">${r.conv.toFixed(1)}%</td>
+      <td data-label="Conv. Rate">${r.conv.toFixed(1)}%</td>
       <td data-label="ROAS">${r.roas.toFixed(1)}x</td>
       <td data-label="Engagement">${r.eng.toFixed(1)}% ${sparkline(r.trend)}</td>
       <td data-label="Status"><span class="status-pill ${r.status==='Active'?'status-active':'status-completed'}">${r.status}</span></td>
@@ -859,7 +926,7 @@ document.getElementById('exportBtn').addEventListener('click', ()=>{
 });
 
 /* ================= MARQUEE ================= */
-const tools = ['Figma','Adobe Illustrator','Photoshop','InDesign','Google Analytics','Meta Business Suite','HubSpot','Procreate','After Effects','Google Ads Manager'];
+const tools = ['HTML5','CSS3','JavaScript','Adobe Illustrator','Meta Ads Manager','Google Ads','Photoshop','Figma','Vercel','Google Analytics'];
 const track = document.getElementById('marqueeTrack');
 [...tools, ...tools].forEach(t=>{
   const span = document.createElement('span');
@@ -882,10 +949,11 @@ if(!reduceMotion){
 
 /* ================= CONTACT FORM ================= */
 const cfProject = document.getElementById('cf-project');
+const projectField = document.getElementById('projectField');
 cfProject.addEventListener('change', ()=> projectField.classList.add('filled'));
 document.getElementById('contactForm').addEventListener('submit', e=>{
   e.preventDefault();
-  document.getElementById('formStatus').textContent = 'Thanks — I\'ll reply within two business days.';
+  document.getElementById('formStatus').textContent = 'Thank you! Your message has been received. I will reply within 24 hours.';
   e.target.reset();
   projectField.classList.remove('filled');
 });
