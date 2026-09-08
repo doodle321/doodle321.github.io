@@ -397,9 +397,35 @@ tbody tr:hover{background:var(--paper-2);}
 .field-line{position:absolute; bottom:0; left:0; height:1px; width:0; background:var(--brass-soft); transition:width .35s var(--ease);}
 .field input:focus ~ .field-line, .field select:focus ~ .field-line, .field textarea:focus ~ .field-line{width:100%;}
 .form-status{font-size:0.9rem; color:var(--brass-soft); min-height:1.2em; margin-top:0.4rem;}
-.socials{display:flex; gap:1.6rem; margin-top:2.4rem; flex-wrap:wrap;}
-.socials a{font-size:0.92rem; padding-bottom:2px; border-bottom:1px solid transparent; transition:transform .3s var(--ease), border-color .3s;}
-.socials a:hover{transform:translateY(-3px); border-color:var(--brass-soft);}
+.socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Keeps the link width constrained to the text */
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+
+.socials a {
+  font-size: 0.92rem;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Pseudo-element for underline effect */
+.socials a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--brass-soft);
+  transition: width 0.3s var(--ease);
+}
+.socials a:hover::after {
+  width: 100%; /* Underlines exact length of text on hover */
+}
+
 footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text-on-ink-dim); border-top:1px solid var(--line-on-ink); flex-wrap:wrap; gap:0.6rem;}
 
 .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
@@ -593,43 +619,16 @@ footer.legal{padding:2rem 6vw; display:flex; justify-content:space-between; font
       <div class="magnetic-wrap" id="magWrap">
         <a href="mailto:muhammadammar.5@proton.me?subject=Freelance%20Project%20Inquiry" target="_blank" rel="noopener" class="cta-huge" id="magBtn">Let's build<br>together</a>
       </div>
-      <div class="socials">
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:muhammadammar.5@proton.me" target="_blank" rel="noopener">muhammadammar.5@proton.me</a>
-      </div>
     </div>
-    <form class="reveal" id="contactForm" novalidate>
-      <div class="field">
-        <input type="text" id="cf-name" placeholder=" " required autocomplete="name">
-        <label for="cf-name">Name</label>
-        <span class="field-line"></span>
-      </div>
-      <div class="field">
-        <input type="email" id="cf-email" placeholder=" " required autocomplete="email">
-        <label for="cf-email">Email</label>
-        <span class="field-line"></span>
-      </div>
-      <div class="field" id="projectField">
-        <select id="cf-project" required>
-          <option value="" disabled selected hidden></option>
-          <option>Full Website Build</option>
-          <option>Vector Graphic &amp; Brand Design</option>
-          <option>Social Media Ad Campaign</option>
-          <option>All-in-One Package (Site + Graphics + Ads)</option>
-          <option>Other / Consultation</option>
-        </select>
-        <label for="cf-project">Project Type</label>
-        <span class="field-line"></span>
-      </div>
-      <div class="field">
-        <textarea id="cf-message" placeholder=" " rows="3" required></textarea>
-        <label for="cf-message">Message</label>
-        <span class="field-line"></span>
-      </div>
-      <button type="submit" class="btn btn-solid">Send Message</button>
-      <p class="form-status" id="formStatus" role="status"></p>
-    </form>
+   <div class="reveal direct-contact-panel">
+  <span class="eyebrow">Contact & Socials</span>
+  <div class="socials">
+    <a href="#" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/muhammad-ammar-ba8b422b6/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://wa.me/923103694160?text=doodle321.github.io%0AI%20Hello!%20Can%20I%20get%20more%20information%20on%20this?" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="mailto:muhammadammar.5@proton.me" target="_blank" rel="noopener">muhammadammar.5@proton.me</a>
+  </div>
+</div>
   </div>
 </section>
 
