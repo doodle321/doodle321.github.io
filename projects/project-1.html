@@ -9,6 +9,8 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Anchored sections clear the sticky navbar when scrolled to */
+        section[id] { scroll-margin-top: 70px; }
         .hero-bg {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
@@ -133,8 +135,8 @@
                     <textarea id="resNotes" rows="2" placeholder="e.g., Need high chair for toddler, corner table..." class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-lg">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> Reserve Table via WhatsApp
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3 rounded-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg leading-none"></i> Reserve Table
                 </button>
             </form>
         </div>
@@ -480,6 +482,22 @@
             
             event.target.reset();
         }
+
+        // Force same-tab smooth scrolling for in-page links.
+        // Guards against any <base target="_blank"> injected by export tools/hosts.
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.setAttribute('target', '_self'));
+        document.addEventListener('click', e => {
+            const link = e.target.closest('a[href^="#"]');
+            if (!link) return;
+            const id = link.getAttribute('href');
+            if (id && id.length > 1) {
+                const target = document.querySelector(id);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
 
         // Initial Load
         renderMenu(menuItems);
