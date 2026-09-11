@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lazeez Hyderabad — Order on WhatsApp | Hyderabad, Sindh</title>
+<meta name="description" content="Demo portfolio website for a local restaurant in Hyderabad, Sindh. Order via WhatsApp — cart, address, receipt, done.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#141210; --bg2:#1c1915; --card:#221e18; --line:#332c22;
+  --gold:#e8a33d; --gold2:#c67f1e; --cream:#f5ead9; --muted:#a89f8f;
+  --green:#7fb069; --red:#d1604f; --wa:#25D366;
+  --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+.container{max-width:1140px;margin:0 auto;padding:0 22px}
+section{padding:90px 0}
+.eyebrow{color:var(--gold);letter-spacing:.35em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+.sec-title{font-size:clamp(1.9rem,4vw,2.8rem);margin:.35rem 0 .6rem}
+.sec-sub{color:var(--muted);max-width:560px}
+.center{text-align:center}.center .sec-sub{margin:0 auto}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.35s;padding:18px 0}
+nav.scrolled{background:rgba(20,18,16,.92);backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700}
+.logo .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;font-size:1.2rem;color:#1a1206}
+.logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{font-size:.9rem;color:var(--muted);font-weight:500;position:relative;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:var(--cream)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:.3s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;padding:12px 26px;border-radius:50px;transition:.3s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1206;box-shadow:0 8px 22px rgba(232,163,61,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(232,163,61,.4)}
+.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-wa{background:linear-gradient(135deg,#2ee06f,#1eb85a);color:#06130a;box-shadow:0 8px 22px rgba(37,211,102,.25)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(37,211,102,.4)}
+.cart-btn{position:relative;background:var(--card);border:1px solid var(--line);color:var(--cream);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:.3s}
+.cart-btn:hover{border-color:var(--gold)}
+.cart-count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#1a1206;font-size:.68rem;font-weight:700;min-width:20px;height:20px;border-radius:50%;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:.25s}
+.cart-count.show{transform:scale(1)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2px;background:var(--cream);transition:.3s}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;background:url('https://kimi-web-img.kimi.ai/img/www.contemporist.com/1c01b414985ab8a653d476a0c3f2c6b9bf43f3e5.jpg') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,12,10,.96) 30%,rgba(14,12,10,.75) 60%,rgba(14,12,10,.45))}
+.hero-content{position:relative;z-index:2;padding-top:60px;max-width:640px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.12;margin:18px 0}
+.hero h1 span{color:var(--gold)}
+.hero p.lead{color:var(--muted);font-size:1.05rem;max-width:480px;margin-bottom:30px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,163,61,.12);border:1px solid rgba(232,163,61,.35);color:var(--gold);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.08em}
+.hero-stats{display:flex;gap:44px;margin-top:56px;flex-wrap:wrap}
+.stat .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
+.stat .lbl{font-size:.8rem;color:var(--muted)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.4rem;animation:bounce 1.8s infinite;z-index:2}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--gold);color:#1a1206;overflow:hidden;padding:12px 0;font-weight:700;letter-spacing:.12em;font-size:.85rem}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 22s linear infinite;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.about-imgs{position:relative}
+.about-imgs .main{border-radius:var(--radius);box-shadow:var(--shadow)}
+.about-imgs .float{position:absolute;width:46%;bottom:-38px;right:-18px;border-radius:var(--radius);border:6px solid var(--bg);box-shadow:var(--shadow)}
+.about-txt .check{display:flex;gap:14px;margin-top:20px;align-items:flex-start}
+.about-txt .check .ic{width:34px;height:34px;flex:none;border-radius:9px;background:rgba(232,163,61,.14);color:var(--gold);display:grid;place-items:center;font-size:1rem}
+.about-txt .check h4{font-size:1rem;margin-bottom:2px}
+.about-txt .check p{color:var(--muted);font-size:.88rem}
+
+/* ---------- MENU ---------- */
+#menu{background:var(--bg2)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+.filter-btn{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:9px 20px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:500;transition:.25s}
+.filter-btn:hover{color:var(--cream);border-color:var(--gold)}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1206;font-weight:600}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:24px}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.35s;display:flex;flex-direction:column}
+.dish:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(232,163,61,.5)}
+.dish-img{height:175px;overflow:hidden;position:relative}
+.dish-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.dish:hover .dish-img img{transform:scale(1.08)}
+.tag{position:absolute;top:12px;left:12px;background:rgba(20,18,16,.85);color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:50px;backdrop-filter:blur(6px)}
+.dish-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.dish-top h3{font-size:1.12rem}
+.price{color:var(--gold);font-weight:700;white-space:nowrap}
+.dish-body p{color:var(--muted);font-size:.85rem;margin:6px 0 16px;flex:1}
+.add-btn{margin-top:auto;background:rgba(232,163,61,.12);border:1.5px solid rgba(232,163,61,.4);color:var(--gold);padding:10px;border-radius:12px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;transition:.25s;width:100%}
+.add-btn:hover{background:var(--gold);color:#1a1206}
+.dish.hide{display:none}
+.no-results{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;display:none}
+.order-steps{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:26px auto 0;color:var(--muted);font-size:.82rem}
+.order-steps .os{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:8px 16px;border-radius:50px}
+.order-steps .os b{color:var(--gold);font-family:'Playfair Display',serif}
+
+/* ---------- CART DRAWER / CHECKOUT ---------- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:.35s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(420px,94vw);background:var(--bg2);border-left:1px solid var(--line);z-index:90;transform:translateX(105%);transition:.4s cubic-bezier(.2,.8,.3,1);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:1.25rem}
+.drawer-head .step-sub{font-size:.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+.close-x{background:none;border:none;color:var(--muted);font-size:1.6rem;cursor:pointer;transition:.25s;line-height:1}
+.close-x:hover{color:var(--gold);transform:rotate(90deg)}
+.drawer-body{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.drawer-view{display:none;flex-direction:column;flex:1;overflow:hidden}
+.drawer-view.active{display:flex}
+.cart-scroll{flex:1;overflow-y:auto;padding:18px 22px}
+.cart-empty{text-align:center;color:var(--muted);padding:60px 10px;font-size:.92rem}
+.cart-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+.cart-item img{width:58px;height:58px;border-radius:12px;object-fit:cover;flex:none}
+.cart-item .ci-info{flex:1;min-width:0}
+.cart-item .ci-info h4{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item .ci-info span{color:var(--gold);font-size:.85rem;font-weight:600}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--cream);cursor:pointer;font-size:.95rem;transition:.2s}
+.qty button:hover{border-color:var(--gold);color:var(--gold)}
+.qty .q{min-width:16px;text-align:center;font-weight:600;font-size:.9rem}
+.ci-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;transition:.2s}
+.ci-del:hover{color:var(--red)}
+.drawer-foot{padding:18px 22px 22px;border-top:1px solid var(--line);margin-top:auto}
+.total-row{display:flex;justify-content:space-between;font-weight:700;font-size:1.05rem;margin-bottom:14px}
+.total-row span:last-child{color:var(--gold)}
+.free-tag{background:rgba(127,176,105,.15);color:var(--green);font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle}
+.wide-btn{width:100%;padding:14px;font-size:.95rem;justify-content:center}
+.wide-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.back-link{display:block;text-align:center;background:none;border:none;color:var(--muted);font-family:'Poppins',sans-serif;font-size:.82rem;cursor:pointer;margin-top:12px;width:100%}
+.back-link:hover{color:var(--gold)}
+.view-pad{flex:1;overflow-y:auto;padding:20px 22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:6px;font-weight:500}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--cream);padding:12px 14px;font-family:'Poppins',sans-serif;font-size:.9rem;transition:.25s;outline:none;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,163,61,.15)}
+.field.error input,.field.error textarea{border-color:var(--red)}
+.err-msg{color:var(--red);font-size:.75rem;margin-top:5px;display:none}
+.field.error .err-msg{display:block}
+
+/* ---------- RECEIPT ---------- */
+.receipt-scroll{flex:1;overflow-y:auto;padding:20px 22px}
+.receipt{background:#fdf8ee;color:#2b241a;border-radius:12px;padding:24px 20px 18px;font-family:'Courier New',ui-monospace,monospace;font-size:.82rem;box-shadow:0 14px 40px rgba(0,0,0,.5);position:relative}
+.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:10px;background:radial-gradient(circle at 8px -2px,transparent 7px,#fdf8ee 7.5px);background-size:16px 10px}
+.receipt h4{font-family:'Playfair Display',serif;text-align:center;font-size:1.15rem;color:#1a1206;letter-spacing:.02em}
+.receipt .r-sub{text-align:center;font-size:.72rem;color:#8a7658;line-height:1.5}
+.receipt .r-meta{display:flex;justify-content:space-between;font-size:.74rem;color:#6b5a3e;margin-top:8px}
+.receipt hr{border:none;border-top:1.5px dashed #c4b291;margin:11px 0}
+.r-row{display:flex;justify-content:space-between;gap:12px;padding:2.5px 0;font-size:.8rem}
+.r-row .r-name{flex:1}
+.r-row .r-amt{white-space:nowrap;font-weight:700}
+.r-row.r-dim{color:#8a7658;font-size:.72rem;margin-top:-2px}
+.r-tot{display:flex;justify-content:space-between;font-weight:700;font-size:1rem;margin-top:4px}
+.r-tot.grand{font-size:1.12rem;border-top:1.5px dashed #c4b291;padding-top:9px;margin-top:9px}
+.r-label{font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:#8a7658;margin-top:6px}
+.r-val{font-size:.8rem;margin:2px 0 6px;word-break:break-word}
+.receipt .r-thanks{text-align:center;font-size:.74rem;color:#8a7658;margin-top:10px}
+
+/* ---------- WA FAB ---------- */
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:70;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#2ee06f,#1eb85a);display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.4);transition:.3s}
+.wa-fab:hover{transform:scale(1.1) rotate(6deg)}
+.wa-fab svg{width:30px;height:30px;fill:#fff}
+
+/* ---------- RESERVATION ---------- */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.res-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.res-success{display:none;text-align:center;padding:30px 10px}
+.res-success .big-ic{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;background:rgba(127,176,105,.15);color:var(--green);display:grid;place-items:center;font-size:2rem}
+.res-success h3{font-size:1.4rem;margin-bottom:8px}
+.res-success p{color:var(--muted);font-size:.9rem}
+.res-success .res-code{display:inline-block;margin-top:14px;background:rgba(232,163,61,.12);border:1px dashed var(--gold);color:var(--gold);padding:8px 20px;border-radius:10px;font-weight:700;letter-spacing:.1em}
+.res-info li{list-style:none;display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);align-items:center}
+.res-info .ic{width:44px;height:44px;flex:none;border-radius:12px;background:rgba(232,163,61,.12);color:var(--gold);display:grid;place-items:center;font-size:1.15rem}
+.res-info h4{font-size:.95rem}
+.res-info p{color:var(--muted);font-size:.85rem}
+
+/* ---------- TESTIMONIALS ---------- */
+#reviews{background:var(--bg2)}
+.tst-wrap{max-width:720px;margin:44px auto 0;position:relative}
+.tst-viewport{overflow:hidden}
+.tst-track{display:flex;transition:transform .55s cubic-bezier(.2,.8,.3,1)}
+.tst{min-width:100%;padding:0 8px;text-align:center}
+.tst .quote-mark{font-family:'Playfair Display',serif;font-size:3.4rem;color:var(--gold);line-height:.5;display:block;margin-bottom:16px}
+.tst p{font-size:1.08rem;font-style:italic;color:var(--cream);max-width:600px;margin:0 auto 22px}
+.tst .who{color:var(--gold);font-weight:600}
+.tst .where{color:var(--muted);font-size:.82rem}
+.stars{color:var(--gold);letter-spacing:4px;margin-bottom:14px;font-size:.85rem}
+.tst-nav{display:flex;justify-content:center;gap:10px;margin-top:28px;align-items:center}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.3s;padding:0}
+.dot.active{background:var(--gold);width:26px;border-radius:50px}
+.tst-arrow{position:absolute;top:38%;background:var(--card);border:1px solid var(--line);color:var(--cream);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.05rem;transition:.25s;z-index:2}
+.tst-arrow:hover{border-color:var(--gold);color:var(--gold)}
+.tst-arrow.prev{left:-64px}.tst-arrow.next{right:-64px}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bg)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
+.foot-grid h4{font-size:1rem;margin-bottom:16px;color:var(--cream)}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:10px;font-size:.88rem;color:var(--muted)}
+.foot-grid a:hover{color:var(--gold)}
+.foot-grid p{font-size:.88rem;color:var(--muted)}
+.hours-row{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);padding:5px 0}
+.hours-row span:last-child{color:var(--cream)}
+.copy{text-align:center;color:#6b6355;font-size:.8rem;padding-top:24px;border-top:1px solid var(--line)}
+.demo-banner{background:rgba(232,163,61,.08);border:1px solid rgba(232,163,61,.25);color:var(--muted);font-size:.78rem;text-align:center;padding:9px;letter-spacing:.05em}
+.demo-banner b{color:var(--gold)}
+
+/* ---------- TOAST ---------- */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--card);border:1px solid var(--gold);color:var(--cream);padding:13px 26px;border-radius:50px;font-size:.88rem;font-weight:500;z-index:120;opacity:0;transition:.4s;box-shadow:var(--shadow);pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast .t-ic{color:var(--gold);margin-right:8px}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .about-grid,.res-grid{grid-template-columns:1fr;gap:44px}
+  .about-imgs{margin-bottom:20px}
+  .tst-arrow.prev{left:-8px}.tst-arrow.next{right:-8px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:min(300px,80vw);background:var(--bg2);flex-direction:column;justify-content:center;gap:30px;transform:translateX(105%);transition:.4s;border-left:1px solid var(--line);z-index:70}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:1.1rem}
+  .burger{display:flex;z-index:75}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  section{padding:64px 0}
+  .hero-stats{gap:26px}
+  .form-row{grid-template-columns:1fr}
+  .menu-head{flex-direction:column;align-items:flex-start}
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><span class="mark">ل</span>Lazeez<em>Hyderabad</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reserve">Reservation</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#menu" class="btn btn-gold" style="color:#1a1206">Order Now</a></li>
+    </ul>
+    <div style="display:flex;gap:14px;align-items:center">
+      <button class="cart-btn" id="cartOpen" aria-label="Open cart">🛒<span class="cart-count" id="cartCount">0</span></button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <span class="hero-badge">★ Rated 4.9 by Hyderabadis · Order on WhatsApp</span>
+    <h1>Authentic Hyderabadi &amp; <span>Sindhi Cuisine</span>,<br>Crafted Since 1998.</h1>
+    <p class="lead">Slow-cooked dum biryani, charcoal-grilled BBQ and time-honoured family recipes — with quick, hassle-free ordering straight through WhatsApp.</p>
+<div class="hero-stats">
+      <div class="stat"><div class="num" data-target="27">0</div><div class="lbl">Years of flavour</div></div>
+      <div class="stat"><div class="num" data-target="40" data-suffix="+">0</div><div class="lbl">Dishes on menu</div></div>
+      <div class="stat"><div class="num" data-target="120" data-suffix="K+">0</div><div class="lbl">Orders delivered</div></div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint">⌄</a>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee"><div class="marquee-track" id="marqueeTrack">
+  <span>DUM BIRYANI ★ CHARCOAL BBQ ★ HALEEM ★ SINDHI SAI BHAJI ★ KHEER ★ FREE DELIVERY IN HYDERABAD ★ ORDER ON WHATSAPP ★ DUM BIRYANI ★ CHARCOAL BBQ ★ HALEEM ★ SINDHI SAI BHAJI ★ KHEER ★ FREE DELIVERY IN HYDERABAD ★ ORDER ON WHATSAPP ★&nbsp;</span>
+</div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-imgs reveal">
+      <img src="https://kimi-web-img.kimi.ai/img/www.jaquar.com/5690e5f7f6735692592be777e5707dfcd978a93c.jpg" alt="Warm dining hall of Lazeez Hyderabad" class="main">
+      <img src="https://kimi-web-img.kimi.ai/img/www.thedeliciouscrescent.com/2e5d0162888438d6da093bf14d0b5efda73b6e1f.jpg" alt="Hyderabadi dum biryani" class="float">
+    </div>
+    <div class="about-txt reveal d1">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="sec-title">Three generations,<br>one degchi.</h2>
+      <p class="sec-sub">What started as a small dhaba near the old bus stand in 1998 is today one of Hyderabad's most loved family restaurants. No apps, no sign-ups — just add to cart, send your order on WhatsApp, and hot food reaches your doorstep.</p>
+      <div class="check"><div class="ic">🔥</div><div><h4>Charcoal-fired BBQ</h4><p>Seekh kebabs grilled fresh on open angithi, the Hyderabadi way.</p></div></div>
+      <div class="check"><div class="ic">🛵</div><div><h4>Fast local delivery</h4><p>Free delivery within Hyderabad on orders above Rs 1,000.</p></div></div>
+      <div class="check"><div class="ic">💬</div><div><h4>Order on WhatsApp</h4><p>No account needed. Your order goes straight to our kitchen's WhatsApp.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-head reveal">
+      <div>
+        <span class="eyebrow">Our Menu</span>
+        <h2 class="sec-title">Made fresh, served hot</h2>
+        <p class="sec-sub">Add dishes to your cart, enter your address, review your receipt, and send the order on WhatsApp.</p>
+      </div>
+      <div>
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-cat="all">All</button>
+          <button class="filter-btn" data-cat="biryani">Biryani</button>
+          <button class="filter-btn" data-cat="bbq">BBQ</button>
+          <button class="filter-btn" data-cat="sindhi">Sindhi Specials</button>
+          <button class="filter-btn" data-cat="dessert">Desserts</button>
+        </div>
+        <div class="field" style="margin:14px 0 0;max-width:260px">
+          <input type="text" id="menuSearch" placeholder="🔍 Search dishes..." style="border-radius:50px">
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <article class="dish reveal" data-cat="biryani" data-name="hyderabadi dum biryani chicken">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.thedeliciouscrescent.com/2e5d0162888438d6da093bf14d0b5efda73b6e1f.jpg" alt="Hyderabadi Dum Biryani"><span class="tag">Bestseller</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Hyderabadi Dum Biryani</h3><span class="price">Rs 450</span></div>
+          <p>Chicken layered with saffron basmati, sealed and slow-steamed. Served with raita & salad.</p>
+          <button class="add-btn" data-id="b1" data-name="Hyderabadi Dum Biryani" data-price="450">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal d1" data-cat="biryani" data-name="beef biryani">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.thedeliciouscrescent.com/2e5d0162888438d6da093bf14d0b5efda73b6e1f.jpg" alt="Beef Biryani"><span class="tag">Spicy</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Beef Biryani</h3><span class="price">Rs 550</span></div>
+          <p>Tender beef masala folded through fragrant rice, topped with crispy fried onion.</p>
+          <button class="add-btn" data-id="b2" data-name="Beef Biryani" data-price="550">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal d2" data-cat="sindhi" data-name="chicken karahi">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/stewwithsaba.com/0551a7d151a3dc1844b59b38ebc67fb5733d36bc.jpg" alt="Chicken Karahi"><span class="tag">Chef's Pick</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Chicken Karahi (Half)</h3><span class="price">Rs 950</span></div>
+          <p>Wok-tossed in desi ghee with fresh tomatoes, green chillies & julienned ginger.</p>
+          <button class="add-btn" data-id="k1" data-name="Chicken Karahi (Half)" data-price="950">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-cat="bbq" data-name="seekh kebab">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.seriouseats.com/68dfc7a75fcb78def77ded862f36807fbf216ed3.jpg" alt="Seekh Kebab"><span class="tag">Charcoal</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Seekh Kebab (4 pcs)</h3><span class="price">Rs 380</span></div>
+          <p>Hand-minced beef kebabs, flame-grilled over charcoal, served with mint chutney.</p>
+          <button class="add-btn" data-id="q1" data-name="Seekh Kebab (4 pcs)" data-price="380">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal d1" data-cat="sindhi" data-name="haleem">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/saffronalley.com/17b3f7b07788ac35182d1a7ecc4154056cb51ec1.jpg" alt="Haleem"><span class="tag">Weekend Special</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Hyderabadi Haleem</h3><span class="price">Rs 320</span></div>
+          <p>Hours-simmered wheat, lentils & shredded beef, finished with fried onion, lemon & ginger.</p>
+          <button class="add-btn" data-id="h1" data-name="Hyderabadi Haleem" data-price="320">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal d2" data-cat="sindhi" data-name="sindhi sai bhaji">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.eatingwell.com/3990d7e91806697cb4d3d0c5598c79533bbd1dfd.jpg" alt="Sindhi Sai Bhaji"><span class="tag">Sindhi Classic</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Sindhi Sai Bhaji</h3><span class="price">Rs 260</span></div>
+          <p>Slow-cooked spinach, dill & chana dal — the comfort food of every Sindhi home.</p>
+          <button class="add-btn" data-id="s1" data-name="Sindhi Sai Bhaji" data-price="260">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal" data-cat="dessert" data-name="matka kheer">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.cookwithmanali.com/faa92be6bf95a1043318117b6f47bc596c0dea72.jpg" alt="Matka Kheer"><span class="tag">Homemade</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Matka Kheer</h3><span class="price">Rs 180</span></div>
+          <p>Creamy rice pudding set in clay pots, topped with almonds & pistachios.</p>
+          <button class="add-btn" data-id="d1" data-name="Matka Kheer" data-price="180">Add to Order</button>
+        </div>
+      </article>
+
+      <article class="dish reveal d1" data-cat="dessert" data-name="rabri">
+        <div class="dish-img"><img src="https://kimi-web-img.kimi.ai/img/www.indianhealthyrecipes.com/71031f90bfa369a515bac7708a9ee45a7be1de61.jpg" alt="Kesar Rabri"><span class="tag">Chilled</span></div>
+        <div class="dish-body">
+          <div class="dish-top"><h3>Kesar Rabri</h3><span class="price">Rs 220</span></div>
+          <p>Thickened milk reduced for hours with saffron & cardamom. Served chilled.</p>
+          <button class="add-btn" data-id="d2" data-name="Kesar Rabri" data-price="220">Add to Order</button>
+        </div>
+      </article>
+
+      <div class="no-results" id="noResults">😕 No dishes match your search. Try another craving!</div>
+    </div>
+
+    <div class="order-steps reveal">
+      <span class="os"><b>1</b> Add to cart</span>→
+      <span class="os"><b>2</b> Enter address</span>→
+      <span class="os"><b>3</b> Review receipt</span>→
+      <span class="os"><b>4</b> Send on WhatsApp ✅</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reserve">
+  <div class="container res-grid">
+    <div class="reveal">
+      <span class="eyebrow">Reservations</span>
+      <h2 class="sec-title">Book your table</h2>
+      <p class="sec-sub" style="margin-bottom:22px">Weekend nights fill up fast — reserve ahead and we'll keep the degchi warm for you.</p>
+      <ul class="res-info">
+        <li><div class="ic">📍</div><div><h4>Main Qasimabad Road, Hyderabad</h4><p>Near Tayyab Masjid stop, opposite City Square.</p></div></li>
+        <li><div class="ic">🕒</div><div><h4>Open daily</h4><p>1:00 PM – 12:00 AM · Friday 2:30 PM – 1:00 AM</p></div></li>
+        <li><div class="ic">📞</div><div><h4>Call or WhatsApp</h4><p>0310 3694160</p></div></li>
+      </ul>
+    </div>
+    <div class="res-card reveal d1">
+      <form id="resForm" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="rName">Full name</label><input id="rName" type="text" placeholder="e.g. Ahmed Khan"><div class="err-msg">Please enter your name.</div></div>
+          <div class="field"><label for="rPhone">Mobile number</label><input id="rPhone" type="tel" placeholder="03XXXXXXXXX"><div class="err-msg">Enter a valid 11-digit number (03...).</div></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="rDate">Date</label><input id="rDate" type="date"><div class="err-msg">Pick a date (today or later).</div></div>
+          <div class="field"><label for="rTime">Time</label>
+            <select id="rTime"><option value="">Select time</option><option>1:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option><option>8:00 PM</option><option>9:00 PM</option><option>10:00 PM</option></select>
+            <div class="err-msg">Select a time.</div></div>
+        </div>
+        <div class="field"><label for="rGuests">Guests</label>
+          <select id="rGuests"><option value="">How many?</option><option>1–2 people</option><option>3–4 people</option><option>5–6 people</option><option>7–10 people</option><option>10+ (family hall)</option></select>
+          <div class="err-msg">Select party size.</div></div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px">Confirm Reservation ✦</button>
+      </form>
+      <div class="res-success" id="resSuccess">
+        <div class="big-ic">✓</div>
+        <h3>Shukriya, <span id="resName"></span>!</h3>
+        <p>Your table for <b id="resGuests" style="color:var(--gold)"></b> is reserved on <b id="resWhen" style="color:var(--gold)"></b>.<br>We'll SMS a confirmation to <b id="resPhone" style="color:var(--gold)"></b>.</p>
+        <div class="res-code" id="resCode"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container center">
+    <span class="eyebrow">Word of Mouth</span>
+    <h2 class="sec-title">Hyderabad says it best</h2>
+    <div class="tst-wrap reveal">
+      <button class="tst-arrow prev" id="tstPrev" aria-label="Previous">‹</button>
+      <div class="tst-viewport"><div class="tst-track" id="tstTrack">
+        <div class="tst"><span class="quote-mark">"</span><p>The dum biryani here tastes exactly like the one from my nani's kitchen in Hirabad. I drive in from Latifabad every Friday.</p><div class="stars">★★★★★</div><div class="who">Bilal Sheikh</div><div class="where">Latifabad, Hyderabad</div></div>
+        <div class="tst"><span class="quote-mark">"</span><p>Ordered seekh kebabs for a family dawat of 40 people. Hot, fresh, and the WhatsApp ordering took literally one minute.</p><div class="stars">★★★★★</div><div class="who">Ayesha Soomro</div><div class="where">Qasimabad, Hyderabad</div></div>
+        <div class="tst"><span class="quote-mark">"</span><p>Best haleem in the city after the Sarafa Bazaar stalls close. Their weekend haleem sells out by 9 PM — get there early!</p><div class="stars">★★★★★</div><div class="who">Fahad Abro</div><div class="where">Hirabad, Hyderabad</div></div>
+        <div class="tst"><span class="quote-mark">"</span><p>Clean family hall, quick service, and the karahi comes still sizzling. My go-to spot whenever relatives visit from Karachi.</p><div class="stars">★★★★★</div><div class="who">Dr. Sana Memon</div><div class="where">Auto Bahn Road, Hyderabad</div></div>
+      </div></div>
+      <button class="tst-arrow next" id="tstNext" aria-label="Next">›</button>
+      <div class="tst-nav" id="tstDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="demo-banner">✦ This is a <b>portfolio demo</b> built for a fictional restaurant — <b>Lazeez Hyderabad</b> · Orders route to WhatsApp <b>+92 310 3694160</b> ✦</div>
+  <div class="container" style="margin-top:44px">
+    <div class="foot-grid">
+      <div>
+        <a href="#home" class="logo" style="margin-bottom:16px"><span class="mark">ل</span>Lazeez<em>Hyderabad</em></a>
+        <p style="margin-top:12px">Authentic Sindhi & Hyderabadi cuisine in the heart of Hyderabad, Sindh. Dum, degh, aur dosti — since 1998.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reservations</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h4>Hours</h4><div class="hours-row"><span>Mon – Thu</span><span>1 PM – 12 AM</span></div><div class="hours-row"><span>Friday</span><span>2:30 PM – 1 AM</span></div><div class="hours-row"><span>Sat – Sun</span><span>1 PM – 1 AM</span></div></div>
+      <div><h4>Find Us</h4><ul><li>📍 Main Qasimabad Road, Hyderabad, Sindh</li><li>📞 0310 3694160</li><li>💬 WhatsApp orders: +92 310 3694160</li><li>✉️ salam@lazeezhyd.pk</li></ul></div>
+    </div>
+    <div class="copy">© 2026 Lazeez Hyderabad — Demo concept website crafted with ♥ for portfolio purposes.</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="wa-fab" href="https://wa.me/923103694160?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order%20%F0%9F%8D%9B" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- CART / CHECKOUT DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Order cart">
+  <div class="drawer-head">
+    <div>
+      <h3 id="drawerTitle">Your Order 🛍️</h3>
+      <div class="step-sub" id="drawerStep">Step 1 of 3 · Cart</div>
+    </div>
+    <button class="close-x" id="cartClose" aria-label="Close">×</button>
+  </div>
+
+  <div class="drawer-body">
+
+    <!-- VIEW 1 : CART -->
+    <div class="drawer-view active" id="viewCart">
+      <div class="cart-scroll" id="cartItems"></div>
+      <div class="drawer-foot">
+        <div class="total-row"><span>Subtotal <span class="free-tag">FREE DELIVERY OVER Rs 1000</span></span><span id="cartTotal">Rs 0</span></div>
+        <button class="btn btn-gold wide-btn" id="checkoutBtn" disabled>Proceed to Checkout →</button>
+      </div>
+    </div>
+
+    <!-- VIEW 2 : ADDRESS / DETAILS -->
+    <div class="drawer-view" id="viewDetails">
+      <div class="view-pad">
+        <form id="orderForm" novalidate>
+          <div class="field"><label for="oName">Your name *</label><input id="oName" type="text" placeholder="e.g. Ahmed Khan"><div class="err-msg">Please enter your name.</div></div>
+          <div class="field"><label for="oPhone">Mobile number (WhatsApp) *</label><input id="oPhone" type="tel" placeholder="03XXXXXXXXX"><div class="err-msg">Enter a valid 11-digit number (03...).</div></div>
+          <div class="field"><label for="oAddress">Complete delivery address *</label><textarea id="oAddress" rows="3" placeholder="House / flat no., street, area, landmark — e.g. House 45, Street 3, Citizen Colony, Qasimabad, near Tayyab Masjid"></textarea><div class="err-msg">Please enter your full delivery address.</div></div>
+          <div class="field" style="margin-bottom:0"><label for="oNote">Special instructions (optional)</label><textarea id="oNote" rows="2" placeholder="e.g. Less spicy, no onions, call on arrival, extra raita..."></textarea></div>
+        </form>
+      </div>
+      <div class="drawer-foot">
+        <button class="btn btn-gold wide-btn" id="reviewBtn">Review Order 🧾</button>
+        <button class="back-link" id="backToCart">← Back to cart</button>
+      </div>
+    </div>
+
+    <!-- VIEW 3 : RECEIPT -->
+    <div class="drawer-view" id="viewReceipt">
+      <div class="receipt-scroll" id="receiptBox"></div>
+      <div class="drawer-foot" id="receiptFoot">
+        <button class="btn btn-wa wide-btn" id="waSendBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Confirm
+        </button>
+        <button class="back-link" id="backToDetails">← Edit address / note</button>
+      </div>
+    </div>
+
+    <!-- VIEW 4 : SENT -->
+    <div class="drawer-view" id="viewSent">
+      <div class="view-pad" style="text-align:center;padding-top:70px">
+        <div class="big-ic" style="width:80px;height:80px;margin:0 auto 20px;border-radius:50%;background:rgba(37,211,102,.15);display:grid;place-items:center">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h3 style="font-size:1.4rem;margin-bottom:10px">Order drafted in WhatsApp!</h3>
+        <p style="color:var(--muted);font-size:.9rem;max-width:290px;margin:0 auto">Press <b style="color:#25D366">SEND</b> in the WhatsApp chat to confirm your order with the kitchen.<br><br>Order <b id="sentOrderNo" style="color:var(--gold)"></b> · Pay cash on delivery 🛵</p>
+        <button class="btn btn-ghost" id="newOrderBtn" style="margin-top:28px">Start a New Order</button>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<div class="toast" id="toast"><span class="t-ic">✦</span><span id="toastMsg"></span></div>
+
+<script>
+/* ================= CONFIG ================= */
+const WHATSAPP_NUMBER = '923103694160'; // +92 310 3694160
+const FREE_DELIVERY_OVER = 1000;
+const DELIVERY_FEE = 100;
+
+/* ================= NAV ================= */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open'); navLinks.classList.remove('open');
+}));
+
+const sections = ['home','about','menu','reserve','reviews'];
+const linkMap = {};
+navLinks.querySelectorAll('a[href^="#"]').forEach(a => linkMap[a.getAttribute('href').slice(1)] = a);
+window.addEventListener('scroll', () => {
+  let cur = 'home';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 140) cur = id;
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+  if (linkMap[cur]) linkMap[cur].classList.add('active');
+});
+
+/* ================= SAME-TAB SMOOTH SCROLL ================= */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id && id.length > 1) {
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
+  });
+});
+
+/* ================= REVEAL & COUNTERS ================= */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    io.unobserve(e.target);
+  });
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target, suffix = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1600;
+    (function tick(t){
+      const p = Math.min((t - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    counterIO.unobserve(el);
+  });
+}, { threshold: .6 });
+document.querySelectorAll('.num[data-target]').forEach(el => counterIO.observe(el));
+
+/* ================= MENU FILTER + SEARCH ================= */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const dishes = document.querySelectorAll('.dish');
+const searchInput = document.getElementById('menuSearch');
+const noResults = document.getElementById('noResults');
+let activeCat = 'all';
+
+function applyMenuFilter(){
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  dishes.forEach(d => {
+    const ok = (activeCat === 'all' || d.dataset.cat === activeCat) &&
+               (!q || d.dataset.name.includes(q));
+    d.classList.toggle('hide', !ok);
+    if (ok) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+filterBtns.forEach(b => b.addEventListener('click', () => {
+  filterBtns.forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  activeCat = b.dataset.cat;
+  applyMenuFilter();
+}));
+searchInput.addEventListener('input', applyMenuFilter);
+
+/* ================= CART ================= */
+const cart = {};
+let orderMeta = { name:'', phone:'', address:'', note:'' };
+let orderNo = '';
+
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+const cartItemsEl = document.getElementById('cartItems');
+const cartTotalEl = document.getElementById('cartTotal');
+const cartCountEl = document.getElementById('cartCount');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const dishImgs = {};
+
+document.querySelectorAll('.add-btn').forEach(btn => {
+  const card = btn.closest('.dish');
+  const imgEl = card.querySelector('.dish-img img');
+  dishImgs[btn.dataset.id] = imgEl ? imgEl.src : '';
+  btn.addEventListener('click', () => {
+    const { id, name, price } = btn.dataset;
+    if (!cart[id]) cart[id] = { name, price: +price, qty: 0, img: dishImgs[id] };
+    cart[id].qty++;
+    renderCart();
+    showToast(name + ' added to your order');
+    bumpCartIcon();
+  });
+});
+
+function cartSubtotal(){
+  return Object.values(cart).reduce((s, i) => s + i.price * i.qty, 0);
+}
+function deliveryFee(){
+  const sub = cartSubtotal();
+  return (sub === 0 || sub >= FREE_DELIVERY_OVER) ? 0 : DELIVERY_FEE;
+}
+
+function renderCart(){
+  const items = Object.entries(cart);
+  const totalQty = items.reduce((s, [,i]) => s + i.qty, 0);
+  cartCountEl.textContent = totalQty;
+  cartCountEl.classList.toggle('show', totalQty > 0);
+
+  if (!items.length){
+    cartItemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.<br>Add some lazeez dishes from the menu! 🍛</div>';
+  } else {
+    cartItemsEl.innerHTML = items.map(([id, i]) => `
+      <div class="cart-item">
+        ${i.img ? `<img src="${i.img}" alt="">` : '<div style="width:58px;height:58px;border-radius:12px;background:#332c22;display:grid;place-items:center;font-size:1.4rem">🍲</div>'}
+        <div class="ci-info"><h4>${i.name}</h4><span>Rs ${i.price} × ${i.qty} = Rs ${i.price * i.qty}</span></div>
+        <div class="qty">
+          <button onclick="changeQty('${id}',-1)">−</button><span class="q">${i.qty}</span><button onclick="changeQty('${id}',1)">+</button>
+        </div>
+        <button class="ci-del" onclick="removeItem('${id}')" aria-label="Remove">🗑</button>
+      </div>`).join('');
+  }
+  cartTotalEl.textContent = 'Rs ' + cartSubtotal();
+  checkoutBtn.disabled = !items.length;
+}
+window.changeQty = (id, d) => {
+  cart[id].qty += d;
+  if (cart[id].qty <= 0) delete cart[id];
+  renderCart();
+};
+window.removeItem = id => { delete cart[id]; renderCart(); };
+
+/* ---- drawer views ---- */
+const views = {
+  cart:     { el: document.getElementById('viewCart'),     title: 'Your Order 🛍️',        step: 'Step 1 of 3 · Cart' },
+  details:  { el: document.getElementById('viewDetails'),  title: 'Delivery Details 📍',  step: 'Step 2 of 3 · Address' },
+  receipt:  { el: document.getElementById('viewReceipt'),  title: 'Your Receipt 🧾',      step: 'Step 3 of 3 · Confirm' },
+  sent:     { el: document.getElementById('viewSent'),     title: 'Order Sent ✅',        step: 'Done · Check WhatsApp' }
+};
+function showView(name){
+  Object.values(views).forEach(v => v.el.classList.remove('active'));
+  views[name].el.classList.add('active');
+  document.getElementById('drawerTitle').textContent = views[name].title;
+  document.getElementById('drawerStep').textContent = views[name].step;
+}
+function openCart(){ showView('cart'); drawer.classList.add('open'); overlay.classList.add('show'); }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
+document.getElementById('cartOpen').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+function bumpCartIcon(){
+  const b = document.getElementById('cartOpen');
+  b.style.transform = 'scale(1.15)';
+  setTimeout(() => b.style.transform = '', 180);
+}
+
+/* ---- step 1 → 2 ---- */
+checkoutBtn.addEventListener('click', () => {
+  if (!Object.keys(cart).length) return;
+  showView('details');
+});
+document.getElementById('backToCart').addEventListener('click', () => showView('cart'));
+
+/* ---- step 2 → 3 (validate address form) ---- */
+function setErr(input, bad){ input.closest('.field').classList.toggle('error', bad); return !bad; }
+document.getElementById('reviewBtn').addEventListener('click', () => {
+  const name = document.getElementById('oName');
+  const phone = document.getElementById('oPhone');
+  const address = document.getElementById('oAddress');
+  const note = document.getElementById('oNote');
+  let ok = true;
+  ok = setErr(name, !name.value.trim()) && ok;
+  ok = setErr(phone, !/^03\d{9}$/.test(phone.value.trim())) && ok;
+  ok = setErr(address, address.value.trim().length < 10) && ok;
+  if (!ok){ showToast('Please fill the required fields correctly'); return; }
+
+  orderMeta = { name: name.value.trim(), phone: phone.value.trim(), address: address.value.trim(), note: note.value.trim() };
+  orderNo = 'LH-' + Math.floor(1000 + Math.random() * 9000);
+  renderReceipt();
+  showView('receipt');
+});
+document.getElementById('backToDetails').addEventListener('click', () => showView('details'));
+['oName','oPhone','oAddress','oNote'].forEach(id =>
+  document.getElementById(id).addEventListener('input', e => e.target.closest('.field').classList.remove('error')));
+
+/* ---- receipt render ---- */
+function renderReceipt(){
+  const items = Object.values(cart);
+  const sub = cartSubtotal();
+  const fee = deliveryFee();
+  const total = sub + fee;
+  const now = new Date();
+  const when = now.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' }) + ', ' +
+               now.toLocaleTimeString('en-GB', { hour:'numeric', minute:'2-digit' });
+
+  const rows = items.map(i => `
+    <div class="r-row"><span class="r-name">${i.qty} × ${i.name}</span><span class="r-amt">Rs ${i.price * i.qty}</span></div>
+    <div class="r-row r-dim"><span>@ Rs ${i.price} each</span><span></span></div>`).join('');
+
+  document.getElementById('receiptBox').innerHTML = `
+    <div class="receipt">
+      <h4>LAZEEZ HYDERABAD</h4>
+      <div class="r-sub">Main Qasimabad Road, Hyderabad, Sindh<br>0310 3694160 · Cash on Delivery</div>
+      <div class="r-meta"><span>Order #: ${orderNo}</span><span>${when}</span></div>
+      <hr>
+      ${rows}
+      <hr>
+      <div class="r-row"><span>Subtotal</span><span class="r-amt">Rs ${sub}</span></div>
+      <div class="r-row"><span>Delivery ${fee === 0 ? '(FREE — order over Rs ' + FREE_DELIVERY_OVER + ')' : '(Hyderabad)'}</span><span class="r-amt">${fee === 0 ? 'FREE' : 'Rs ' + fee}</span></div>
+      <div class="r-tot grand"><span>TOTAL</span><span>Rs ${total}</span></div>
+      <hr>
+      <div class="r-label">Customer</div>
+      <div class="r-val"><b>${escapeHtml(orderMeta.name)}</b> · ${orderMeta.phone}</div>
+      <div class="r-label">Deliver to</div>
+      <div class="r-val">${escapeHtml(orderMeta.address)}</div>
+      ${orderMeta.note ? `<div class="r-label">Note for kitchen</div><div class="r-val">${escapeHtml(orderMeta.note)}</div>` : ''}
+      <hr>
+      <div class="r-thanks">Shukriya! Review & confirm on WhatsApp 👇</div>
+    </div>`;
+}
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ---- step 3 → WhatsApp ---- */
+function buildWhatsAppMessage(){
+  const items = Object.values(cart);
+  const sub = cartSubtotal();
+  const fee = deliveryFee();
+  const total = sub + fee;
+  const L = [];
+  L.push('*NEW ORDER — Lazeez Hyderabad* 🍛');
+  L.push('Order #: ' + orderNo);
+  L.push('==============================');
+  items.forEach(i => L.push(`${i.qty} x ${i.name} — Rs ${i.price * i.qty}`));
+  L.push('==============================');
+  L.push(`Subtotal: Rs ${sub}`);
+  L.push(`Delivery: ${fee === 0 ? 'FREE' : 'Rs ' + fee}`);
+  L.push(`*TOTAL: Rs ${total}*`);
+  L.push('==============================');
+  L.push(`Name: ${orderMeta.name}`);
+  L.push(`Phone: ${orderMeta.phone}`);
+  L.push(`Address: ${orderMeta.address}`);
+  if (orderMeta.note) L.push(`Note: ${orderMeta.note}`);
+  return L.join('\n');
+}
+
+document.getElementById('waSendBtn').addEventListener('click', () => {
+  if (!Object.keys(cart).length) return;
+  const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(buildWhatsAppMessage());
+  window.open(url, '_blank');
+  document.getElementById('sentOrderNo').textContent = '#' + orderNo;
+  showView('sent');
+  Object.keys(cart).forEach(k => delete cart[k]);
+  renderCart();
+});
+
+document.getElementById('newOrderBtn').addEventListener('click', () => { closeCart(); });
+
+/* ================= TOAST ================= */
+const toast = document.getElementById('toast');
+let toastTimer;
+function showToast(msg){
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+/* ================= RESERVATION ================= */
+const resForm = document.getElementById('resForm');
+const rDate = document.getElementById('rDate');
+rDate.min = new Date().toISOString().split('T')[0];
+resForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('rName');
+  const phone = document.getElementById('rPhone');
+  const time = document.getElementById('rTime');
+  const guests = document.getElementById('rGuests');
+  let ok = true;
+  ok = setErr(name, !name.value.trim()) && ok;
+  ok = setErr(phone, !/^03\d{9}$/.test(phone.value.trim())) && ok;
+  ok = setErr(rDate, !rDate.value || rDate.value < rDate.min) && ok;
+  ok = setErr(time, !time.value) && ok;
+  ok = setErr(guests, !guests.value) && ok;
+  if (!ok) return;
+  document.getElementById('resName').textContent = name.value.trim().split(' ')[0];
+  document.getElementById('resGuests').textContent = guests.value;
+  document.getElementById('resPhone').textContent = phone.value.trim();
+  const d = new Date(rDate.value + 'T00:00');
+  document.getElementById('resWhen').textContent =
+    d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' }) + ' at ' + time.value;
+  document.getElementById('resCode').textContent = 'BOOKING #' + Math.floor(10000 + Math.random() * 90000);
+  resForm.style.display = 'none';
+  document.getElementById('resSuccess').style.display = 'block';
+  showToast('Reservation confirmed! See you soon 🎉');
+});
+['rName','rPhone','rDate','rTime','rGuests'].forEach(id =>
+  document.getElementById(id).addEventListener('input', e => e.target.closest('.field').classList.remove('error')));
+
+/* ================= TESTIMONIAL CAROUSEL ================= */
+const track = document.getElementById('tstTrack');
+const slides = track.children.length;
+const dotsEl = document.getElementById('tstDots');
+let idx = 0, autoT;
+for (let i = 0; i < slides; i++){
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', 'Go to review ' + (i + 1));
+  d.addEventListener('click', () => goTo(i));
+  dotsEl.appendChild(d);
+}
+function goTo(i){
+  idx = (i + slides) % slides;
+  track.style.transform = 'translateX(-' + idx * 100 + '%)';
+  dotsEl.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === idx));
+  restartAuto();
+}
+function restartAuto(){ clearInterval(autoT); autoT = setInterval(() => goTo(idx + 1), 5000); }
+document.getElementById('tstPrev').addEventListener('click', () => goTo(idx - 1));
+document.getElementById('tstNext').addEventListener('click', () => goTo(idx + 1));
+restartAuto();
+
+/* ================= MARQUEE ================= */
+const mt = document.getElementById('marqueeTrack');
+mt.innerHTML += mt.innerHTML;
+
+renderCart();
+</script>
+</body>
+</html>
