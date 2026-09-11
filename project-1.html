@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sindh & Spice | Authentic Cuisine in Hyderabad, PK</title>
-    <!-- Tailwind CSS for Styling -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .hero-bg {
@@ -19,7 +19,7 @@
 <body class="bg-amber-50 text-gray-800 font-sans">
 
     <!-- Header / Navbar -->
-    <nav class="bg-emerald-900 text-amber-100 sticky top-0 z-50 shadow-md">
+    <nav class="bg-emerald-900 text-amber-100 sticky top-0 z-40 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fa-solid font-bold text-amber-400 text-2xl fa-utensils"></i>
@@ -36,18 +36,18 @@
             <!-- Cart Button -->
             <button id="cartBtn" class="relative bg-amber-500 hover:bg-amber-400 text-emerald-950 px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span>Order Cart</span>
+                <span>Cart</span>
                 <span id="cartCount" class="bg-emerald-900 text-amber-100 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-bg h-[70vh] flex flex-col items-center justify-center text-center text-white px-4">
+    <section id="hero" class="hero-bg h-[60vh] flex flex-col items-center justify-center text-center text-white px-4">
         <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-400">The Taste of Hyderabad</h1>
-        <p class="text-lg md:text-xl max-w-2xl text-gray-200 mb-8">Serving the rich heritage of Sindhi flavors, authentic Hyderabadi Biryani, and traditional Karahi right in the heart of Auto Bhan Road.</p>
+        <p class="text-lg md:text-xl max-w-2xl text-gray-200 mb-8">Serving authentic Sindhi flavors, Hyderabadi Biryani, and Karahi right to your doorstep across Hyderabad.</p>
         <div class="flex gap-4">
-            <a href="#menu" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 px-6 py-3 rounded-lg font-bold text-lg transition">Explore Menu</a>
+            <a href="#menu" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 px-6 py-3 rounded-lg font-bold text-lg transition">Order Online</a>
             <a href="#reserve" class="bg-emerald-700 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold text-lg transition">Reserve Table</a>
         </div>
     </section>
@@ -55,8 +55,8 @@
     <!-- Menu Section -->
     <section id="menu" class="max-w-7xl mx-auto px-4 py-16">
         <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-emerald-900">Our Signature Dishes</h2>
-            <p class="text-gray-600">Freshly prepared with authentic recipes and local spices.</p>
+            <h2 class="text-3xl font-bold text-emerald-900">Our Signature Menu</h2>
+            <p class="text-gray-600">Select your items and order straight via WhatsApp.</p>
             
             <!-- Category Filters -->
             <div class="flex justify-center gap-3 mt-6 flex-wrap">
@@ -69,21 +69,21 @@
 
         <!-- Food Grid -->
         <div id="foodGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards will be injected by JavaScript dynamically -->
+            <!-- Items injected by JS -->
         </div>
     </section>
 
-    <!-- Reservation Section -->
+    <!-- Table Reservation Section -->
     <section id="reserve" class="bg-emerald-900 text-white py-16 px-4">
         <div class="max-w-3xl mx-auto bg-emerald-950 p-8 rounded-2xl shadow-xl border border-emerald-800">
             <h2 class="text-3xl font-bold text-center text-amber-400 mb-2">Book a Table</h2>
-            <p class="text-center text-gray-300 mb-8">Planning a family dinner or event in Hyderabad? Reserve your spot now!</p>
+            <p class="text-center text-gray-300 mb-8">Planning a family dinner in Hyderabad? Reserve your table in advance!</p>
             
             <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-1">Full Name</label>
-                        <input type="text" required placeholder="e.g., Ali Khan" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                        <input type="text" required placeholder="e.g., Bilal Ahmed" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Phone Number</label>
@@ -117,31 +117,114 @@
                 <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3 rounded-lg mt-4 transition">Confirm Reservation</button>
             </form>
             <div id="bookingSuccess" class="hidden mt-4 p-4 bg-emerald-800 text-amber-300 rounded-lg text-center font-semibold">
-                🎉 Reservation Received! Our Hyderabad branch will call you shortly to confirm.
+                🎉 Table reservation request received! Our staff will call you to confirm.
             </div>
         </div>
     </section>
 
-    <!-- Side Cart Drawer Modal -->
-    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
-        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+    <!-- Side Cart / Checkout Drawer -->
+    <div id="cartModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
             <div>
                 <div class="flex justify-between items-center border-b pb-4">
-                    <h3 class="text-xl font-bold text-emerald-900">Your Takeaway Order</h3>
-                    <button id="closeCart" class="text-gray-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                    <h3 class="text-xl font-bold text-emerald-900" id="drawerTitle">Your Food Basket</h3>
+                    <button id="closeCart" class="text-gray-500 hover:text-red-500 text-2xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div id="cartItems" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
-                    <!-- Cart Items go here -->
-                    <p class="text-gray-500 text-center py-8">Your cart is currently empty.</p>
+
+                <!-- STEP 1: CART ITEMS -->
+                <div id="cartStep1">
+                    <div id="cartItems" class="py-4 space-y-4 max-h-[50vh] overflow-y-auto">
+                        <!-- Dynamic items -->
+                    </div>
+                </div>
+
+                <!-- STEP 2: ADDRESS & INSTRUCTIONS FORM -->
+                <div id="cartStep2" class="hidden py-4 space-y-4">
+                    <button onclick="goToStep(1)" class="text-sm text-emerald-800 font-semibold mb-2 flex items-center gap-1 hover:underline">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Basket
+                    </button>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Customer Name *</label>
+                        <input type="text" id="custName" placeholder="Enter your full name" class="w-full p-3 border rounded-lg focus:outline-none focus:border-emerald-800">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Delivery Address (Hyderabad) *</label>
+                        <textarea id="custAddress" rows="3" placeholder="House/Flat #, Area (e.g. Qasimabad, Latifabad Unit 6, Auto Bhan Road)" class="w-full p-3 border rounded-lg focus:outline-none focus:border-emerald-800"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Special Instructions / Notes (Optional)</label>
+                        <input type="text" id="custNotes" placeholder="e.g., Extra spicy, no cutlery needed" class="w-full p-3 border rounded-lg focus:outline-none focus:border-emerald-800">
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t pt-4">
+            <!-- Drawer Footer Actions -->
+            <div class="border-t pt-4 bg-white">
                 <div class="flex justify-between text-lg font-bold mb-4">
                     <span>Total Amount:</span>
                     <span id="cartTotal" class="text-emerald-900">PKR 0</span>
                 </div>
-                <button onclick="checkout()" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition">Checkout Order</button>
+                
+                <button id="step1Btn" onclick="goToStep(2)" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2">
+                    <span>Proceed to Delivery Details</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <button id="step2Btn" onclick="generateReceipt()" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition hidden flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Generate Final Receipt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Receipt Modal -->
+    <div id="receiptModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-2xl p-6 shadow-2xl relative max-h-[90vh] flex flex-col justify-between">
+            <div>
+                <button onclick="closeReceiptModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                
+                <div class="text-center border-b pb-4">
+                    <div class="inline-block p-3 bg-emerald-100 rounded-full text-emerald-900 mb-2">
+                        <i class="fa-solid fa-receipt text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-emerald-950">Order Receipt</h3>
+                    <p class="text-xs text-gray-500">Sindh & Spice - Hyderabad, PK</p>
+                </div>
+
+                <!-- Receipt Body -->
+                <div class="py-4 space-y-4 text-sm max-h-[50vh] overflow-y-auto">
+                    <!-- Customer Details Box -->
+                    <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                        <p><strong>Customer Name:</strong> <span id="recName"></span></p>
+                        <p><strong>Address:</strong> <span id="recAddress"></span></p>
+                        <p id="recNotesRow"><strong>Special Notes:</strong> <span id="recNotes"></span></p>
+                    </div>
+
+                    <!-- Items List -->
+                    <div>
+                        <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">Ordered Items</h4>
+                        <div id="recItemsList" class="space-y-2">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="border-t pt-2 flex justify-between font-bold text-base">
+                        <span>Grand Total:</span>
+                        <span id="recTotal" class="text-emerald-900"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm Order via WhatsApp -->
+            <div class="border-t pt-4">
+                <button onclick="sendToWhatsApp()" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-lg shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Confirm & Send via WhatsApp</span>
+                </button>
+                <p class="text-xs text-center text-gray-500 mt-2">Clicking will open WhatsApp with your pre-filled draft message.</p>
             </div>
         </div>
     </div>
@@ -149,14 +232,17 @@
     <!-- Footer -->
     <footer class="bg-emerald-950 text-gray-400 py-8 border-t border-emerald-900 text-center">
         <div class="max-w-7xl mx-auto px-4">
-            <p class="mb-2">📍 Auto Bhan Road, near Latifabad, Hyderabad, Sindh, Pakistan</p>
+            <p class="mb-2">📍 Auto Bhan Road, Latifabad, Hyderabad, Sindh, Pakistan</p>
             <p class="text-xs text-gray-500">Demo Project for Web Developer Portfolio | Designed for Local Hyderabad Restaurants</p>
         </div>
     </footer>
 
-    <!-- Interactive JavaScript logic -->
+    <!-- Interactive JavaScript Logic -->
     <script>
-        // Sample Restaurant Menu Data with Local Hyderabad Specialties
+        // Target WhatsApp Number
+        const WHATSAPP_PHONE = "923103694160";
+
+        // Restaurant Menu Data
         const menuItems = [
             { id: 1, name: "Hyderabadi Special Mutton Biryani", category: "biryani", price: 750, img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80", desc: "Aromatic basmati rice cooked with tender mutton & local spices." },
             { id: 2, name: "Desi Ghee Chicken Karahi", category: "karahi", price: 1400, img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80", desc: "Wok-cooked chicken topped with fresh ginger, green chilies & real desi ghee." },
@@ -166,100 +252,213 @@
             { id: 6, name: "Special Shahi Kheer", category: "desserts", price: 300, img: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=400&q=80", desc: "Traditional rice pudding garnished with almonds and pistachios." }
         ];
 
+        // Cart State: Stores items with dynamic quantity { ...item, qty }
         let cart = [];
+        let orderDetails = {};
 
-        // Render Menu Items dynamically
+        // Render Menu
         function renderMenu(items) {
             const grid = document.getElementById('foodGrid');
             grid.innerHTML = items.map(item => `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col justify-between">
                     <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover">
-                    <div class="p-5 flex flex-col justify-between h-52">
+                    <div class="p-5 flex flex-col justify-between flex-grow">
                         <div>
-                            <div class="flex justify-between items-start">
+                            <div class="flex justify-between items-start gap-2">
                                 <h3 class="font-bold text-lg text-emerald-950">${item.name}</h3>
-                                <span class="bg-amber-100 text-amber-800 font-bold px-2 py-1 text-sm rounded">PKR ${item.price}</span>
+                                <span class="bg-amber-100 text-amber-800 font-bold px-2 py-1 text-sm rounded whitespace-nowrap">PKR ${item.price}</span>
                             </div>
                             <p class="text-gray-600 text-sm mt-2">${item.desc}</p>
                         </div>
-                        <button onclick="addToCart(${item.id})" class="mt-4 w-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg transition">
-                            <i class="fa-solid fa-plus mr-2"></i>Add to Order
+                        <button onclick="addToCart(${item.id})" class="mt-4 w-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i>Add to Order
                         </button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Filter Menu Categories
         function filterMenu(category) {
             if (category === 'all') {
                 renderMenu(menuItems);
             } else {
-                const filtered = menuItems.filter(i => i.category === category);
-                renderMenu(filtered);
+                renderMenu(menuItems.filter(i => i.category === category));
             }
         }
 
-        // Cart Actions
+        // Cart Management
         function addToCart(id) {
-            const item = menuItems.find(product => product.id === id);
-            cart.push(item);
+            const existingIndex = cart.findIndex(item => item.id === id);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                const item = menuItems.find(p => p.id === id);
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
             updateCartUI();
         }
 
         function updateCartUI() {
-            document.getElementById('cartCount').innerText = cart.length;
+            const totalItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').innerText = totalItemsCount;
+
             const cartItemsDiv = document.getElementById('cartItems');
-            
+            const step1Btn = document.getElementById('step1Btn');
+
             if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is currently empty.</p>';
+                cartItemsDiv.innerHTML = '<p class="text-gray-500 text-center py-8">Your basket is currently empty.</p>';
                 document.getElementById('cartTotal').innerText = 'PKR 0';
+                step1Btn.disabled = true;
+                step1Btn.classList.add('opacity-50', 'cursor-not-allowed');
+                goToStep(1);
                 return;
             }
 
-            let total = 0;
+            step1Btn.disabled = false;
+            step1Btn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            let grandTotal = 0;
             cartItemsDiv.innerHTML = cart.map((item, index) => {
-                total += item.price;
+                const itemTotal = item.price * item.qty;
+                grandTotal += itemTotal;
                 return `
-                    <div class="flex justify-between items-center border-b pb-2">
-                        <div>
-                            <h4 class="font-semibold text-sm">${item.name}</h4>
-                            <span class="text-xs text-gray-500">PKR ${item.price}</span>
+                    <div class="flex justify-between items-center border-b pb-3">
+                        <div class="pr-2">
+                            <h4 class="font-semibold text-sm text-emerald-950">${item.name}</h4>
+                            <p class="text-xs text-gray-500">PKR ${item.price} × ${item.qty} = <span class="font-bold text-emerald-800">PKR ${itemTotal}</span></p>
                         </div>
-                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+                            <button onclick="updateQty(${index}, -1)" class="w-6 h-6 bg-white rounded shadow text-gray-700 font-bold flex items-center justify-center hover:bg-red-100 hover:text-red-600">-</button>
+                            <span class="text-sm font-bold w-4 text-center">${item.qty}</span>
+                            <button onclick="updateQty(${index}, 1)" class="w-6 h-6 bg-white rounded shadow text-gray-700 font-bold flex items-center justify-center hover:bg-emerald-100 hover:text-emerald-800">+</button>
+                        </div>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('cartTotal').innerText = `PKR ${total}`;
+            document.getElementById('cartTotal').innerText = `PKR ${grandTotal}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
+        // Drawer Step Navigation
+        function goToStep(step) {
+            const step1 = document.getElementById('cartStep1');
+            const step2 = document.getElementById('cartStep2');
+            const step1Btn = document.getElementById('step1Btn');
+            const step2Btn = document.getElementById('step2Btn');
+            const title = document.getElementById('drawerTitle');
+
+            if (step === 1) {
+                step1.classList.remove('hidden');
+                step2.classList.add('hidden');
+                step1Btn.classList.remove('hidden');
+                step2Btn.classList.add('hidden');
+                title.innerText = "Your Food Basket";
+            } else if (step === 2) {
+                if(cart.length === 0) return;
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                step1Btn.classList.add('hidden');
+                step2Btn.classList.remove('hidden');
+                title.innerText = "Delivery Details";
+            }
         }
 
-        function checkout() {
-            if(cart.length === 0) {
-                alert("Your cart is empty!");
+        // Receipt Generation
+        function generateReceipt() {
+            const name = document.getElementById('custName').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const notes = document.getElementById('custNotes').value.trim();
+
+            if (!name || !address) {
+                alert("Please fill in both your name and delivery address before proceeding.");
                 return;
             }
-            alert("Order placed successfully! In a live website, this connects to the restaurant's WhatsApp or POS terminal.");
-            cart = [];
-            updateCartUI();
+
+            let grandTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            // Store details globally for WhatsApp redirect
+            orderDetails = {
+                name,
+                address,
+                notes,
+                items: [...cart],
+                total: grandTotal
+            };
+
+            // Populate Modal UI
+            document.getElementById('recName').innerText = name;
+            document.getElementById('recAddress').innerText = address;
+            
+            const notesRow = document.getElementById('recNotesRow');
+            if (notes) {
+                notesRow.classList.remove('hidden');
+                document.getElementById('recNotes').innerText = notes;
+            } else {
+                notesRow.classList.add('hidden');
+            }
+
+            document.getElementById('recItemsList').innerHTML = cart.map(item => `
+                <div class="flex justify-between text-gray-700">
+                    <span>${item.name} <strong>(x${item.qty})</strong></span>
+                    <span>PKR ${item.price * item.qty}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('recTotal').innerText = `PKR ${grandTotal}`;
+
+            // Hide drawer, open receipt modal
             toggleCartModal();
+            document.getElementById('receiptModal').classList.remove('hidden');
         }
 
-        // Handle Reservation Submission
-        function handleBooking(event) {
-            event.preventDefault();
+        function closeReceiptModal() {
+            document.getElementById('receiptModal').classList.add('hidden');
+        }
+
+        // Redirect to WhatsApp with formatted draft message
+        function sendToWhatsApp() {
+            let message = `*NEW ORDER - SINDH & SPICE*\n`;
+            message += `---------------------------------\n`;
+            message += `*Customer:* ${orderDetails.name}\n`;
+            message += `*Delivery Address:* ${orderDetails.address}\n`;
+            if (orderDetails.notes) {
+                message += `*Special Notes:* ${orderDetails.notes}\n`;
+            }
+            message += `---------------------------------\n`;
+            message += `*ORDER ITEMS:*\n`;
+
+            orderDetails.items.forEach(item => {
+                message += `• ${item.name} x${item.qty} = PKR ${item.price * item.qty}\n`;
+            });
+
+            message += `---------------------------------\n`;
+            message += `*TOTAL AMOUNT:* PKR ${orderDetails.total}\n`;
+            message += `---------------------------------\n`;
+            message += `Please confirm my order and estimated delivery time!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
+
+            // Open WhatsApp in new tab
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Reservation Form Handler
+        function handleBooking(e) {
+            e.preventDefault();
             document.getElementById('bookingSuccess').classList.remove('hidden');
-            event.target.reset();
+            e.target.reset();
         }
 
-        // Cart Modal Control
+        // Drawer Controls
         const modal = document.getElementById('cartModal');
         document.getElementById('cartBtn').addEventListener('click', toggleCartModal);
         document.getElementById('closeCart').addEventListener('click', toggleCartModal);
@@ -268,8 +467,9 @@
             modal.classList.toggle('hidden');
         }
 
-        // Initial load
+        // Initial setup
         renderMenu(menuItems);
+        updateCartUI();
     </script>
 </body>
 </html>
