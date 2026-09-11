@@ -1,705 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lazeez Hyderabad — Authentic Sindhi Restaurant, Hyderabad PK</title>
-<meta name="description" content="Demo portfolio website for a local restaurant in Hyderabad, Sindh. Dum biryani, BBQ, Sindhi specials & more.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#141210; --bg2:#1c1915; --card:#221e18; --line:#332c22;
-  --gold:#e8a33d; --gold2:#c67f1e; --cream:#f5ead9; --muted:#a89f8f;
-  --green:#7fb069; --red:#d1604f;
-  --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.45);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,.serif{font-family:'Playfair Display',serif}
-.container{max-width:1140px;margin:0 auto;padding:0 22px}
-section{padding:90px 0}
-.eyebrow{color:var(--gold);letter-spacing:.35em;text-transform:uppercase;font-size:.75rem;font-weight:600}
-.sec-title{font-size:clamp(1.9rem,4vw,2.8rem);margin:.35rem 0 .6rem}
-.sec-sub{color:var(--muted);max-width:560px}
-.center{text-align:center}.center .sec-sub{margin:0 auto}
-
-/* ---------- NAV ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.35s;padding:18px 0}
-nav.scrolled{background:rgba(20,18,16,.92);backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700}
-.logo .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;font-size:1.2rem;color:#1a1206}
-.logo em{color:var(--gold);font-style:normal}
-.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
-.nav-links a{font-size:.9rem;color:var(--muted);font-weight:500;position:relative;transition:.25s}
-.nav-links a:hover,.nav-links a.active{color:var(--cream)}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:.3s}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;padding:12px 26px;border-radius:50px;transition:.3s}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1206;box-shadow:0 8px 22px rgba(232,163,61,.28)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(232,163,61,.4)}
-.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid var(--line)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.cart-btn{position:relative;background:var(--card);border:1px solid var(--line);color:var(--cream);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:.3s}
-.cart-btn:hover{border-color:var(--gold)}
-.cart-count{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#1a1206;font-size:.68rem;font-weight:700;min-width:20px;height:20px;border-radius:50%;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:.25s}
-.cart-count.show{transform:scale(1)}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.burger span{width:26px;height:2px;background:var(--cream);transition:.3s}
-
-/* ---------- HERO ---------- */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;background:url('hero.jpg') center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,12,10,.96) 30%,rgba(14,12,10,.75) 60%,rgba(14,12,10,.45))}
-.hero-content{position:relative;z-index:2;padding-top:60px;max-width:640px}
-.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.12;margin:18px 0}
-.hero h1 span{color:var(--gold)}
-.hero p.lead{color:var(--muted);font-size:1.05rem;max-width:480px;margin-bottom:30px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,163,61,.12);border:1px solid rgba(232,163,61,.35);color:var(--gold);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.08em}
-.hero-stats{display:flex;gap:44px;margin-top:56px;flex-wrap:wrap}
-.stat .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
-.stat .lbl{font-size:.8rem;color:var(--muted)}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.4rem;animation:bounce 1.8s infinite;z-index:2}
-@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
-
-/* ---------- MARQUEE ---------- */
-.marquee{background:var(--gold);color:#1a1206;overflow:hidden;padding:12px 0;font-weight:700;letter-spacing:.12em;font-size:.85rem}
-.marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 22s linear infinite;white-space:nowrap}
-@keyframes scroll{to{transform:translateX(-50%)}}
-
-/* ---------- ABOUT ---------- */
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.about-imgs{position:relative}
-.about-imgs .main{border-radius:var(--radius);box-shadow:var(--shadow)}
-.about-imgs .float{position:absolute;width:46%;bottom:-38px;right:-18px;border-radius:var(--radius);border:6px solid var(--bg);box-shadow:var(--shadow)}
-.about-txt .check{display:flex;gap:14px;margin-top:20px;align-items:flex-start}
-.about-txt .check .ic{width:34px;height:34px;flex:none;border-radius:9px;background:rgba(232,163,61,.14);color:var(--gold);display:grid;place-items:center;font-size:1rem}
-.about-txt .check h4{font-size:1rem;margin-bottom:2px}
-.about-txt .check p{color:var(--muted);font-size:.88rem}
-
-/* ---------- MENU ---------- */
-#menu{background:var(--bg2)}
-.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.filters{display:flex;gap:10px;flex-wrap:wrap}
-.filter-btn{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:9px 20px;border-radius:50px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:500;transition:.25s}
-.filter-btn:hover{color:var(--cream);border-color:var(--gold)}
-.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1206;font-weight:600}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:24px}
-.dish{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.35s;display:flex;flex-direction:column}
-.dish:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(232,163,61,.5)}
-.dish-img{height:175px;overflow:hidden;position:relative}
-.dish-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
-.dish:hover .dish-img img{transform:scale(1.08)}
-.dish-tile{height:175px;display:grid;place-items:center;font-size:3.4rem;background:radial-gradient(circle at 30% 25%,#3a3125,#221e18)}
-.tag{position:absolute;top:12px;left:12px;background:rgba(20,18,16,.85);color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:50px;backdrop-filter:blur(6px)}
-.dish-body{padding:18px;display:flex;flex-direction:column;flex:1}
-.dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.dish-top h3{font-size:1.12rem}
-.price{color:var(--gold);font-weight:700;white-space:nowrap}
-.dish-body p{color:var(--muted);font-size:.85rem;margin:6px 0 16px;flex:1}
-.add-btn{margin-top:auto;background:rgba(232,163,61,.12);border:1.5px solid rgba(232,163,61,.4);color:var(--gold);padding:10px;border-radius:12px;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;transition:.25s;width:100%}
-.add-btn:hover{background:var(--gold);color:#1a1206}
-.dish.hide{display:none}
-.no-results{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;display:none}
-
-/* ---------- CART DRAWER ---------- */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:.35s}
-.overlay.show{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(400px,92vw);background:var(--bg2);border-left:1px solid var(--line);z-index:90;transform:translateX(105%);transition:.4s cubic-bezier(.2,.8,.3,1);display:flex;flex-direction:column}
-.drawer.open{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:22px;border-bottom:1px solid var(--line)}
-.drawer-head h3{font-size:1.3rem}
-.close-x{background:none;border:none;color:var(--muted);font-size:1.6rem;cursor:pointer;transition:.25s;line-height:1}
-.close-x:hover{color:var(--gold);transform:rotate(90deg)}
-.cart-items{flex:1;overflow-y:auto;padding:18px 22px}
-.cart-empty{text-align:center;color:var(--muted);padding:60px 10px;font-size:.92rem}
-.cart-item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
-.cart-item img{width:58px;height:58px;border-radius:12px;object-fit:cover;flex:none}
-.cart-item .ci-info{flex:1;min-width:0}
-.cart-item .ci-info h4{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cart-item .ci-info span{color:var(--gold);font-size:.85rem;font-weight:600}
-.qty{display:flex;align-items:center;gap:10px}
-.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--cream);cursor:pointer;font-size:.95rem;transition:.2s}
-.qty button:hover{border-color:var(--gold);color:var(--gold)}
-.qty .q{min-width:16px;text-align:center;font-weight:600;font-size:.9rem}
-.ci-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;transition:.2s}
-.ci-del:hover{color:var(--red)}
-.drawer-foot{padding:22px;border-top:1px solid var(--line)}
-.total-row{display:flex;justify-content:space-between;font-weight:700;font-size:1.05rem;margin-bottom:16px}
-.total-row span:last-child{color:var(--gold)}
-.checkout-btn{width:100%;padding:14px;font-size:.95rem;justify-content:center}
-.checkout-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
-
-/* ---------- RESERVATION ---------- */
-.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.res-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{margin-bottom:16px}
-.field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:6px;font-weight:500}
-.field input,.field select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--cream);padding:12px 14px;font-family:'Poppins',sans-serif;font-size:.9rem;transition:.25s;outline:none}
-.field input:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,163,61,.15)}
-.field.error input,.field.error select{border-color:var(--red)}
-.err-msg{color:var(--red);font-size:.75rem;margin-top:5px;display:none}
-.field.error .err-msg{display:block}
-.res-success{display:none;text-align:center;padding:30px 10px}
-.res-success .big-ic{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;background:rgba(127,176,105,.15);color:var(--green);display:grid;place-items:center;font-size:2rem}
-.res-success h3{font-size:1.4rem;margin-bottom:8px}
-.res-success p{color:var(--muted);font-size:.9rem}
-.res-success .res-code{display:inline-block;margin-top:14px;background:rgba(232,163,61,.12);border:1px dashed var(--gold);color:var(--gold);padding:8px 20px;border-radius:10px;font-weight:700;letter-spacing:.1em}
-.res-info li{list-style:none;display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);align-items:center}
-.res-info .ic{width:44px;height:44px;flex:none;border-radius:12px;background:rgba(232,163,61,.12);color:var(--gold);display:grid;place-items:center;font-size:1.15rem}
-.res-info h4{font-size:.95rem}
-.res-info p{color:var(--muted);font-size:.85rem}
-
-/* ---------- TESTIMONIALS ---------- */
-#reviews{background:var(--bg2)}
-.tst-wrap{max-width:720px;margin:44px auto 0;position:relative}
-.tst-viewport{overflow:hidden}
-.tst-track{display:flex;transition:transform .55s cubic-bezier(.2,.8,.3,1)}
-.tst{min-width:100%;padding:0 8px;text-align:center}
-.tst .quote-mark{font-family:'Playfair Display',serif;font-size:3.4rem;color:var(--gold);line-height:.5;display:block;margin-bottom:16px}
-.tst p{font-size:1.08rem;font-style:italic;color:var(--cream);max-width:600px;margin:0 auto 22px}
-.tst .who{color:var(--gold);font-weight:600}
-.tst .where{color:var(--muted);font-size:.82rem}
-.stars{color:var(--gold);letter-spacing:4px;margin-bottom:14px;font-size:.85rem}
-.tst-nav{display:flex;justify-content:center;gap:10px;margin-top:28px;align-items:center}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.3s;padding:0}
-.dot.active{background:var(--gold);width:26px;border-radius:50px}
-.tst-arrow{position:absolute;top:38%;background:var(--card);border:1px solid var(--line);color:var(--cream);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.05rem;transition:.25s;z-index:2}
-.tst-arrow:hover{border-color:var(--gold);color:var(--gold)}
-.tst-arrow.prev{left:-64px}.tst-arrow.next{right:-64px}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--line);padding:56px 0 30px;background:var(--bg)}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
-.foot-grid h4{font-size:1rem;margin-bottom:16px;color:var(--cream)}
-.foot-grid ul{list-style:none}
-.foot-grid li{margin-bottom:10px;font-size:.88rem;color:var(--muted)}
-.foot-grid a:hover{color:var(--gold)}
-.foot-grid p{font-size:.88rem;color:var(--muted)}
-.hours-row{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);padding:5px 0}
-.hours-row span:last-child{color:var(--cream)}
-.copy{text-align:center;color:#6b6355;font-size:.8rem;padding-top:24px;border-top:1px solid var(--line)}
-.demo-banner{background:rgba(232,163,61,.08);border:1px solid rgba(232,163,61,.25);color:var(--muted);font-size:.78rem;text-align:center;padding:9px;letter-spacing:.05em}
-.demo-banner b{color:var(--gold)}
-
-/* ---------- TOAST ---------- */
-.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--card);border:1px solid var(--gold);color:var(--cream);padding:13px 26px;border-radius:50px;font-size:.88rem;font-weight:500;z-index:120;opacity:0;transition:.4s;box-shadow:var(--shadow);pointer-events:none}
-.toast.show{transform:translate(-50%,0);opacity:1}
-.toast .t-ic{color:var(--gold);margin-right:8px}
-
-/* ---------- REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(34px);transition:.7s cubic-bezier(.2,.7,.3,1)}
-.reveal.visible{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:960px){
-  .about-grid,.res-grid{grid-template-columns:1fr;gap:44px}
-  .about-imgs{margin-bottom:20px}
-  .tst-arrow.prev{left:-8px}.tst-arrow.next{right:-8px}
-  .foot-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:720px){
-  .nav-links{position:fixed;inset:0 0 0 auto;width:min(300px,80vw);background:var(--bg2);flex-direction:column;justify-content:center;gap:30px;transform:translateX(105%);transition:.4s;border-left:1px solid var(--line);z-index:70}
-  .nav-links.open{transform:none}
-  .nav-links a{font-size:1.1rem}
-  .burger{display:flex;z-index:75}
-  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .burger.open span:nth-child(2){opacity:0}
-  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  section{padding:64px 0}
-  .hero-stats{gap:26px}
-  .form-row{grid-template-columns:1fr}
-  .menu-head{flex-direction:column;align-items:flex-start}
-}
-</style>
-<base target="_blank">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindh & Spice | Hyderabad Fine Dining</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-amber-50 text-gray-800 font-sans">
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="container nav-inner">
-    <a href="#home" class="logo"><span class="mark">ل</span>Lazeez<em>Hyderabad</em></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#reserve">Reservation</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#menu" class="btn btn-gold" style="color:#1a1206">Order Now</a></li>
-    </ul>
-    <div style="display:flex;gap:14px;align-items:center">
-      <button class="cart-btn" id="cartOpen" aria-label="Open cart">🛒<span class="cart-count" id="cartCount">0</span></button>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <!-- Header / Navbar -->
+    <nav class="bg-emerald-900 text-amber-100 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-utensils text-amber-400 text-2xl"></i>
+                <span class="text-2xl font-bold tracking-wide">Sindh & Spice</span>
+                <span class="text-xs bg-amber-500 text-emerald-950 px-2 py-0.5 rounded-full font-bold uppercase">Hyderabad</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#hero" class="hover:text-amber-400 transition">Home</a>
+                <a href="#menu" class="hover:text-amber-400 transition">Menu</a>
+                <a href="#reserve" class="hover:text-amber-400 transition">Book a Table</a>
+            </div>
+
+            <!-- Cart Button -->
+            <button id="cartBtn" class="relative bg-amber-500 hover:bg-amber-400 text-emerald-950 px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Order Cart</span>
+                <span id="cartCount" class="bg-emerald-900 text-amber-100 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg h-[60vh] flex flex-col items-center justify-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-400">The Taste of Hyderabad</h1>
+        <p class="text-lg md:text-xl max-w-2xl text-gray-200 mb-8">Serving authentic Hyderabadi Biryani, Desi Ghee Karahi, and traditional delicacies right to your doorstep.</p>
+        <div class="flex gap-4">
+            <a href="#menu" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 px-6 py-3 rounded-lg font-bold text-lg transition">Explore Menu</a>
+            <a href="#reserve" class="bg-emerald-700 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold text-lg transition">Reserve Table</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-emerald-900">Our Menu</h2>
+            <p class="text-gray-600">Select your items to place an order directly via WhatsApp.</p>
+            
+            <!-- Category Filters -->
+            <div class="flex justify-center gap-3 mt-6 flex-wrap">
+                <button onclick="filterMenu('all')" class="bg-emerald-800 text-white px-4 py-2 rounded-full font-medium">All</button>
+                <button onclick="filterMenu('biryani')" class="bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Biryani & Rice</button>
+                <button onclick="filterMenu('karahi')" class="bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Karahi & Handi</button>
+                <button onclick="filterMenu('desserts')" class="bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Desserts</button>
+            </div>
+        </div>
+
+        <!-- Food Grid -->
+        <div id="foodGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic Food Cards Injected Here -->
+        </div>
+    </section>
+
+    <!-- Table Reservation Section -->
+    <section id="reserve" class="bg-emerald-900 text-white py-16 px-4">
+        <div class="max-w-3xl mx-auto bg-emerald-950 p-8 rounded-2xl shadow-xl border border-emerald-800">
+            <h2 class="text-3xl font-bold text-center text-amber-400 mb-2">Reserve a Table</h2>
+            <p class="text-center text-gray-300 mb-8">Book your table in advance and get instant WhatsApp confirmation.</p>
+            
+            <form id="reservationForm" onsubmit="handleReservation(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Full Name *</label>
+                        <input type="text" id="resName" required placeholder="e.g. Ali Raza" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Phone Number *</label>
+                        <input type="tel" id="resPhone" required placeholder="e.g. 0300-1234567" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Guests *</label>
+                        <select id="resGuests" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                            <option>2 Persons</option>
+                            <option>4 Persons</option>
+                            <option>6+ Family Hall</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Date *</label>
+                        <input type="date" id="resDate" required class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Time Slot *</label>
+                        <select id="resTime" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                            <option>Lunch (2:00 PM)</option>
+                            <option>Dinner (8:00 PM)</option>
+                            <option>Dinner (10:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Special Requests (Optional)</label>
+                    <textarea id="resNotes" rows="2" placeholder="e.g., Need high chair for toddler, corner table..." class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3 rounded-lg transition flex items-center justify-center gap-2 text-lg">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Reserve Table via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Side Cart / Checkout Drawer -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl relative overflow-y-auto">
+            
+            <!-- STEP 1: CART ITEMS REVIEW -->
+            <div id="cartStep1" class="flex flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="text-xl font-bold text-emerald-900"><i class="fa-solid fa-cart-shopping mr-2"></i> Your Selected Items</h3>
+                        <button onclick="toggleCartModal()" class="text-gray-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div id="cartItems" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                        <!-- Items dynamically listed -->
+                    </div>
+                </div>
+                <div class="border-t pt-4">
+                    <div class="flex justify-between text-lg font-bold mb-4">
+                        <span>Total:</span>
+                        <span id="cartTotal" class="text-emerald-900">PKR 0</span>
+                    </div>
+                    <button id="proceedBtn" onclick="goToStep(2)" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition disabled:bg-gray-400">
+                        Proceed to Delivery Address <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 2: ADDRESS & SPECIAL INSTRUCTIONS -->
+            <div id="cartStep2" class="hidden flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <button onclick="goToStep(1)" class="text-emerald-800 font-semibold text-sm"><i class="fa-solid fa-arrow-left mr-1"></i> Back</button>
+                        <h3 class="text-xl font-bold text-emerald-900">Delivery Details</h3>
+                        <button onclick="toggleCartModal()" class="text-gray-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <form id="addressForm" class="py-4 space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
+                            <input type="text" id="custName" required placeholder="e.g. Ahmed Khan" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-800">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
+                            <input type="tel" id="custPhone" required placeholder="e.g. 0310-1234567" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-800">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Delivery Address *</label>
+                            <textarea id="custAddress" required rows="2" placeholder="House #, Street, Area (e.g., Latifabad Unit 7, Auto Bhan Road)" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-800"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Special Instructions / Notes</label>
+                            <textarea id="custNotes" rows="2" placeholder="e.g. Less spicy, extra raita, don't ring the bell..." class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-800"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <button onclick="generateReceipt()" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition mt-4">
+                    Confirm Address & View Receipt <i class="fa-solid fa-receipt ml-2"></i>
+                </button>
+            </div>
+
+            <!-- STEP 3: DIGITAL RECEIPT & WHATSAPP REDIRECT -->
+            <div id="cartStep3" class="hidden flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <button onclick="goToStep(2)" class="text-emerald-800 font-semibold text-sm"><i class="fa-solid fa-arrow-left mr-1"></i> Edit Address</button>
+                        <h3 class="text-xl font-bold text-emerald-900">Order Receipt</h3>
+                        <button onclick="toggleCartModal()" class="text-gray-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <!-- Formatted Receipt Box -->
+                    <div class="my-4 p-4 bg-amber-50 border border-amber-300 rounded-lg text-sm text-gray-800 space-y-3">
+                        <div class="text-center border-b border-amber-300 pb-2">
+                            <h4 class="font-bold text-emerald-900 text-base">Sindh & Spice Restaurant</h4>
+                            <p class="text-xs text-gray-500">Auto Bhan Road, Hyderabad</p>
+                        </div>
+                        <div>
+                            <p><strong>Customer:</strong> <span id="recName"></span></p>
+                            <p><strong>Phone:</strong> <span id="recPhone"></span></p>
+                            <p><strong>Address:</strong> <span id="recAddress"></span></p>
+                            <p id="recNotesDiv" class="hidden"><strong>Special Notes:</strong> <span id="recNotes"></span></p>
+                        </div>
+                        <div class="border-t border-b border-amber-300 py-2">
+                            <p class="font-semibold mb-1 text-xs uppercase tracking-wider text-emerald-900">Items Ordered:</p>
+                            <div id="recItemsList" class="space-y-1 text-xs"></div>
+                        </div>
+                        <div class="flex justify-between font-bold text-emerald-950 text-base pt-1">
+                            <span>Total Amount:</span>
+                            <span id="recTotal"></span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center">Confirming will launch WhatsApp with your pre-filled draft message containing all details.</p>
+                </div>
+
+                <button onclick="sendOrderToWhatsApp()" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition mt-4 text-base">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> Send Order via WhatsApp
+                </button>
+            </div>
+
+        </div>
     </div>
-  </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero" id="home">
-  <div class="container hero-content">
-    <span class="hero-badge">★ Rated 4.9 by Hyderabadis · Since 1998</span>
-    <h1>Hyderabad ki <span>asli khushboo</span>,<br>ek hi jagah.</h1>
-    <p class="lead">Slow-cooked dum biryani, charcoal BBQ, and recipes straight from the lanes of Hirabad and Qasimabad — served fresh every evening.</p>
-    <div class="hero-cta">
-      <a href="#menu" class="btn btn-gold">Explore Menu 🍛</a>
-      <a href="#reserve" class="btn btn-ghost">Book a Table</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="num" data-target="27">0</div><div class="lbl">Years of flavour</div></div>
-      <div class="stat"><div class="num" data-target="40" data-suffix="+">0</div><div class="lbl">Dishes on menu</div></div>
-      <div class="stat"><div class="num" data-target="120" data-suffix="K+">0</div><div class="lbl">Happy customers</div></div>
-    </div>
-  </div>
-  <a href="#about" class="scroll-hint">⌄</a>
-</header>
-
-<!-- MARQUEE -->
-<div class="marquee"><div class="marquee-track" id="marqueeTrack">
-  <span>DUM BIRYANI ★ CHARCOAL BBQ ★ HALEEM ★ SINDHI SAI BHAJI ★ KHEER ★ FRESH TANDOORI ROTI ★ DUM BIRYANI ★ CHARCOAL BBQ ★ HALEEM ★ SINDHI SAI BHAJI ★ KHEER ★ FRESH TANDOORI ROTI ★&nbsp;</span>
-</div></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-imgs reveal">
-      <img src="interior.jpg" alt="Warm dining hall of Lazeez Hyderabad" class="main">
-      <img src="biryani.jpg" alt="Hyderabadi dum biryani" class="float">
-    </div>
-    <div class="about-txt reveal d1">
-      <span class="eyebrow">Our Story</span>
-      <h2 class="sec-title">Three generations,<br>one degchi.</h2>
-      <p class="sec-sub">What started as a small dhaba near the old bus stand in 1998 is today one of Hyderabad's most loved family restaurants. The recipes haven't changed — neither has the love.</p>
-      <div class="check"><div class="ic">🔥</div><div><h4>Charcoal-fired BBQ</h4><p>Seekh kebabs grilled fresh on open angithi, the Hyderabadi way.</p></div></div>
-      <div class="check"><div class="ic">🌾</div><div><h4>Local Sindhi ingredients</h4><p>Basmati from Larkana, spices ground daily in-house.</p></div></div>
-      <div class="check"><div class="ic">👨‍👩‍👧</div><div><h4>Family hall & takeaway</h4><p>Comfortable family seating, quick takeaway counter, and home delivery.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MENU -->
-<section id="menu">
-  <div class="container">
-    <div class="menu-head reveal">
-      <div>
-        <span class="eyebrow">Our Menu</span>
-        <h2 class="sec-title">Made fresh, served hot</h2>
-        <p class="sec-sub">Filter by craving, add to your order, and we'll have it ready.</p>
-      </div>
-      <div>
-        <div class="filters" id="filters">
-          <button class="filter-btn active" data-cat="all">All</button>
-          <button class="filter-btn" data-cat="biryani">Biryani</button>
-          <button class="filter-btn" data-cat="bbq">BBQ</button>
-          <button class="filter-btn" data-cat="sindhi">Sindhi Specials</button>
-          <button class="filter-btn" data-cat="dessert">Desserts</button>
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-gray-400 py-8 border-t border-emerald-900 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">📍 Auto Bhan Road, near Latifabad, Hyderabad, Sindh, Pakistan</p>
+            <p class="text-xs text-gray-500">Interactive Demo Web Page | Portfolio Project</p>
         </div>
-        <div class="field" style="margin:14px 0 0;max-width:260px">
-          <input type="text" id="menuSearch" placeholder="🔍 Search dishes..." style="border-radius:50px">
-        </div>
-      </div>
-    </div>
+    </footer>
 
-    <div class="menu-grid" id="menuGrid">
-      <article class="dish reveal" data-cat="biryani" data-name="hyderabadi dum biryani chicken">
-        <div class="dish-img"><img src="biryani.jpg" alt="Hyderabadi Dum Biryani"><span class="tag">Bestseller</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Hyderabadi Dum Biryani</h3><span class="price">Rs 450</span></div>
-          <p>Chicken layered with saffron basmati, sealed and slow-steamed. Served with raita & salad.</p>
-          <button class="add-btn" data-id="b1" data-name="Hyderabadi Dum Biryani" data-price="450">Add to Order</button>
-        </div>
-      </article>
+    <!-- JavaScript Logic -->
+    <script>
+        const WHATSAPP_NUMBER = "923103694160";
 
-      <article class="dish reveal d1" data-cat="biryani" data-name="beef biryani">
-        <div class="dish-img"><img src="biryani.jpg" alt="Beef Biryani"><span class="tag">Spicy</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Beef Biryani</h3><span class="price">Rs 550</span></div>
-          <p>Tender beef masala folded through fragrant rice, topped with crispy fried onion.</p>
-          <button class="add-btn" data-id="b2" data-name="Beef Biryani" data-price="550">Add to Order</button>
-        </div>
-      </article>
+        // Menu Data
+        const menuItems = [
+            { id: 1, name: "Hyderabadi Special Mutton Biryani", category: "biryani", price: 750, img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80", desc: "Aromatic basmati rice cooked with tender mutton & local spices." },
+            { id: 2, name: "Desi Ghee Chicken Karahi", category: "karahi", price: 1400, img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80", desc: "Wok-cooked chicken topped with fresh ginger & real desi ghee." },
+            { id: 3, name: "Famous Bombay Rabri Box", category: "desserts", price: 450, img: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=400&q=80", desc: "Traditional sweet thick milk dessert sourced straight from Station Road." },
+            { id: 4, name: "Sindhi Palla Fish (Seasonal)", category: "karahi", price: 1800, img: "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=400&q=80", desc: "Traditional fried River Indus Palla marinated in rich Sindhi spices." },
+            { id: 5, name: "Chicken Reshmi Handi", category: "karahi", price: 1250, img: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80", desc: "Boneless chicken cooked in a rich, creamy, and mild gravy." },
+            { id: 6, name: "Special Shahi Kheer", category: "desserts", price: 300, img: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=400&q=80", desc: "Traditional rice pudding garnished with almonds and pistachios." }
+        ];
 
-      <article class="dish reveal d2" data-cat="sindhi" data-name="chicken karahi">
-        <div class="dish-img"><img src="karahi.jpg" alt="Chicken Karahi"><span class="tag">Chef's Pick</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Chicken Karahi (Half)</h3><span class="price">Rs 950</span></div>
-          <p>Wok-tossed in desi ghee with fresh tomatoes, green chillies & julienned ginger.</p>
-          <button class="add-btn" data-id="k1" data-name="Chicken Karahi (Half)" data-price="950">Add to Order</button>
-        </div>
-      </article>
+        let cart = [];
 
-      <article class="dish reveal" data-cat="bbq" data-name="seekh kebab">
-        <div class="dish-img"><img src="kebab.jpg" alt="Seekh Kebab"><span class="tag">Charcoal</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Seekh Kebab (4 pcs)</h3><span class="price">Rs 380</span></div>
-          <p>Hand-minced beef kebabs, flame-grilled over charcoal, served with mint chutney.</p>
-          <button class="add-btn" data-id="q1" data-name="Seekh Kebab (4 pcs)" data-price="380">Add to Order</button>
-        </div>
-      </article>
+        // Render Menu Cards
+        function renderMenu(items) {
+            const grid = document.getElementById('foodGrid');
+            grid.innerHTML = items.map(item => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover">
+                    <div class="p-5 flex flex-col justify-between h-52">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-emerald-950">${item.name}</h3>
+                                <span class="bg-amber-100 text-amber-800 font-bold px-2 py-1 text-sm rounded">PKR ${item.price}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">${item.desc}</p>
+                        </div>
+                        <button onclick="addToCart(${item.id})" class="mt-4 w-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-      <article class="dish reveal d1" data-cat="sindhi" data-name="haleem">
-        <div class="dish-img"><img src="haleem.jpg" alt="Haleem"><span class="tag">Weekend Special</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Hyderabadi Haleem</h3><span class="price">Rs 320</span></div>
-          <p>Hours-simmered wheat, lentils & shredded beef, finished with fried onion, lemon & ginger.</p>
-          <button class="add-btn" data-id="h1" data-name="Hyderabadi Haleem" data-price="320">Add to Order</button>
-        </div>
-      </article>
+        // Filter Menu Categories
+        function filterMenu(category) {
+            if (category === 'all') {
+                renderMenu(menuItems);
+            } else {
+                renderMenu(menuItems.filter(i => i.category === category));
+            }
+        }
 
-      <article class="dish reveal d2" data-cat="sindhi" data-name="sindhi sai bhaji">
-        <div class="dish-tile">🥬</div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Sindhi Sai Bhaji</h3><span class="price">Rs 260</span></div>
-          <p>Slow-cooked spinach, dill & chana dal — the comfort food of every Sindhi home.</p>
-          <button class="add-btn" data-id="s1" data-name="Sindhi Sai Bhaji" data-price="260">Add to Order</button>
-        </div>
-      </article>
+        // Add Item to Cart
+        function addToCart(id) {
+            const item = menuItems.find(p => p.id === id);
+            const existing = cart.find(c => c.id === id);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({...item, qty: 1});
+            }
+            updateCartUI();
+        }
 
-      <article class="dish reveal" data-cat="dessert" data-name="matka kheer">
-        <div class="dish-img"><img src="kheer.jpg" alt="Matka Kheer"><span class="tag">Homemade</span></div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Matka Kheer</h3><span class="price">Rs 180</span></div>
-          <p>Creamy rice pudding set in clay pots, topped with almonds & pistachios.</p>
-          <button class="add-btn" data-id="d1" data-name="Matka Kheer" data-price="180">Add to Order</button>
-        </div>
-      </article>
+        // Modify Quantity
+        function changeQty(id, change) {
+            const item = cart.find(c => c.id === id);
+            if(item) {
+                item.qty += change;
+                if(item.qty <= 0) {
+                    cart = cart.filter(c => c.id !== id);
+                }
+            }
+            updateCartUI();
+        }
 
-      <article class="dish reveal d1" data-cat="dessert" data-name="rabri">
-        <div class="dish-tile">🍮</div>
-        <div class="dish-body">
-          <div class="dish-top"><h3>Kesar Rabri</h3><span class="price">Rs 220</span></div>
-          <p>Thickened milk reduced for hours with saffron & cardamom. Served chilled.</p>
-          <button class="add-btn" data-id="d2" data-name="Kesar Rabri" data-price="220">Add to Order</button>
-        </div>
-      </article>
+        // Update Cart Drawer UI
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').innerText = totalCount;
+            
+            const cartItemsDiv = document.getElementById('cartItems');
+            const proceedBtn = document.getElementById('proceedBtn');
+            
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is currently empty.</p>';
+                document.getElementById('cartTotal').innerText = 'PKR 0';
+                proceedBtn.disabled = true;
+                return;
+            }
 
-      <div class="no-results" id="noResults">😕 No dishes match your search. Try another craving!</div>
-    </div>
-  </div>
-</section>
+            proceedBtn.disabled = false;
+            let total = 0;
+            cartItemsDiv.innerHTML = cart.map(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                return `
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <div>
+                            <h4 class="font-semibold text-sm text-gray-800">${item.name}</h4>
+                            <span class="text-xs text-gray-500">PKR ${item.price} x ${item.qty} = <strong>PKR ${subtotal}</strong></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 bg-gray-200 text-gray-700 rounded font-bold hover:bg-gray-300">-</button>
+                            <span class="text-sm font-semibold">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 bg-gray-200 text-gray-700 rounded font-bold hover:bg-gray-300">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
 
-<!-- RESERVATION -->
-<section id="reserve">
-  <div class="container res-grid">
-    <div class="reveal">
-      <span class="eyebrow">Reservations</span>
-      <h2 class="sec-title">Book your table</h2>
-      <p class="sec-sub" style="margin-bottom:22px">Weekend nights fill up fast — reserve ahead and we'll keep the degchi warm for you.</p>
-      <ul class="res-info">
-        <li><div class="ic">📍</div><div><h4>Main Qasimabad Road, Hyderabad</h4><p>Near Tayyab Masjid stop, opposite City Square.</p></div></li>
-        <li><div class="ic">🕒</div><div><h4>Open daily</h4><p>1:00 PM – 12:00 AM · Friday 2:30 PM – 1:00 AM</p></div></li>
-        <li><div class="ic">📞</div><div><h4>Call or WhatsApp</h4><p>022 2780 123 · 0301 2345678</p></div></li>
-      </ul>
-    </div>
-    <div class="res-card reveal d1">
-      <form id="resForm" novalidate>
-        <div class="form-row">
-          <div class="field"><label for="rName">Full name</label><input id="rName" type="text" placeholder="e.g. Ahmed Khan"><div class="err-msg">Please enter your name.</div></div>
-          <div class="field"><label for="rPhone">Mobile number</label><input id="rPhone" type="tel" placeholder="03XXXXXXXXX"><div class="err-msg">Enter a valid 11-digit number (03...).</div></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="rDate">Date</label><input id="rDate" type="date"><div class="err-msg">Pick a date (today or later).</div></div>
-          <div class="field"><label for="rTime">Time</label>
-            <select id="rTime"><option value="">Select time</option><option>1:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option><option>8:00 PM</option><option>9:00 PM</option><option>10:00 PM</option></select>
-            <div class="err-msg">Select a time.</div></div>
-        </div>
-        <div class="field"><label for="rGuests">Guests</label>
-          <select id="rGuests"><option value="">How many?</option><option>1–2 people</option><option>3–4 people</option><option>5–6 people</option><option>7–10 people</option><option>10+ (family hall)</option></select>
-          <div class="err-msg">Select party size.</div></div>
-        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:14px">Confirm Reservation ✦</button>
-      </form>
-      <div class="res-success" id="resSuccess">
-        <div class="big-ic">✓</div>
-        <h3>Shukriya, <span id="resName"></span>!</h3>
-        <p>Your table for <b id="resGuests" style="color:var(--gold)"></b> is reserved on <b id="resWhen" style="color:var(--gold)"></b>.<br>We'll SMS a confirmation to <b id="resPhone" style="color:var(--gold)"></b>.</p>
-        <div class="res-code" id="resCode"></div>
-      </div>
-    </div>
-  </div>
-</section>
+            document.getElementById('cartTotal').innerText = `PKR ${total}`;
+        }
 
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="container center">
-    <span class="eyebrow">Word of Mouth</span>
-    <h2 class="sec-title">Hyderabad says it best</h2>
-    <div class="tst-wrap reveal">
-      <button class="tst-arrow prev" id="tstPrev" aria-label="Previous">‹</button>
-      <div class="tst-viewport"><div class="tst-track" id="tstTrack">
-        <div class="tst"><span class="quote-mark">"</span><p>The dum biryani here tastes exactly like the one from my nani's kitchen in Hirabad. I drive in from Latifabad every Friday.</p><div class="stars">★★★★★</div><div class="who">Bilal Sheikh</div><div class="where">Latifabad, Hyderabad</div></div>
-        <div class="tst"><span class="quote-mark">"</span><p>Ordered seekh kebabs for a family dawat of 40 people. Hot, fresh, and delivered on time. The achari chutney is unreal.</p><div class="stars">★★★★★</div><div class="who">Ayesha Soomro</div><div class="where">Qasimabad, Hyderabad</div></div>
-        <div class="tst"><span class="quote-mark">"</span><p>Best haleem in the city after the Sarafa Bazaar stalls close. Their weekend haleem sells out by 9 PM — get there early!</p><div class="stars">★★★★★</div><div class="who">Fahad Abro</div><div class="where">Hirabad, Hyderabad</div></div>
-        <div class="tst"><span class="quote-mark">"</span><p>Clean family hall, quick service, and the karahi comes still sizzling. My go-to spot whenever relatives visit from Karachi.</p><div class="stars">★★★★★</div><div class="who">Dr. Sana Memon</div><div class="where">Auto Bahn Road, Hyderabad</div></div>
-      </div></div>
-      <button class="tst-arrow next" id="tstNext" aria-label="Next">›</button>
-      <div class="tst-nav" id="tstDots"></div>
-    </div>
-  </div>
-</section>
+        // Navigate between Cart Drawer Steps
+        function goToStep(stepNumber) {
+            document.getElementById('cartStep1').classList.add('hidden');
+            document.getElementById('cartStep2').classList.add('hidden');
+            document.getElementById('cartStep3').classList.add('hidden');
 
-<!-- FOOTER -->
-<footer>
-  <div class="demo-banner">✦ This is a <b>portfolio demo</b> built for a fictional restaurant — <b>Lazeez Hyderabad</b> ✦</div>
-  <div class="container" style="margin-top:44px">
-    <div class="foot-grid">
-      <div>
-        <a href="#home" class="logo" style="margin-bottom:16px"><span class="mark">ل</span>Lazeez<em>Hyderabad</em></a>
-        <p style="margin-top:12px">Authentic Sindhi & Hyderabadi cuisine in the heart of Hyderabad, Sindh. Dum, degh, aur dosti — since 1998.</p>
-      </div>
-      <div><h4>Explore</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reservations</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
-      <div><h4>Hours</h4><div class="hours-row"><span>Mon – Thu</span><span>1 PM – 12 AM</span></div><div class="hours-row"><span>Friday</span><span>2:30 PM – 1 AM</span></div><div class="hours-row"><span>Sat – Sun</span><span>1 PM – 1 AM</span></div></div>
-      <div><h4>Find Us</h4><ul><li>📍 Main Qasimabad Road, Hyderabad, Sindh</li><li>📞 022 2780 123</li><li>💬 WhatsApp: 0301 2345678</li><li>✉️ salam@lazeezhyd.pk</li></ul></div>
-    </div>
-    <div class="copy">© 2026 Lazeez Hyderabad — Demo concept website crafted with ♥ for portfolio purposes.</div>
-  </div>
-</footer>
+            document.getElementById(`cartStep${stepNumber}`).classList.remove('hidden');
+        }
 
-<!-- CART DRAWER -->
-<div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer" aria-label="Order cart">
-  <div class="drawer-head"><h3>Your Order 🛍️</h3><button class="close-x" id="cartClose" aria-label="Close">×</button></div>
-  <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty.<br>Add some lazeez dishes from the menu! 🍛</div></div>
-  <div class="drawer-foot">
-    <div class="total-row"><span>Subtotal</span><span id="cartTotal">Rs 0</span></div>
-    <button class="btn btn-gold checkout-btn" id="checkoutBtn" disabled>Place Order · Cash on Delivery</button>
-  </div>
-</aside>
+        function toggleCartModal() {
+            document.getElementById('cartModal').classList.toggle('hidden');
+        }
 
-<div class="toast" id="toast"><span class="t-ic">✦</span><span id="toastMsg"></span></div>
+        document.getElementById('cartBtn').addEventListener('click', () => {
+            goToStep(1);
+            toggleCartModal();
+        });
 
-<script>
-/* ================= NAV ================= */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+        // Generate Digital Receipt on Step 3
+        function generateReceipt() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const notes = document.getElementById('custNotes').value.trim();
 
-const burger = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  burger.classList.remove('open'); navLinks.classList.remove('open');
-}));
+            if (!name || !phone || !address) {
+                alert("Please complete all mandatory fields: Name, Phone, and Address.");
+                return;
+            }
 
-/* active link on scroll */
-const sections = ['home','about','menu','reserve','reviews'];
-const linkMap = {};
-navLinks.querySelectorAll('a[href^="#"]').forEach(a => linkMap[a.getAttribute('href').slice(1)] = a);
-window.addEventListener('scroll', () => {
-  let cur = 'home';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= 140) cur = id;
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-  if (linkMap[cur]) linkMap[cur].classList.add('active');
-});
+            document.getElementById('recName').innerText = name;
+            document.getElementById('recPhone').innerText = phone;
+            document.getElementById('recAddress').innerText = address;
 
-/* ================= REVEAL & COUNTERS ================= */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add('visible');
-    io.unobserve(e.target);
-  });
-}, { threshold: .12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+            if (notes) {
+                document.getElementById('recNotes').innerText = notes;
+                document.getElementById('recNotesDiv').classList.remove('hidden');
+            } else {
+                document.getElementById('recNotesDiv').classList.add('hidden');
+            }
 
-const counterIO = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.target, suffix = el.dataset.suffix || '';
-    const t0 = performance.now(), dur = 1600;
-    (function tick(t){
-      const p = Math.min((t - t0) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    })(t0);
-    counterIO.unobserve(el);
-  });
-}, { threshold: .6 });
-document.querySelectorAll('.num[data-target]').forEach(el => counterIO.observe(el));
+            let total = 0;
+            document.getElementById('recItemsList').innerHTML = cart.map(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                return `
+                    <div class="flex justify-between">
+                        <span>${item.qty}x ${item.name}</span>
+                        <span>PKR ${subtotal}</span>
+                    </div>
+                `;
+            }).join('');
 
-/* ================= MENU FILTER + SEARCH ================= */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const dishes = document.querySelectorAll('.dish');
-const searchInput = document.getElementById('menuSearch');
-const noResults = document.getElementById('noResults');
-let activeCat = 'all';
+            document.getElementById('recTotal').innerText = `PKR ${total}`;
+            goToStep(3);
+        }
 
-function applyMenuFilter(){
-  const q = searchInput.value.trim().toLowerCase();
-  let visible = 0;
-  dishes.forEach(d => {
-    const ok = (activeCat === 'all' || d.dataset.cat === activeCat) &&
-               (!q || d.dataset.name.includes(q));
-    d.classList.toggle('hide', !ok);
-    if (ok) visible++;
-  });
-  noResults.style.display = visible ? 'none' : 'block';
-}
-filterBtns.forEach(b => b.addEventListener('click', () => {
-  filterBtns.forEach(x => x.classList.remove('active'));
-  b.classList.add('active');
-  activeCat = b.dataset.cat;
-  applyMenuFilter();
-}));
-searchInput.addEventListener('input', applyMenuFilter);
+        // WhatsApp Redirection - Food Order
+        function sendOrderToWhatsApp() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const notes = document.getElementById('custNotes').value.trim();
 
-/* ================= CART ================= */
-const cart = {};
-const drawer = document.getElementById('drawer');
-const overlay = document.getElementById('overlay');
-const cartItemsEl = document.getElementById('cartItems');
-const cartTotalEl = document.getElementById('cartTotal');
-const cartCountEl = document.getElementById('cartCount');
-const checkoutBtn = document.getElementById('checkoutBtn');
-const dishImgs = {}; // id -> img src captured from card
+            let total = 0;
+            let itemsListStr = "";
 
-document.querySelectorAll('.add-btn').forEach(btn => {
-  const card = btn.closest('.dish');
-  const imgEl = card.querySelector('.dish-img img');
-  dishImgs[btn.dataset.id] = imgEl ? imgEl.src : '';
-  btn.addEventListener('click', () => {
-    const { id, name, price } = btn.dataset;
-    if (!cart[id]) cart[id] = { name, price: +price, qty: 0, img: dishImgs[id] };
-    cart[id].qty++;
-    renderCart();
-    showToast(name + ' added to your order');
-    bumpCartIcon();
-  });
-});
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                itemsListStr += `${index + 1}. ${item.name} (Qty: ${item.qty}) - PKR ${subtotal}\n`;
+            });
 
-function renderCart(){
-  const items = Object.entries(cart);
-  const totalQty = items.reduce((s, [,i]) => s + i.qty, 0);
-  cartCountEl.textContent = totalQty;
-  cartCountEl.classList.toggle('show', totalQty > 0);
+            let waMsg = `*NEW FOOD ORDER - SINDH & SPICE*\n`;
+            waMsg += `----------------------------------\n`;
+            waMsg += `*Customer Name:* ${name}\n`;
+            waMsg += `*Phone:* ${phone}\n`;
+            waMsg += `*Delivery Address:* ${address}\n`;
+            if (notes) {
+                waMsg += `*Special Instructions:* ${notes}\n`;
+            }
+            waMsg += `----------------------------------\n`;
+            waMsg += `*ITEMS ORDERED:*\n${itemsListStr}`;
+            waMsg += `----------------------------------\n`;
+            waMsg += `*TOTAL AMOUNT:* PKR ${total}\n\n`;
+            waMsg += `Please confirm my order and send estimated delivery time!`;
 
-  if (!items.length){
-    cartItemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.<br>Add some lazeez dishes from the menu! 🍛</div>';
-  } else {
-    cartItemsEl.innerHTML = items.map(([id, i]) => `
-      <div class="cart-item">
-        ${i.img ? `<img src="${i.img}" alt="">` : '<div style="width:58px;height:58px;border-radius:12px;background:#332c22;display:grid;place-items:center;font-size:1.4rem">🍲</div>'}
-        <div class="ci-info"><h4>${i.name}</h4><span>Rs ${i.price * i.qty}</span></div>
-        <div class="qty">
-          <button onclick="changeQty('${id}',-1)">−</button><span class="q">${i.qty}</span><button onclick="changeQty('${id}',1)">+</button>
-        </div>
-        <button class="ci-del" onclick="removeItem('${id}')" aria-label="Remove">🗑</button>
-      </div>`).join('');
-  }
-  const subtotal = items.reduce((s, [,i]) => s + i.price * i.qty, 0);
-  cartTotalEl.textContent = 'Rs ' + subtotal;
-  checkoutBtn.disabled = !items.length;
-}
-window.changeQty = (id, d) => {
-  cart[id].qty += d;
-  if (cart[id].qty <= 0) delete cart[id];
-  renderCart();
-};
-window.removeItem = id => { delete cart[id]; renderCart(); };
+            const encodedMsg = encodeURIComponent(waMsg);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+        }
 
-function openCart(){ drawer.classList.add('open'); overlay.classList.add('show'); }
-function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
-document.getElementById('cartOpen').addEventListener('click', openCart);
-document.getElementById('cartClose').addEventListener('click', closeCart);
-overlay.addEventListener('click', closeCart);
+        // WhatsApp Redirection - Table Reservation
+        function handleReservation(event) {
+            event.preventDefault();
 
-function bumpCartIcon(){
-  const b = document.getElementById('cartOpen');
-  b.style.transform = 'scale(1.15)';
-  setTimeout(() => b.style.transform = '', 180);
-}
+            const name = document.getElementById('resName').value.trim();
+            const phone = document.getElementById('resPhone').value.trim();
+            const guests = document.getElementById('resGuests').value;
+            const date = document.getElementById('resDate').value;
+            const time = document.getElementById('resTime').value;
+            const notes = document.getElementById('resNotes').value.trim();
 
-checkoutBtn.addEventListener('click', () => {
-  const orderNo = 'LH-' + Math.floor(1000 + Math.random() * 9000);
-  showToast('Order ' + orderNo + ' placed! We\'ll call to confirm 🎉');
-  Object.keys(cart).forEach(k => delete cart[k]);
-  renderCart();
-  setTimeout(closeCart, 600);
-});
+            let resMsg = `*TABLE RESERVATION REQUEST*\n`;
+            resMsg += `----------------------------------\n`;
+            resMsg += `*Name:* ${name}\n`;
+            resMsg += `*Phone:* ${phone}\n`;
+            resMsg += `*Guests:* ${guests}\n`;
+            resMsg += `*Date:* ${date}\n`;
+            resMsg += `*Time Slot:* ${time}\n`;
+            if (notes) {
+                resMsg += `*Special Requests:* ${notes}\n`;
+            }
+            resMsg += `----------------------------------\n`;
+            resMsg += `Please confirm table availability!`;
 
-/* ================= TOAST ================= */
-const toast = document.getElementById('toast');
-let toastTimer;
-function showToast(msg){
-  document.getElementById('toastMsg').textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
-}
+            const encodedMsg = encodeURIComponent(resMsg);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+            
+            event.target.reset();
+        }
 
-/* ================= RESERVATION ================= */
-const resForm = document.getElementById('resForm');
-const rDate = document.getElementById('rDate');
-rDate.min = new Date().toISOString().split('T')[0];
-
-function setErr(input, bad){ input.closest('.field').classList.toggle('error', bad); return !bad; }
-resForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('rName');
-  const phone = document.getElementById('rPhone');
-  const time = document.getElementById('rTime');
-  const guests = document.getElementById('rGuests');
-  let ok = true;
-  ok = setErr(name, !name.value.trim()) && ok;
-  ok = setErr(phone, !/^03\d{9}$/.test(phone.value.trim())) && ok;
-  ok = setErr(rDate, !rDate.value || rDate.value < rDate.min) && ok;
-  ok = setErr(time, !time.value) && ok;
-  ok = setErr(guests, !guests.value) && ok;
-  if (!ok) return;
-
-  document.getElementById('resName').textContent = name.value.trim().split(' ')[0];
-  document.getElementById('resGuests').textContent = guests.value;
-  document.getElementById('resPhone').textContent = phone.value.trim();
-  const d = new Date(rDate.value + 'T00:00');
-  document.getElementById('resWhen').textContent =
-    d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' }) + ' at ' + time.value;
-  document.getElementById('resCode').textContent = 'BOOKING #' + Math.floor(10000 + Math.random() * 90000);
-  resForm.style.display = 'none';
-  document.getElementById('resSuccess').style.display = 'block';
-  showToast('Reservation confirmed! See you soon 🎉');
-});
-['rName','rPhone','rDate','rTime','rGuests'].forEach(id =>
-  document.getElementById(id).addEventListener('input', e => e.target.closest('.field').classList.remove('error')));
-
-/* ================= TESTIMONIAL CAROUSEL ================= */
-const track = document.getElementById('tstTrack');
-const slides = track.children.length;
-const dotsEl = document.getElementById('tstDots');
-let idx = 0, autoT;
-
-for (let i = 0; i < slides; i++){
-  const d = document.createElement('button');
-  d.className = 'dot' + (i === 0 ? ' active' : '');
-  d.setAttribute('aria-label', 'Go to review ' + (i + 1));
-  d.addEventListener('click', () => goTo(i));
-  dotsEl.appendChild(d);
-}
-function goTo(i){
-  idx = (i + slides) % slides;
-  track.style.transform = 'translateX(-' + idx * 100 + '%)';
-  dotsEl.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === idx));
-  restartAuto();
-}
-function restartAuto(){ clearInterval(autoT); autoT = setInterval(() => goTo(idx + 1), 5000); }
-document.getElementById('tstPrev').addEventListener('click', () => goTo(idx - 1));
-document.getElementById('tstNext').addEventListener('click', () => goTo(idx + 1));
-restartAuto();
-
-/* ================= MARQUEE (duplicate content for seamless loop) ================= */
-const mt = document.getElementById('marqueeTrack');
-mt.innerHTML += mt.innerHTML;
-
-renderCart();
-</script>
+        // Initial Load
+        renderMenu(menuItems);
+    </script>
 </body>
 </html>
