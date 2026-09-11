@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindh & Spice | Authentic Cuisine in Hyderabad, PK</title>
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800 font-sans">
+
+    <!-- Header / Navbar -->
+    <nav class="bg-emerald-900 text-amber-100 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid font-bold text-amber-400 text-2xl fa-utensils"></i>
+                <span class="text-2xl font-bold tracking-wide">Sindh & Spice</span>
+                <span class="text-xs bg-amber-500 text-emerald-950 px-2 py-0.5 rounded-full font-bold uppercase">Hyderabad</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#hero" class="hover:text-amber-400 transition">Home</a>
+                <a href="#menu" class="hover:text-amber-400 transition">Menu</a>
+                <a href="#reserve" class="hover:text-amber-400 transition">Book a Table</a>
+            </div>
+
+            <!-- Cart Button -->
+            <button id="cartBtn" class="relative bg-amber-500 hover:bg-amber-400 text-emerald-950 px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Order Cart</span>
+                <span id="cartCount" class="bg-emerald-900 text-amber-100 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg h-[70vh] flex flex-col items-center justify-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-amber-400">The Taste of Hyderabad</h1>
+        <p class="text-lg md:text-xl max-w-2xl text-gray-200 mb-8">Serving the rich heritage of Sindhi flavors, authentic Hyderabadi Biryani, and traditional Karahi right in the heart of Auto Bhan Road.</p>
+        <div class="flex gap-4">
+            <a href="#menu" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 px-6 py-3 rounded-lg font-bold text-lg transition">Explore Menu</a>
+            <a href="#reserve" class="bg-emerald-700 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold text-lg transition">Reserve Table</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-emerald-900">Our Signature Dishes</h2>
+            <p class="text-gray-600">Freshly prepared with authentic recipes and local spices.</p>
+            
+            <!-- Category Filters -->
+            <div class="flex justify-center gap-3 mt-6 flex-wrap">
+                <button onclick="filterMenu('all')" class="filter-btn bg-emerald-800 text-white px-4 py-2 rounded-full font-medium">All</button>
+                <button onclick="filterMenu('biryani')" class="filter-btn bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Biryani & Rice</button>
+                <button onclick="filterMenu('karahi')" class="filter-btn bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Karahi & Handi</button>
+                <button onclick="filterMenu('desserts')" class="filter-btn bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-800 px-4 py-2 rounded-full font-medium">Desserts</button>
+            </div>
+        </div>
+
+        <!-- Food Grid -->
+        <div id="foodGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards will be injected by JavaScript dynamically -->
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reserve" class="bg-emerald-900 text-white py-16 px-4">
+        <div class="max-w-3xl mx-auto bg-emerald-950 p-8 rounded-2xl shadow-xl border border-emerald-800">
+            <h2 class="text-3xl font-bold text-center text-amber-400 mb-2">Book a Table</h2>
+            <p class="text-center text-gray-300 mb-8">Planning a family dinner or event in Hyderabad? Reserve your spot now!</p>
+            
+            <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Full Name</label>
+                        <input type="text" required placeholder="e.g., Ali Khan" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="0300-1234567" class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Guests</label>
+                        <select class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                            <option>2 Persons</option>
+                            <option>4 Persons</option>
+                            <option>6+ Family Hall</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Date</label>
+                        <input type="date" required class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Time Slot</label>
+                        <select class="w-full p-3 rounded-lg bg-emerald-900 border border-emerald-700 text-white focus:outline-none focus:border-amber-400">
+                            <option>Dinner (8:00 PM)</option>
+                            <option>Dinner (10:00 PM)</option>
+                            <option>Lunch (2:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold py-3 rounded-lg mt-4 transition">Confirm Reservation</button>
+            </form>
+            <div id="bookingSuccess" class="hidden mt-4 p-4 bg-emerald-800 text-amber-300 rounded-lg text-center font-semibold">
+                🎉 Reservation Received! Our Hyderabad branch will call you shortly to confirm.
+            </div>
+        </div>
+    </section>
+
+    <!-- Side Cart Drawer Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4">
+                    <h3 class="text-xl font-bold text-emerald-900">Your Takeaway Order</h3>
+                    <button id="closeCart" class="text-gray-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cartItems" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Cart Items go here -->
+                    <p class="text-gray-500 text-center py-8">Your cart is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="border-t pt-4">
+                <div class="flex justify-between text-lg font-bold mb-4">
+                    <span>Total Amount:</span>
+                    <span id="cartTotal" class="text-emerald-900">PKR 0</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition">Checkout Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-gray-400 py-8 border-t border-emerald-900 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">📍 Auto Bhan Road, near Latifabad, Hyderabad, Sindh, Pakistan</p>
+            <p class="text-xs text-gray-500">Demo Project for Web Developer Portfolio | Designed for Local Hyderabad Restaurants</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript logic -->
+    <script>
+        // Sample Restaurant Menu Data with Local Hyderabad Specialties
+        const menuItems = [
+            { id: 1, name: "Hyderabadi Special Mutton Biryani", category: "biryani", price: 750, img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80", desc: "Aromatic basmati rice cooked with tender mutton & local spices." },
+            { id: 2, name: "Desi Ghee Chicken Karahi", category: "karahi", price: 1400, img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80", desc: "Wok-cooked chicken topped with fresh ginger, green chilies & real desi ghee." },
+            { id: 3, name: "Famous Bombay Rabri Box", category: "desserts", price: 450, img: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=400&q=80", desc: "Traditional sweet thick milk dessert sourced straight from Station Road." },
+            { id: 4, name: "Sindhi Palla Fish (Seasonal)", category: "karahi", price: 1800, img: "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=400&q=80", desc: "Traditional fried River Indus Palla marinated in rich Sindhi spices." },
+            { id: 5, name: "Chicken Reshmi Handi", category: "karahi", price: 1250, img: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80", desc: "Boneless chicken cooked in a rich, creamy, and mild gravy." },
+            { id: 6, name: "Special Shahi Kheer", category: "desserts", price: 300, img: "https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=400&q=80", desc: "Traditional rice pudding garnished with almonds and pistachios." }
+        ];
+
+        let cart = [];
+
+        // Render Menu Items dynamically
+        function renderMenu(items) {
+            const grid = document.getElementById('foodGrid');
+            grid.innerHTML = items.map(item => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover">
+                    <div class="p-5 flex flex-col justify-between h-52">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-emerald-950">${item.name}</h3>
+                                <span class="bg-amber-100 text-amber-800 font-bold px-2 py-1 text-sm rounded">PKR ${item.price}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">${item.desc}</p>
+                        </div>
+                        <button onclick="addToCart(${item.id})" class="mt-4 w-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg transition">
+                            <i class="fa-solid fa-plus mr-2"></i>Add to Order
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Menu Categories
+        function filterMenu(category) {
+            if (category === 'all') {
+                renderMenu(menuItems);
+            } else {
+                const filtered = menuItems.filter(i => i.category === category);
+                renderMenu(filtered);
+            }
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const item = menuItems.find(product => product.id === id);
+            cart.push(item);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            const cartItemsDiv = document.getElementById('cartItems');
+            
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is currently empty.</p>';
+                document.getElementById('cartTotal').innerText = 'PKR 0';
+                return;
+            }
+
+            let total = 0;
+            cartItemsDiv.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <div>
+                            <h4 class="font-semibold text-sm">${item.name}</h4>
+                            <span class="text-xs text-gray-500">PKR ${item.price}</span>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('cartTotal').innerText = `PKR ${total}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert("Order placed successfully! In a live website, this connects to the restaurant's WhatsApp or POS terminal.");
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        // Handle Reservation Submission
+        function handleBooking(event) {
+            event.preventDefault();
+            document.getElementById('bookingSuccess').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        // Cart Modal Control
+        const modal = document.getElementById('cartModal');
+        document.getElementById('cartBtn').addEventListener('click', toggleCartModal);
+        document.getElementById('closeCart').addEventListener('click', toggleCartModal);
+
+        function toggleCartModal() {
+            modal.classList.toggle('hidden');
+        }
+
+        // Initial load
+        renderMenu(menuItems);
+    </script>
+</body>
+</html>
