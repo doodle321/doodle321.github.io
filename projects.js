@@ -18,7 +18,7 @@ const PROJECTS = [
     id: "sindh-and-spice",
     title: "Sindh & Spice",
     category: "web",
-    file: "projects/project-1/",
+    file: "project-1/",
     description: "Restaurant website with a live menu, category filters, a multi-step cart checkout, digital receipt and direct WhatsApp ordering.",
     tags: ["HTML", "CSS", "JavaScript", "WhatsApp Commerce"]
   },
@@ -26,7 +26,7 @@ const PROJECTS = [
     id: "lazeez-hyderabad",
     title: "Lazeez Hyderabad",
     category: "web",
-    file: "projects/project-2/",
+    file: "project-2/",
     description: "Full restaurant experience with menu search and filtering, order receipt generation, table reservations, animated sections and a review carousel.",
     tags: ["HTML", "CSS", "JavaScript", "UI Design"]
   }
