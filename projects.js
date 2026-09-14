@@ -29,5 +29,13 @@ const PROJECTS = [
     file: "project-2/",
     description: "Full restaurant experience with menu search and filtering, order receipt generation, table reservations, animated sections and a review carousel.",
     tags: ["HTML", "CSS", "JavaScript", "UI Design"]
+  }, 
+  {
+    id: "Roopa Marri Restaurant and Marriage Garden",
+    title: "Lazeez Hyderabad",
+    category: "web",
+    file: "project-3/",
+    description: "restaurant & event-venue website built with semantic HTML, custom CSS design tokens, and vanilla JavaScript — featuring a localStorage cart, client-side validation",
+    tags: ["HTML", "CSS", "JavaScript", "UI Design"]
   }
 ];
