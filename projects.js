@@ -32,7 +32,7 @@ const PROJECTS = [
   }, 
   {
     id: "Roopa Marri Restaurant and Marriage Garden",
-    title: "Lazeez Hyderabad",
+    title: "Roopa Marri Restaurant and Marriage Garden",
     category: "web",
     file: "project-3/",
     description: "restaurant & event-venue website built with semantic HTML, custom CSS design tokens, and vanilla JavaScript — featuring a localStorage cart, client-side validation",
