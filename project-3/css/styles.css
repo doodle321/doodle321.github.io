@@ -585,7 +585,7 @@ section{padding:96px 0;scroll-margin-top:calc(var(--header-h) + 8px)}
 }
 .cart-fab:hover{transform:scale(1.08)}
 .cart-fab.show{display:grid}
-@media(max-width:768px){.cart-fab{bottom:154px;right:16px}}
+@media(max-width:768px){.cart-fab{bottom:178px;right:16px}}
 
 /* ============ 14. Reveal animations ============ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s var(--ease)}
@@ -619,22 +619,45 @@ section{padding:96px 0;scroll-margin-top:calc(var(--header-h) + 8px)}
   section{padding:64px 0}
   .container{padding:0 16px}
   .mobile-bar{display:flex}
-  .fab{bottom:84px;right:16px}
+  .fab{bottom:108px;right:16px}
   .site-footer{padding-bottom:130px}
   .toast{bottom:150px}
   .form-grid{grid-template-columns:1fr}
   .contact-actions{grid-template-columns:1fr}
-  .hero-content{padding:120px 0 140px}
+  /* .hero is a <section>, so it already inherits the rule above — zero it out
+     here so it doesn't stack with hero-content's own padding below. */
+  .hero{padding:0}
+  .hero-content{padding:104px 0 48px}
   .about-badge{left:12px}
   .form-card{padding:26px 20px}
   .footer-grid{grid-template-columns:1fr}
   .menu-toolbar{flex-direction:column;align-items:stretch}
   .search-wrap{max-width:none}
+  .form-tabs{gap:6px}
+  .form-tab{font-size:.84rem;padding:11px 6px;gap:6px}
+
+  /* Menu: cards -> horizontal list rows (image left, name+price stacked right) */
+  .menu-grid{grid-template-columns:1fr;gap:12px}
+  .menu-card{flex-direction:row;align-items:flex-start;gap:14px;padding:12px}
+  .menu-card:hover{transform:none}
+  .menu-card-img{width:88px;height:88px;flex:none;aspect-ratio:1/1;border-radius:var(--radius-sm)}
+  .menu-card-body{padding:0;flex:1;min-width:0;gap:0}
+  .menu-card-title{flex-direction:column;align-items:flex-start;gap:1px}
+  .menu-card-title h3{font-size:1rem}
+  .menu-price{font-size:.95rem}
+  .menu-card-desc{
+    font-size:.82rem;margin:4px 0 8px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .tag-row{margin-bottom:8px}
+  .add-btn{padding:9px;font-size:.85rem;opacity:1;transform:none}
+  .qty-stepper{padding:4px}
 }
 @media(max-width:520px){
   .menu-grid{grid-template-columns:1fr}
   .hero-ctas .btn{flex:1 1 100%}
   .stats-band{grid-template-columns:1fr 1fr;padding:32px 20px}
+  .about-values{grid-template-columns:1fr;gap:20px}
 }
 
 /* ============ 16. Reduced motion ============ */
