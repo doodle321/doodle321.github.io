@@ -81,7 +81,7 @@ const GALLERY = [
 /* ---------- data/testimonials.js (Arch §3.4) ---------- */
 const TESTIMONIALS = [
   { quote:"We booked the Signature package for our daughter's walima. The stage, the lights, the food timing — our guests are still talking about it months later.", name:"Fatima & Imran S.", occasion:"Walima, 2025" },
-  { quote:"The chicken karahi tastes exactly like my father remembers from his college days on GT Road. Some things shouldn't change, and thankfully this hasn't.", name:"Ahmed R.", occasion:"Regular since 2011" },
+  { quote:"The chicken karahi tastes exactly like my father remembers from his college days in Hyderabad. Some things shouldn't change, and thankfully this hasn't.", name:"Ahmed R.", occasion:"Regular since 2011" },
   { quote:"One hundred and eighty guests, zero hiccups. Parking, lighting, catering — everything ran like clockwork from the first guest to the last naan.", name:"Bilal K.", occasion:"Corporate annual dinner, 2025" },
   { quote:"I reserved a table for eight in the morning; it was ready at eight in the evening, and they remembered it was our anniversary. That's why we keep coming back.", name:"Sana M.", occasion:"Family dinner, 2026" }
 ];

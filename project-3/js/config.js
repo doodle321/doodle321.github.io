@@ -9,7 +9,7 @@
 const CONFIG = {
   businessPhoneIntl: "923462785955",          // wa.me format, no '+'
   businessPhoneDisplay: "+92 346 2785955",
-  address: "Main GT Road, Roopa Marri, Punjab, Pakistan",
+  address: "Roopa Marri, Waddhu Wah Road, Hyderabad, Sindh, PK",
   openHour: 12, closeHour: 23,                  // daily, drives "Open now" badge
   currency: "Rs",
   deliveryFee: 150,
