@@ -1,0 +1,7 @@
+# Roopa Marri — robots.txt
+User-agent: *
+Allow: /
+
+# Block nothing: fully public static site (no admin, no private paths)
+
+Sitemap: https://www.roopamarri.com/sitemap.xml
