@@ -178,7 +178,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg2)}
   --ok:#3ecf8e;
   --danger:#d1604f;
 }
-html[data-theme="light"]{
+html:not([data-theme="dark"]){
   --bg:#f4f6f9; --bg2:#eaedf3; --card:#ffffff; --line:#d9e0ea;
   --text:#161d27; --muted:#58636f;
   --accent:#c9821d; --accent2:#e8a33d; --accent-soft:rgba(201,130,29,.14);

@@ -131,22 +131,23 @@
   /* ---------- Dark / light theme toggle ---------- */
   const root = document.documentElement;
   const themeBtn = $("#themeToggle");
+  function isDark(){ return root.getAttribute("data-theme") === "dark"; }
   function paintTheme(){
-    const light = root.getAttribute("data-theme") === "light";
+    const dark = isDark();
     if (themeBtn){
-      themeBtn.innerHTML = light ? IC.moon : IC.sun;
-      themeBtn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
-      themeBtn.setAttribute("aria-pressed", String(light));
+      themeBtn.innerHTML = dark ? IC.sun : IC.moon;
+      themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      themeBtn.setAttribute("aria-pressed", String(dark));
     }
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", dark ? "#0d1117" : "#f4f6f9");
   }
-  const storedTheme = localStorage.getItem("dba-theme");
-  if (storedTheme) root.setAttribute("data-theme", storedTheme);
+  if (localStorage.getItem("dba-theme") === "dark") root.setAttribute("data-theme", "dark");
   paintTheme();
   if (themeBtn) themeBtn.addEventListener("click", () => {
-    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    if (next === "dark") root.removeAttribute("data-theme");
-    else root.setAttribute("data-theme", "light");
-    localStorage.setItem("dba-theme", next);
+    if (isDark()) root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", "dark");
+    localStorage.setItem("dba-theme", isDark() ? "dark" : "light");
     paintTheme();
   });
 
