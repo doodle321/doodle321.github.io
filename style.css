@@ -32,7 +32,8 @@ section{padding:96px 0;position:relative}
 
 /* ---------- Nav ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;padding:20px 0}
-nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(14px);padding:11px 0;border-bottom:1px solid var(--line)}
+nav.scrolled{background:none;padding:11px 0;border-bottom:1px solid var(--line)}
+nav.scrolled::before{content:"";position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:-1}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--font-head);font-weight:700;font-size:1.15rem;letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px}
 .logo-img{width:34px;height:34px;border-radius:var(--r-sm);object-fit:cover}
