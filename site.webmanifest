@@ -1,0 +1,21 @@
+{
+  "name": "Dev By Ammar \u2014 Web Developer & Social Media Marketing",
+  "short_name": "Dev By Ammar",
+  "description": "Portfolio of Muhammad Ammar \u2014 fast, professional websites and social media marketing for businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

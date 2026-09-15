@@ -19,6 +19,7 @@ const PROJECTS = [
     title: "Sindh & Spice",
     category: "web",
     file: "project-1/",
+    image: "project-1/screenshot.jpg",
     description: "Restaurant website with a live menu, category filters, a multi-step cart checkout, digital receipt and direct WhatsApp ordering.",
     tags: ["HTML", "CSS", "JavaScript", "WhatsApp Commerce"]
   },
@@ -27,15 +28,8 @@ const PROJECTS = [
     title: "Lazeez Hyderabad",
     category: "web",
     file: "project-2/",
+    image: "project-2/screenshot.jpg",
     description: "Full restaurant experience with menu search and filtering, order receipt generation, table reservations, animated sections and a review carousel.",
-    tags: ["HTML", "CSS", "JavaScript", "UI Design"]
-  }, 
-  {
-    id: "Roopa Marri Restaurant and Marriage Garden",
-    title: "Roopa Marri Restaurant and Marriage Garden",
-    category: "web",
-    file: "project-3/",
-    description: "restaurant & event-venue website built with semantic HTML, custom CSS design tokens, and vanilla JavaScript — featuring a localStorage cart, client-side validation",
     tags: ["HTML", "CSS", "JavaScript", "UI Design"]
   }
 ];
