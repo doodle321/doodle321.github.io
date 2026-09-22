@@ -1,0 +1,21 @@
+/* ── Preloader ─────────────────────────────── */
+.preloader{position:fixed;inset:0;z-index:2000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;transition:opacity .7s var(--ease),visibility .7s}
+.preloader.is-done{opacity:0;visibility:hidden}
+.preloader__logo{font-family:var(--font-display);font-size:3rem;font-weight:800;color:var(--paper)}
+.preloader__logo em{color:var(--gold);font-style:normal}
+.preloader__bar{width:min(260px,60vw);height:2px;background:rgba(250,250,250,.15);border-radius:4px;overflow:hidden}
+.preloader__bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s var(--ease-io)}
+.preloader__tag{color:#9AA6B2;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* ── Custom cursor ─────────────────────────── */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:1900;border-radius:50%;translate:-50% -50%}
+.cursor-dot{width:7px;height:7px;background:var(--gold)}
+.cursor-ring{width:38px;height:38px;border:1.5px solid var(--gold);opacity:.55;transition:width .3s var(--ease),height .3s var(--ease),opacity .3s,background .3s;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;letter-spacing:.08em;color:var(--ink)}
+.cursor-ring.is-hover{width:56px;height:56px;opacity:.9}
+.cursor-ring.is-view{width:84px;height:84px;background:var(--gold);opacity:1;border-color:var(--gold)}
+.cursor-ring.is-view::after{content:"VIEW"}
+@media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+/* ── Reveal & motion ───────────────────────── */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--rd,0ms)}
+.reveal.is-in{opacity:1;transform:none}

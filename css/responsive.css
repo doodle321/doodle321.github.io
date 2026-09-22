@@ -1,0 +1,33 @@
+/* ── Responsive ────────────────────────────── */
+@media (max-width:900px){
+  .header__nav{display:none}
+  .burger{display:flex}
+  :root{--rail-w:0px}
+  body{padding-right:0}
+  .scroll-rail{display:none}
+  .scroll-progress{right:0}
+  .header{right:0}
+  .hero{padding-top:6.5rem}
+  /* Mobile-header: brand + toggle + burger only — no cramped CTA row */
+  .header__actions{gap:.7rem}
+  .header__actions .btn{display:none}
+  .brand__word{font-size:1.05rem}
+  /* Mobile-audit: hero stats → balanced single centered column */
+  .hero__stats{flex-direction:column;align-items:center;gap:1.1rem;text-align:center;margin-top:2.4rem}
+  /* Mobile-audit: wrapped filter buttons get uniform row gap */
+  .projects__filters{row-gap:.7rem}
+  /* Mobile-audit: contact CTAs become equal-width stacked peers */
+  .contact__actions{flex-direction:column;align-items:stretch}
+  .contact__actions .btn{justify-content:center}
+  /* Mobile-audit: breathing room above skill bars */
+  .skill__bar{margin-top:1rem}
+  .skill span{margin-bottom:.4rem;display:block}
+  /* Mobile-audit: platform-neutral scroll cue (chevron, not mouse) */
+  .hero__scroll-hint{width:auto;height:auto;border:0;padding:0}
+  .hero__scroll-hint i{display:none}
+  .hero__scroll-hint::after{content:"";width:15px;height:15px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg);animation:chevDrop 1.6s var(--ease-io) infinite}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}

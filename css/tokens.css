@@ -1,0 +1,47 @@
+/* Type scale: .70 · .80 · .90 · 1.05 · 1.2 (+ fluid display clamps) */
+/* ═══════════════════════════════════════════════════════════
+   DevByAmmar — Design System
+   Palette sampled from brand logo: ink #10151A · gold #DA9E3B · paper #FAFAFA
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#10151A; --ink-2:#171E26; --ink-3:#1F2833;
+  --gold:#DA9E3B; --gold-soft:#E8B45C; --gold-deep:#B07E26;
+  --paper:#FAFAFA; --paper-2:#F1EFE9;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --font-display:"Sora",system-ui,sans-serif;
+  --font-body:"Inter",system-ui,sans-serif;
+  --rail-w:64px;
+}
+[data-theme="dark"]{
+  --bg:var(--ink); --bg-2:var(--ink-2); --bg-3:var(--ink-3);
+  --fg:var(--paper); --fg-dim:#9AA6B2; --line:rgba(250,250,250,.09);
+  --card:linear-gradient(160deg,var(--ink-2),var(--ink-3));
+  --glass:rgba(16,21,26,.72); --shadow:0 24px 60px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+[data-theme="light"]{
+  --bg:var(--paper); --bg-2:#FFFFFF; --bg-3:var(--paper-2);
+  --fg:var(--ink); --fg-dim:#5B6672; --line:rgba(16,21,26,.1);
+  --card:linear-gradient(160deg,#FFFFFF,#F5F2EA);
+  --glass:rgba(250,250,250,.78); --shadow:0 24px 60px rgba(16,21,26,.14);
+  color-scheme:light;
+}
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+html.js-smooth{scroll-behavior:auto}
+body{overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg); color:var(--fg); font-family:var(--font-body);
+  line-height:1.65; overflow-x:hidden; transition:background .5s var(--ease), color .5s var(--ease);
+  padding-right:var(--rail-w);
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+/* hide native scrollbar — custom rail lives on the left */
+html{scrollbar-width:none}
+::-webkit-scrollbar{width:0;height:0}
+
