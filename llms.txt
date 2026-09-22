@@ -1,0 +1,11 @@
+# DevByAmmar
+> Portfolio of Muhammad Ammar, web developer based in Hyderabad, Pakistan. Specializes in restaurant & local-business websites, WhatsApp commerce flows, and social media marketing.
+
+## Pages
+- [Home](https://doodle321.github.io/): services, projects, FAQ, contact links
+- [Project 1 — Sindh & Spice](https://doodle321.github.io/project-1/): restaurant site demo with cart + WhatsApp ordering
+- [Project 2 — Lazeez Hyderabad](https://doodle321.github.io/project-2/): restaurant demo with menu search, reservations
+- [Project 3 — Roopa Marri](https://doodle321.github.io/project-3/): PWA-ready restaurant demo
+
+## Contact
+WhatsApp/Phone: +92 310 3694160 · Instagram: @dev.by_ammar · LinkedIn: /in/muhammad-ammar-ba8b422b6

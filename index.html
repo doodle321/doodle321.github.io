@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevByAmmar — Muhammad Ammar | Restaurant & Business Web Developer, Hyderabad PK</title>
+<meta name="description" content="Muhammad Ammar (DevByAmmar) builds fast, conversion-focused restaurant and local-business websites with WhatsApp ordering, SEO-ready structure and pixel-perfect design. Based in Hyderabad, Pakistan.">
+<meta name="author" content="Muhammad Ammar">
+<meta name="keywords" content="restaurant website developer, web developer Hyderabad Pakistan, WhatsApp ordering website, DevByAmmar, Muhammad Ammar">
+<link rel="canonical" href="https://doodle321.github.io/">
+<meta name="theme-color" content="#10151A">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevByAmmar">
+<meta property="og:title" content="DevByAmmar — Websites that turn visitors into customers">
+<meta property="og:description" content="Restaurant & business websites, WhatsApp commerce flows and social media marketing by Muhammad Ammar, Hyderabad PK.">
+<meta property="og:url" content="https://doodle321.github.io/">
+<meta property="og:image" content="https://doodle321.github.io/assets/og-image.png">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DevByAmmar — Websites that turn visitors into customers">
+<meta name="twitter:description" content="Restaurant & business websites with WhatsApp ordering. Hyderabad, PK.">
+<meta name="twitter:image" content="https://doodle321.github.io/assets/og-image.png">
+<!-- Icons / PWA -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/logo.png" as="image">
+<link rel="stylesheet" href="/css/style.css">
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"DevByAmmar Web Studio",
+"url":"https://doodle321.github.io","image":"https://doodle321.github.io/assets/og-image.png",
+"description":"Restaurant and local-business websites with WhatsApp ordering and SEO-ready structure.",
+"founder":{"@type":"Person","name":"Muhammad Ammar","jobTitle":"Web Developer","address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Sindh","addressCountry":"PK"}},
+"telephone":"+923103694160","areaServed":"PK","priceRange":"$$",
+"sameAs":["https://www.instagram.com/dev.by_ammar/","https://www.linkedin.com/in/muhammad-ammar-ba8b422b6/"]}
+</script>
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__logo"><span>&lt;</span><em>A</em><span>/&gt;</span></div>
+  <div class="preloader__bar"><i id="preloaderBar"></i></div>
+  <p class="preloader__tag">Websites that turn visitors into customers</p>
+</div>
+
+<!-- ══════════ CURSOR ══════════ -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ══════════ TOP SCROLL PROGRESS ══════════ -->
+<div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
+
+<!-- ══════════ RIGHT SCROLL RAIL ══════════ -->
+<nav class="scroll-rail" id="scrollRail" aria-label="Section navigation">
+  <span class="scroll-rail__label">scroll</span>
+  <div class="scroll-rail__track">
+    <i class="scroll-rail__thumb" id="railThumb"></i>
+    <a href="#hero"      class="rail-dot is-active" data-section="hero"      aria-label="Home"></a>
+    <a href="#about"     class="rail-dot" data-section="about"     aria-label="About"></a>
+    <a href="#services"  class="rail-dot" data-section="services"  aria-label="Services"></a>
+    <a href="#skills"    class="rail-dot" data-section="skills"    aria-label="Skills"></a>
+    <a href="#projects"  class="rail-dot" data-section="projects"  aria-label="Projects"></a>
+    <a href="#process"   class="rail-dot" data-section="process"   aria-label="Process"></a>
+    <a href="#faq"       class="rail-dot" data-section="faq"       aria-label="FAQ"></a>
+    <a href="#contact"   class="rail-dot" data-section="contact"   aria-label="Contact"></a>
+  </div>
+  <span class="scroll-rail__pct" id="railPct">0%</span>
+</nav>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="header" id="header">
+  <a href="#hero" class="brand magnetic" data-cursor="hover" aria-label="DevByAmmar — home">
+    <span class="brand__tile"><img src="/assets/brand-mark.png" alt="" width="26" height="34"></span>
+    <span class="brand__word">Dev<em>By</em>Ammar</span>
+  </a>
+  <nav class="header__nav" aria-label="Primary">
+    <a href="#about" class="nav-link" data-cursor="hover">About</a>
+    <a href="#services" class="nav-link" data-cursor="hover">Services</a>
+    <a href="#projects" class="nav-link" data-cursor="hover">Work</a>
+    <a href="#faq" class="nav-link" data-cursor="hover">FAQ</a>
+    <a href="#contact" class="nav-link" data-cursor="hover">Contact</a>
+  </nav>
+  <div class="header__actions">
+    <button class="theme-toggle magnetic" id="themeToggle" aria-label="Toggle dark / light mode" data-cursor="hover">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a class="btn btn--gold btn--sm magnetic" href="https://wa.me/923103694160?text=Hi%20Ammar%2C%20I%20need%20a%20website%20for%20my%20business." target="_blank" rel="noopener" data-cursor="hover"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.43 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg> Start a project</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" data-cursor="hover"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══════════ MOBILE MENU ══════════ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav class="mobile-menu__links">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#skills">Skills</a>
+    <a href="#projects">Work</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="mobile-menu__social">
+    <a href="https://www.instagram.com/dev.by_ammar/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/muhammad-ammar-ba8b422b6/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://wa.me/923103694160" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero section" id="hero" data-rail>
+    <div class="hero__orb hero__orb--1" data-parallax="0.25"></div>
+    <div class="hero__orb hero__orb--2" data-parallax="0.15"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal"><span class="pulse-dot"></span> Available for new projects — Hyderabad, PK</p>
+      <h1 class="hero__title">
+        <span class="line"><span>Websites that turn</span></span>
+        <span class="line"><span><em>visitors</em> into</span></span>
+        <span class="line"><span><span class="gold-underline">customers</span>.</span></span>
+      </h1>
+      <p class="hero__sub reveal" data-delay="500">I'm <strong>Muhammad Ammar</strong> — I design and build fast, conversion-focused websites for <strong>restaurants and local businesses</strong>, with WhatsApp ordering baked in from day one.</p>
+      <div class="hero__cta reveal" data-delay="700">
+        <a href="#projects" class="btn btn--gold magnetic" data-cursor="hover">See the work
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://wa.me/923103694160?text=Hi%20Ammar%2C%20let%27s%20talk%20about%20my%20restaurant%20website." target="_blank" rel="noopener" class="btn btn--ghost magnetic" data-cursor="hover">Chat on WhatsApp</a>
+      </div>
+      <div class="hero__stats reveal" data-delay="900">
+        <div class="stat"><b data-counter="40" data-suffix="+">0</b><span>Projects shipped</span></div>
+        <div class="stat"><b data-counter="100" data-suffix="%">0</b><span>Hand-written code</span></div>
+        <div class="stat"><b data-counter="7" data-suffix="d">0</b><span>Avg. landing-page delivery</span></div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll-hint" aria-label="Scroll down" data-cursor="hover"><i></i></a>
+  </section>
+
+  <!-- ══════════ MARQUEE ══════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__inner" id="marqueeInner">
+      <span>Restaurant Websites ✦ WhatsApp Ordering ✦ Landing Pages ✦ SEO Structure ✦ Social Media Marketing ✦ PWA ✦ </span><span>Restaurant Websites ✦ WhatsApp Ordering ✦ Landing Pages ✦ SEO Structure ✦ Social Media Marketing ✦ PWA ✦ </span>
+    </div>
+  </div>
+
+  <!-- ══════════ ABOUT ══════════ -->
+  <section class="about section" id="about" data-rail>
+    <div class="section__head reveal">
+      <h2>Detail-driven.<br><em>Results-focused.</em></h2>
+    </div>
+    <div class="about__grid">
+      <div class="about__card reveal">
+        <h3>The developer</h3>
+        <p>I create clean, responsive websites with a strong focus on user experience — from the first sketch to the final deploy. Every project is built to load fast, look sharp on any device, and make it easy for customers to take action.</p>
+        <p>Alongside web development, I help businesses build and manage their social media presence — planning content, designing posts and running campaigns that grow real engagement.</p>
+      </div>
+      <div class="about__card reveal" data-delay="150">
+        <h3>The niche</h3>
+        <p>Restaurants live or die by first impressions. I specialize in the exact flow a hungry customer follows — see the menu, trust the reviews, tap once to order on WhatsApp. No apps, no accounts, no friction.</p>
+        <ul class="tick-list">
+          <li>Menu systems with categories, search & filters</li>
+          <li>Cart → receipt → WhatsApp deep-link checkout</li>
+          <li>Table reservations & review carousels</li>
+          <li>PWA installability & SEO-ready markup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <section class="services section" id="services" data-rail>
+    <div class="section__head reveal">
+      <h2>What I can do<br><em>for you</em></h2>
+    </div>
+    <div class="services__grid">
+      <article class="service-card reveal" data-tilt data-cursor="hover">
+        <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M13 4l-2 16"/></svg></div>
+        <h3>Web Development</h3>
+        <p>Custom-built websites designed around your business goals — no bloated templates, no unnecessary plugins.</p>
+        <ul><li>Business & restaurant websites</li><li>Landing pages that convert</li><li>Mobile-first responsive design</li><li>WhatsApp order & inquiry integration</li></ul>
+      </article>
+      <article class="service-card reveal" data-delay="120" data-tilt data-cursor="hover">
+        <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
+        <h3>Social Media Marketing</h3>
+        <p>A consistent, professional presence on the platforms your customers use every day.</p>
+        <ul><li>Content planning & post design</li><li>Page setup & profile optimisation</li><li>Campaign planning & targeting</li><li>Growth & engagement strategy</li></ul>
+      </article>
+      <article class="service-card reveal" data-delay="240" data-tilt data-cursor="hover">
+        <div class="service-card__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>Fast Delivery & Support</h3>
+        <p>Clear communication from start to finish, with quick turnaround and help after launch.</p>
+        <ul><li>Clear timelines & regular updates</li><li>Quick revisions</li><li>Post-launch support</li><li>Optional maintenance plans</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ SKILLS ══════════ -->
+  <section class="skills section" id="skills" data-rail>
+    <div class="section__head reveal">
+      <h2>The stack behind<br><em>the polish</em></h2>
+    </div>
+    <div class="skills__grid">
+      <div class="skill reveal" data-cursor="hover"><b>HTML5</b><div class="skill__bar"><i data-skill="98"></i></div><span>Semantic, accessible, SEO-first markup</span></div>
+      <div class="skill reveal" data-delay="60" data-cursor="hover"><b>CSS3</b><div class="skill__bar"><i data-skill="96"></i></div><span>Custom properties, grid, animation, theming</span></div>
+      <div class="skill reveal" data-delay="120" data-cursor="hover"><b>JavaScript ES2023</b><div class="skill__bar"><i data-skill="94"></i></div><span>Vanilla, zero-dependency interactions</span></div>
+      <div class="skill reveal" data-delay="180" data-cursor="hover"><b>Responsive Design</b><div class="skill__bar"><i data-skill="97"></i></div><span>Mobile-first, fluid type, container queries</span></div>
+      <div class="skill reveal" data-delay="240" data-cursor="hover"><b>WhatsApp Commerce</b><div class="skill__bar"><i data-skill="95"></i></div><span>Cart → receipt → deep-link order flows</span></div>
+      <div class="skill reveal" data-delay="300" data-cursor="hover"><b>SEO & Performance</b><div class="skill__bar"><i data-skill="92"></i></div><span>Core Web Vitals, schema, sitemaps, PWA</span></div>
+    </div>
+  </section>
+
+  <!-- ══════════ PROJECTS ══════════ -->
+  <section class="projects section" id="projects" data-rail>
+    <div class="section__head reveal">
+      <h2>Selected work —<br><em>live & interactive</em></h2>
+      <p class="section__sub">Every project below is a fully working demo hosted on this site. Open one, browse the menu, build a cart, and watch the WhatsApp order flow.</p>
+    </div>
+    <div class="projects__filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="filter is-active" data-filter="all" data-cursor="hover">All</button>
+      <button class="filter" data-filter="restaurant" data-cursor="hover">Restaurant</button>
+      <button class="filter" data-filter="pwa" data-cursor="hover">PWA</button>
+      <button class="filter" data-filter="whatsapp" data-cursor="hover">WhatsApp Commerce</button>
+    </div>
+    <div class="projects__grid" id="projectsGrid">
+
+      <article class="project reveal" data-tags="restaurant whatsapp" data-tilt data-cursor="view">
+        <div class="project__visual project__visual--1" data-link="/project-1/" role="link" tabindex="0" aria-label="Open Sindh & Spice live demo"><span class="project__badge">Live demo</span>
+          <div class="project__browser"><i></i><i></i><i></i><div class="project__browser-body">
+            <b>Sindh & Spice</b><span>₨ 1,050 · 4 items in cart</span>
+            <div class="mock-bars"><u style="width:80%"></u><u style="width:55%"></u><u style="width:70%"></u></div>
+          </div></div>
+        </div>
+        <div class="project__meta">
+          <div><h3>Sindh & Spice</h3><p>Live menu, category filters, multi-step cart, digital receipt and direct WhatsApp ordering.</p></div>
+          <div class="project__tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>WhatsApp Commerce</span></div>
+          <a class="project__link" href="/project-1/" target="_blank" rel="noopener">Open live demo
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="120" data-tags="restaurant whatsapp" data-tilt data-cursor="view">
+        <div class="project__visual project__visual--2" data-link="/project-2/" role="link" tabindex="0" aria-label="Open Lazeez Hyderabad live demo"><span class="project__badge">Live demo</span>
+          <div class="project__browser"><i></i><i></i><i></i><div class="project__browser-body">
+            <b>Lazeez Hyderabad</b><span>Table for 4 · tonight 8:30 PM</span>
+            <div class="mock-bars"><u style="width:65%"></u><u style="width:85%"></u><u style="width:45%"></u></div>
+          </div></div>
+        </div>
+        <div class="project__meta">
+          <div><h3>Lazeez Hyderabad</h3><p>Menu search & filtering, order receipts, table reservations, animated sections and a review carousel.</p></div>
+          <div class="project__tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI Design</span></div>
+          <a class="project__link" href="/project-2/" target="_blank" rel="noopener">Open live demo
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="240" data-tags="restaurant pwa whatsapp" data-tilt data-cursor="view">
+        <div class="project__visual project__visual--3" data-link="/project-3/" role="link" tabindex="0" aria-label="Open Roopa Marri live demo"><span class="project__badge">Live demo</span>
+          <div class="project__browser"><i></i><i></i><i></i><div class="project__browser-body">
+            <b>Roopa Marri Restaurant</b><span>Installable · offline-ready menu</span>
+            <div class="mock-bars"><u style="width:75%"></u><u style="width:60%"></u><u style="width:90%"></u></div>
+          </div></div>
+        </div>
+        <div class="project__meta">
+          <div><h3>Roopa Marri Restaurant & Marriage Garden</h3><p>Fast, fully responsive site — PWA installability, SEO-ready structure and WhatsApp deep-links. Vanilla everything.</p></div>
+          <div class="project__tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>UI Design</span></div>
+          <a class="project__link" href="/project-3/" target="_blank" rel="noopener">Open live demo
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════ PROCESS ══════════ -->
+  <section class="process section" id="process" data-rail>
+    <div class="section__head reveal">
+      <h2>How a project<br><em>comes to life</em></h2>
+    </div>
+    <ol class="process__timeline">
+      <li class="reveal"><b>01 — Discovery</b><p>A short call or chat. I learn your menu, your customers and what "success" means for you.</p></li>
+      <li class="reveal" data-delay="100"><b>02 — Design</b><p>A visual direction first: colors, type and layout you approve before a single line of code.</p></li>
+      <li class="reveal" data-delay="200"><b>03 — Build</b><p>Hand-written, fast, mobile-first code. You get progress links you can open on your own phone.</p></li>
+      <li class="reveal" data-delay="300"><b>04 — Launch & support</b><p>Deployment, SEO files, and post-launch support whenever you need a tweak.</p></li>
+    </ol>
+  </section>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="faq section" id="faq" data-rail>
+    <div class="section__head reveal">
+      <h2>Common<br><em>questions</em></h2>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item reveal"><summary data-cursor="hover">How much does a website cost?<i></i></summary><div><p>It depends on scope — a landing page costs less than a full restaurant site with ordering. Every project gets a clear, fixed quote up front. Message me with what you need and I'll send a detailed estimate.</p></div></details>
+      <details class="faq__item reveal" data-delay="80"><summary data-cursor="hover">How long does a project take?<i></i></summary><div><p>Most single-page sites are ready within 5–7 days; full multi-section websites typically take 2–3 weeks. You get a timeline before work starts and progress updates at each stage.</p></div></details>
+      <details class="faq__item reveal" data-delay="160"><summary data-cursor="hover">Do you offer revisions?<i></i></summary><div><p>Yes. Every project includes a round of revisions after the first full draft, and small tweaks are always quick to arrange. The goal is a site you're completely happy to put your name on.</p></div></details>
+      <details class="faq__item reveal" data-delay="240"><summary data-cursor="hover">Can my customers order through WhatsApp?<i></i></summary><div><p>Absolutely. I build cart and checkout flows that generate a complete order message and open WhatsApp with everything pre-filled — no apps or accounts needed for your customers.</p></div></details>
+      <details class="faq__item reveal" data-delay="320"><summary data-cursor="hover">What happens after the site launches?<i></i></summary><div><p>You get post-launch support for fixes and small updates, plus guidance if you want to manage content yourself. Longer-term maintenance and social media support are also available.</p></div></details>
+    </div>
+  </section>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <section class="contact section" id="contact" data-rail>
+    <div class="contact__card reveal">
+      <h2>Let's build the site<br>your business <em>deserves</em>.</h2>
+      <p>Tell me about your restaurant or business — I'll reply with a plan, a timeline and a fixed quote.</p>
+      <div class="contact__actions">
+        <a class="btn btn--gold magnetic" data-cursor="hover" target="_blank" rel="noopener"
+           href="https://wa.me/923103694160?text=Hi%20Ammar%2C%20I%20want%20a%20website%20for%20my%20business.">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.43 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg>
+          Contact me</a>
+        <a class="btn btn--ghost magnetic" data-cursor="hover" href="tel:+923103694160">Call now</a>
+      </div>
+      <div class="contact__social">
+        <a class="social-btn" href="https://www.instagram.com/dev.by_ammar/" target="_blank" rel="noopener" data-cursor="hover" aria-label="Instagram profile">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.linkedin.com/in/muhammad-ammar-ba8b422b6/" target="_blank" rel="noopener" data-cursor="hover" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a class="social-btn" href="https://wa.me/923103694160" target="_blank" rel="noopener" data-cursor="hover" aria-label="WhatsApp chat">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.43 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg>
+        </a>
+        <a class="social-btn" href="mailto:muhammadammar.5@proton.me" target="_blank" rel="noopener" data-cursor="hover" aria-label="Email Muhammad Ammar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M3 7l9 6.5L21 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <a href="#hero" class="brand" data-cursor="hover" aria-label="DevByAmmar — back to top">
+    <span class="brand__tile"><img src="/assets/brand-mark.png" alt="" width="26" height="34"></span>
+    <span class="brand__word">Dev<em>By</em>Ammar</span>
+  </a>
+  <p>© 2026 Muhammad Ammar · DevByAmmar Web Studio · Hyderabad, Pakistan</p>
+  <button id="toTop" class="to-top magnetic" data-cursor="hover" aria-label="Back to top">↑</button>
+</footer>
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>

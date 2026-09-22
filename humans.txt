@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: Muhammad Ammar
+Site: https://doodle321.github.io
+Location: Hyderabad, Sindh, Pakistan
+
+/* THANKS */
+Name: Every restaurant owner who trusted the process
+
+/* SITE */
+Last update: 2026/09/23
+Standards: HTML5, CSS3, ES2023
+Components: Vanilla JS, zero build step, zero backend

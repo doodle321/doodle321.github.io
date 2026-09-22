@@ -1,0 +1,22 @@
+{
+  "name": "DevByAmmar \u2014 Web Studio",
+  "short_name": "DevByAmmar",
+  "description": "Restaurant & business websites that turn visitors into customers. Hyderabad, PK.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10151A",
+  "theme_color": "#DA9E3B",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
