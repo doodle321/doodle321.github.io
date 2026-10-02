@@ -52,7 +52,7 @@ const PROJECTS = [
     description: "Menu search & filtering, order receipts, table reservations, animated sections and a review carousel.",
     tags: ["HTML", "CSS", "JavaScript", "UI Design"],
     filters: ["restaurant", "whatsapp"]
-  },
+  }/**,
   {
     id: "roopa-marri",
     title: "Roopa Marri Restaurant & Marriage Garden",
@@ -63,5 +63,5 @@ const PROJECTS = [
     description: "Fast, fully responsive site — PWA installability, SEO-ready structure and WhatsApp deep-links. Vanilla everything.",
     tags: ["HTML", "CSS", "JavaScript", "PWA", "UI Design"],
     filters: ["restaurant", "pwa", "whatsapp"]
-  }
+  }**/
 ];
